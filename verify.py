@@ -32,7 +32,8 @@ from typing import Any, Mapping
 from contractnet.tasks import run_task
 
 # Appended on every successful verify run so you can compare timings over time.
-BENCHMARK_LOG = Path(__file__).resolve().parent / "verify_benchmarks.log"
+BENCHMARK_DIR = Path(__file__).resolve().parent / "benchmark_data"
+BENCHMARK_LOG = BENCHMARK_DIR / "verify_benchmarks.log"
 
 # Fixed inputs with answers pinned at the time the assignment was written.
 # These must never change. If a code change makes one of these fail, the change
@@ -137,9 +138,10 @@ def append_benchmark_log(ref_lines: list[str], custom_lines: list[str]) -> None:
         *custom_lines,
         "",
     ]
+    BENCHMARK_DIR.mkdir(parents=True, exist_ok=True)
     with BENCHMARK_LOG.open("a", encoding="utf-8") as fh:
         fh.write("\n".join(block) + "\n")
-    print(f"\nAppended timings to {BENCHMARK_LOG.name}")
+    print(f"\nAppended timings to {BENCHMARK_LOG.relative_to(Path(__file__).resolve().parent)}")
 
 
 def main() -> int:
