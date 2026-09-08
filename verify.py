@@ -20,20 +20,16 @@ Two things are checked.
    same inputs and compares, and reports your speedup.
 
 Exit status is 0 if everything matches, 1 otherwise.
+
+For timing history and machine calibration logs, use `benchmark.py` instead.
 """
 
 from __future__ import annotations
 
 import time
-from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any, Mapping
 
 from contractnet.tasks import run_task
-
-# Appended on every successful verify run so you can compare timings over time.
-BENCHMARK_DIR = Path(__file__).resolve().parent / "benchmark_data"
-BENCHMARK_LOG = BENCHMARK_DIR / "verify_benchmarks.log"
 
 # Fixed inputs with answers pinned at the time the assignment was written.
 # These must never change. If a code change makes one of these fail, the change
@@ -47,10 +43,9 @@ GOLDEN: list[tuple[str, Mapping[str, Any], int]] = [
 ]
 
 
-def check_reference() -> tuple[bool, list[str]]:
+def check_reference() -> bool:
     print("Checking the reference implementations against known answers…")
     ok = True
-    lines: list[str] = []
     for task_type, params, expected in GOLDEN:
         started = time.perf_counter()
         actual = run_task(task_type, params)
@@ -58,33 +53,29 @@ def check_reference() -> tuple[bool, list[str]]:
         good = actual == expected
         ok &= good
         mark = "ok  " if good else "FAIL"
-        line = f"  [{mark}] {task_type:<16} {elapsed:6.3f}s  {actual}"
-        print(line)
-        lines.append(line)
+        print(f"  [{mark}] {task_type:<16} {elapsed:6.3f}s  {actual}")
         if not good:
             print(f"         expected {expected}")
-    return bool(ok), lines
+    return bool(ok)
 
 
-def check_custom_executor() -> tuple[bool, list[str]]:
+def check_custom_executor() -> bool:
     """If the student overrode `execute`, make sure it agrees with the reference."""
     try:
         from my_contractor import MyContractor
     except Exception as err:  # noqa: BLE001
         print(f"\nCould not import MyContractor from my_contractor.py: {err!r}")
-        return False, []
+        return False
 
     from contractnet import Contractor, Task
 
     if MyContractor.execute is Contractor.execute:
-        msg = "No custom execute(). Using the reference implementation."
-        print(f"\n{msg}")
-        return True, [msg]
+        print("\nNo custom execute(). Using the reference implementation.")
+        return True
 
     print("\nChecking your custom execute() against the reference…")
     agent = MyContractor.__new__(MyContractor)  # no network, no calibration
     ok = True
-    lines: list[str] = ["custom execute() vs reference:"]
 
     for task_type, params, expected in GOLDEN:
         task = Task(
@@ -106,9 +97,7 @@ def check_custom_executor() -> tuple[bool, list[str]]:
             yours = agent.execute(task)
             your_time = time.perf_counter() - started
         except Exception as err:  # noqa: BLE001
-            line = f"  [FAIL] {task_type:<16} raised {err!r}"
-            print(line)
-            lines.append(line)
+            print(f"  [FAIL] {task_type:<16} raised {err!r}")
             ok = False
             continue
 
@@ -116,36 +105,19 @@ def check_custom_executor() -> tuple[bool, list[str]]:
         ok &= good
         speedup = ref_time / your_time if your_time > 0 else float("inf")
         mark = "ok  " if good else "FAIL"
-        line = (
+        print(
             f"  [{mark}] {task_type:<16} reference {ref_time:6.3f}s  "
             f"yours {your_time:6.3f}s  ({speedup:.1f}x)"
         )
-        print(line)
-        lines.append(line)
         if not good:
             print(f"         yours    {yours}")
             print(f"         expected {expected}")
 
-    return bool(ok), lines
-
-
-def append_benchmark_log(ref_lines: list[str], custom_lines: list[str]) -> None:
-    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-    block = [
-        f"=== {stamp} ===",
-        "reference:",
-        *ref_lines,
-        *custom_lines,
-        "",
-    ]
-    BENCHMARK_DIR.mkdir(parents=True, exist_ok=True)
-    with BENCHMARK_LOG.open("a", encoding="utf-8") as fh:
-        fh.write("\n".join(block) + "\n")
-    print(f"\nAppended timings to {BENCHMARK_LOG.relative_to(Path(__file__).resolve().parent)}")
+    return bool(ok)
 
 
 def main() -> int:
-    reference_ok, ref_lines = check_reference()
+    reference_ok = check_reference()
     if not reference_ok:
         print(
             "\nThe reference implementations do NOT match the known answers.\n"
@@ -154,7 +126,7 @@ def main() -> int:
         )
         return 1
 
-    custom_ok, custom_lines = check_custom_executor()
+    custom_ok = check_custom_executor()
     if not custom_ok:
         print(
             "\nYour execute() does not agree with the reference. In the\n"
@@ -162,7 +134,6 @@ def main() -> int:
         )
         return 1
 
-    append_benchmark_log(ref_lines, custom_lines)
     print("\nAll checks passed.")
     return 0
 
