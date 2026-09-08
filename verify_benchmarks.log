@@ -1,9 +1,0 @@
-=== 2026-09-08 23:23:58 UTC ===
-reference:
-  [ok  ] monte_carlo_pi    0.005s  39336
-  [ok  ] prime_count       0.018s  753
-  [ok  ] hash_search       0.065s  90984
-  [ok  ] sort_checksum     0.030s  1785318802179667385
-  [ok  ] matmul_mod        0.004s  629524
-No custom execute(). Using the reference implementation.
-

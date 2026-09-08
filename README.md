@@ -1,7 +1,10 @@
-# Contract Net contractor: quickstart
+# contractor-net
 
-Read `CPSC370-Assignment1-ContractNet.pdf` first. This file is just the
-mechanics.
+A Python contractor for the CPSC 370 Contract Net assignment.
+
+Read the [assignment brief](docs/CPSC370-Assignment1-ContractNet.pdf) first.
+The [wire protocol reference](docs/PROTOCOL.md) explains the messages exchanged
+with the manager.
 
 ## Setup
 
@@ -11,11 +14,17 @@ source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+Run these commands from the repository root. The `.venv/` directory is local
+to your machine and is ignored by Git.
+
 Check that your machine reproduces the reference answers:
 
 ```bash
 python verify.py
 ```
+
+Successful checks append timings to `benchmark_data/verify_benchmarks.log`.
+The directory is created automatically; generated logs are ignored by Git.
 
 Run against the practice room (URL and token are in the Canvas announcement):
 
@@ -34,13 +43,20 @@ sent and received, and the reason any bid of yours was thrown out.
 
 ## What's in here
 
-| File | What it is |
+| Path | What it is |
 |---|---|
 | `my_contractor.py` | **Yours.** The only file you edit. Implement `on_cfp`. |
 | `verify.py` | Checks your machine, and any custom `execute`, against the reference. |
+| `requirements.txt` | Python dependencies for running the contractor. |
 | `contractnet/client.py` | The SDK: connecting, reconnecting, message framing, running your compute off the event loop. |
 | `contractnet/tasks.py` | Reference implementations of the five task types. **Do not modify.** |
 | `contractnet/benchmark.py` | Calibration, and the work-unit model your estimates are built on. |
+| `docs/` | Assignment brief and wire protocol reference. |
+| `benchmark_data/` | Local benchmark history from verification runs. |
+
+The two runnable scripts stay at the root so the course's run and submission
+commands continue to work. The project folder is named `contractor-net`; Python
+imports use the course SDK's `contractnet` package name.
 
 Everything under `contractnet/` is graded against the original. If you change
 it, your answers stop matching the answer key and every submission is marked
