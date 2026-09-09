@@ -9,7 +9,7 @@ in this folder. The application library in `src/` contains only runtime code.
 | `support/` | Fixture loader shared by the test harness and verifier |
 | `fixtures/` | 218 pinned reference answers and provenance |
 | `verify/` | Standalone `verify` binary and benchmark logger |
-| `benchmarks/` | Existing verification timing history |
+| `benchmarks/` | Verification history, repeated-latency runner, and raw benchmark samples |
 
 Run commands from the repository root:
 
@@ -29,6 +29,17 @@ cargo run --locked --release --bin verify -- --all --no-log
 ```
 
 The `integration` target is registered in `Cargo.toml`; its `main.rs` loads the
-four suites. Tests bind temporary loopback ports and do not contact the course
+five suites. Tests bind temporary loopback ports and do not contact the course
 manager. The `verify` binary shares fixture data with the tests and runs the
 same `MyContractor` executor as the application.
+
+Repeated performance measurements and graph generation are documented in
+[benchmarks/README.md](benchmarks/README.md). Run tests for the percentile
+calculations with `cargo test --locked --all-features --all-targets`.
+
+The bidder suite covers deterministic pricing, delivery-cost learning,
+profit floors, live award policies, deadline admission, input-specific hash
+estimates, stale public data, and large JSON integers. A local spectator/client
+exchange verifies repricing without duplicate proposals and persisted learning.
+The [bidder evaluation](../graph/bidder/README.md) records a backtest on earlier
+practice bids and decision latency with a full 512-observation history.

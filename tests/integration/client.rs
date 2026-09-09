@@ -321,6 +321,76 @@ fn missing_rule_fields_keep_original_defaults() {
 }
 
 #[tokio::test]
+async fn public_market_reprices_without_duplicate_bids_and_settlements_persist_learning() {
+    let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let market_listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let port = listener.local_addr().unwrap().port();
+    let state_path = std::env::temp_dir().join(format!(
+        "contractnet-learning-{}-{port}.json",
+        std::process::id()
+    ));
+    let mut config = ClientConfig::new("Rust_07", format!("ws://127.0.0.1:{port}/agent"));
+    config.token = Some("test-token".into());
+    config.auto_calibrate = false;
+    config.verbose = false;
+    config.state_path = Some(state_path.clone());
+    config.market_url = Some(format!(
+        "ws://{}/spectate",
+        market_listener.local_addr().unwrap()
+    ));
+    let mut client = Contractor::new(config, contractnet::MyContractor);
+    client.rates = Rates::from([("monte_carlo_pi".into(), 1000.0)]);
+    let runner = tokio::spawn(async move {
+        let result = client.run().await;
+        (client, result)
+    });
+    let mut server = accept(&listener).await;
+    let (stream, _) = timeout(WAIT, market_listener.accept())
+        .await
+        .unwrap()
+        .unwrap();
+    let mut spectator = accept_async(stream).await.unwrap();
+    send(&mut server, json!({"type":"REGISTERED","name":"Rust_07"})).await;
+    let mut task = cfp(6);
+    task["budget"] = 10.into();
+    send(&mut server, task.clone()).await;
+    let initial = read(&mut server).await;
+    task["state"] = "bidding".into();
+    task["bids_close_at"] = 6000.into();
+    let market = json!({"type":"STATE","now":1000,"config":{"penalty_rate":0.5},"active":[task],
+        "live_bids":[{"task_id":6,"agent":"Other","price":5.0,"est_seconds":2.0,"outcome":null}]});
+    send(&mut spectator, market.clone()).await;
+    let revised = read(&mut server).await;
+    assert_eq!(revised["type"], "PROPOSE");
+    assert!(revised["price"].as_f64().unwrap() > initial["price"].as_f64().unwrap());
+    assert!(
+        revised["price"].as_f64().unwrap() + 2.0 * revised["est_seconds"].as_f64().unwrap() < 9.0
+    );
+    send(&mut spectator, market.clone()).await;
+    send(&mut spectator, market).await;
+    send(&mut server, json!({"type":"ACCEPT_PROPOSAL","task_id":6})).await;
+    let result = read(&mut server).await;
+    assert_eq!(
+        result["type"], "INFORM",
+        "unchanged market data must not trigger repeated proposals"
+    );
+    send(&mut server,json!({"type":"SETTLED","task_id":6,"verdict":"correct","runtime":0.1,
+        "revenue":revised["price"],"cost":0.1,"penalty":0,"profit":revised["price"].as_f64().unwrap()-0.1,
+        "est_seconds":revised["est_seconds"]})).await;
+    evict(&mut server).await;
+    let (client, result) = timeout(WAIT, runner).await.unwrap().unwrap();
+    result.unwrap();
+    assert_eq!(client.learning.observations.len(), 1);
+    let saved = contractnet::bidder::Learning::load(&state_path).unwrap();
+    assert_eq!(saved.observations.len(), 1);
+    assert_eq!(saved.observations[0].manager_seconds, 0.1);
+    assert!(saved.observations[0].local_seconds > 0.0);
+    let serialized = std::fs::read_to_string(&state_path).unwrap();
+    assert!(!serialized.contains("test-token"));
+    std::fs::remove_file(state_path).unwrap();
+}
+
+#[tokio::test]
 async fn tls_connection_failures_retry_without_panicking() {
     let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
     let (mut client, _, _) = client(listener.local_addr().unwrap().port());

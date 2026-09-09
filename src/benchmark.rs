@@ -59,18 +59,31 @@ pub fn calibrate(verbose: bool) -> Result<Rates> {
             "matmul_mod" => json!({"seed":1,"n":70,"mod":1_000_003}),
             _ => Value::Null,
         };
-        let start = Instant::now();
-        let units = if kind == "hash_search" {
-            let prefix = hash_prefix("calibrate");
-            for nonce in 0..HASH_CALIBRATION_ROUNDS {
-                std::hint::black_box(hash_attempt(&prefix, nonce));
-            }
-            HASH_CALIBRATION_ROUNDS as f64
-        } else {
-            std::hint::black_box(run_task(kind, &params)?);
-            work_units(kind, &params)?
+        let execute = || -> Result<f64> {
+            Ok(if kind == "hash_search" {
+                let prefix = hash_prefix("calibrate");
+                for nonce in 0..HASH_CALIBRATION_ROUNDS {
+                    std::hint::black_box(hash_attempt(&prefix, nonce));
+                }
+                HASH_CALIBRATION_ROUNDS as f64
+            } else {
+                std::hint::black_box(run_task(kind, &params)?);
+                work_units(kind, &params)?
+            })
         };
-        let elapsed = start.elapsed().as_secs_f64().max(1e-6);
+        // Warm caches and choose the median of five measurements rather than
+        // allowing one scheduler interruption to determine every later bid.
+        execute()?;
+        execute()?;
+        let mut timings = Vec::with_capacity(5);
+        let mut units = 0.0;
+        for _ in 0..5 {
+            let start = Instant::now();
+            units = execute()?;
+            timings.push(start.elapsed().as_secs_f64().max(1e-6));
+        }
+        timings.sort_by(f64::total_cmp);
+        let elapsed = timings[2];
         rates.insert(kind.into(), units / elapsed);
         if verbose {
             println!(

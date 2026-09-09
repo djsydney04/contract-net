@@ -22,6 +22,24 @@ path = "tests/verify/main.rs"
 name = "integration"
 path = "tests/integration/main.rs"
 
+[[bin]]
+name = "benchmark"
+path = "tests/benchmarks/runner/main.rs"
+required-features = ["benchmark-tools"]
+
+[[bin]]
+name = "capture-market"
+path = "tests/benchmarks/capture/main.rs"
+required-features = ["benchmark-tools"]
+
+[[bin]]
+name = "bidder-replay"
+path = "tests/benchmarks/bidder_replay/main.rs"
+required-features = ["benchmark-tools"]
+
+[features]
+benchmark-tools = ["dep:plotters", "dep:resvg"]
+
 [dependencies]
 anyhow = "1"
 chrono = { version = "0.4", default-features = false, features = ["clock"] }
@@ -29,6 +47,8 @@ clap = { version = "4", features = ["derive"] }
 futures-util = { version = "0.3", features = ["sink"] }
 num-bigint = "0.4"
 num-traits = "0.2"
+plotters = { version = "0.3.7", optional = true, default-features = false, features = ["svg_backend", "line_series"] }
+resvg = { version = "0.45", optional = true, default-features = false, features = ["text", "system-fonts"] }
 # The WebSocket crate leaves selection of the TLS crypto provider to the app.
 rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
 serde = { version = "1", features = ["derive"] }

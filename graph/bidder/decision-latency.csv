@@ -1,0 +1,6 @@
+task_type,decisions,p50_us,p95_us,p99_us
+hash_search,5000,4.167,4.291,5.125
+matmul_mod,5000,4.167,4.250,4.375
+monte_carlo_pi,5000,3.917,4.000,4.125
+prime_count,5000,4.000,4.125,4.250
+sort_checksum,5000,3.875,4.000,4.125

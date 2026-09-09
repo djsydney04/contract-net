@@ -123,6 +123,10 @@ every 20 seconds.
 
 `rules` is the live scoring configuration. Read it rather than hardcoding
 values, because it can change between the practice room and the tournament.
+The public development dashboard ranks `best_value` bids by
+`price + time_weight × est_seconds` (lower is better). A faster honest estimate
+can support a higher price while retaining a lower total score. The bidder's
+cost floor still needs to account for the manager's award-to-delivery clock.
 `open_cfps` carries any auctions still open at the moment you registered, in
 the same shape as `CFP`, so a contractor that joins mid-round can still bid.
 

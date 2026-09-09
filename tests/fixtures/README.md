@@ -11,3 +11,37 @@ seeds beyond 64 bits, power-of-two moduli, and moduli beyond 128 bits.
 
 Run `cargo test --locked` or `cargo run --release --bin verify -- --all --no-log`.
 Do not change expected answers to accommodate implementation changes.
+
+## Pre-optimization bidder
+
+`bidder-before-optimization.rs` is the exact `src/strategy.rs` from commit
+`71ed37123263ce0dc859cbf3b870e3087843a0d5`, immediately before the adaptive bidder
+was introduced. Its SHA-256 is
+`39aa0b427d0bdbecdbde94bc73236d0b135759ec34fe454918e43617249e95da`.
+The replay compiles this source directly and supplies its original context
+fields through an adapter. Do not update this fixture to follow the current
+policy: it is the frozen before-optimization comparison, with a hash check
+protecting its provenance. Saved calibration, workloads, and imposed delivery
+delays are shared between the two policies.
+
+## Public practice data
+
+`practice-market.json` contains a read-only spectator capture of all 25 practice
+tasks and public bids taken during open bidding windows. It is separate from
+the independent answer-key fixtures above. The collector never registered a
+contractor or submitted a bid.
+
+`practice-history.json` preserves 11 complete earlier public auctions transcribed
+from the API trace read during the session, with provenance and timestamps.
+The full temporary snapshot was unavailable after an interruption. Historical
+parameters were absent from the trace, so the backtest reuses a later task's
+inputs only when its ID, type, budget, deadline, and computed answer match the
+older recorded result. These files are snapshots of competitors at particular
+times, not a complete history or a claim about future competition.
+
+The delivery graphs use the historical `manager_seconds - local_seconds`
+residual for each included auction. These are the archived competitor's
+observations, not TheGoodGuys network measurements. Manager values are rounded
+to 10 ms and may include queue/processing beyond local execution. The 11-record
+subset contains four task types and no hash-search observations; it is too
+small to establish task-dependent overhead or reliable tail percentiles.

@@ -33,7 +33,7 @@ async fn production_binary_calibrates_bids_and_delivers_every_task_type() {
         let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
         let address = format!("ws://{}/agent", listener.local_addr().unwrap());
         let mut process = Process(Command::new(env!("CARGO_BIN_EXE_contractor-net"))
-            .args(["--name", "Rust_CLI", "--url", &address, "--token", "test-token"])
+            .args(["--name", "Rust_CLI", "--url", &address, "--token", "test-token", "--no-state", "--no-market-feed"])
             .stdout(Stdio::piped()).stderr(Stdio::inherit()).spawn().unwrap());
         let (stream, _) = listener.accept().await.unwrap();
         let mut server = accept_async(stream).await.unwrap();
