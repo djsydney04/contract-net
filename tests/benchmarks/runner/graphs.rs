@@ -3,6 +3,8 @@ use anyhow::{Context, Result};
 use plotters::{coord::Shift, prelude::*};
 use std::{fs, path::Path};
 
+mod lines;
+
 const INK: RGBColor = RGBColor(25, 37, 49);
 const MUTED: RGBColor = RGBColor(88, 103, 116);
 const RUST: RGBColor = RGBColor(15, 118, 110);
@@ -205,6 +207,7 @@ pub fn render(output: &Path, current: &Dataset, rows: &[Summary]) -> Result<()> 
         }
         rasterize(&path)?;
     }
+    lines::render(output, current, rows)?;
     Ok(())
 }
 

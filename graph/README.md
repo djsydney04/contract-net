@@ -21,6 +21,33 @@ task construction, serialization, and answer validation are excluded.
 | `sort_checksum` | 1.6935 | 2.0116 | 2.9580 |
 | `matmul_mod` | 0.0439 | 0.0488 | 0.0821 |
 
+## Latency across runs
+
+![Per-task latency in measurement order](latency-runs.svg)
+
+Every saved observation appears in measurement order, with whole-run p50, p95,
+and p99 shown as dashed reference lines. Run numbers are per task, not elapsed
+wall-clock time. Each panel uses its own linear latency axis starting at zero
+and includes the slowest observation.
+
+## Cumulative latency distribution
+
+![Per-task empirical cumulative latency distribution](latency-distribution.svg)
+
+The step curve shows the percentage of executions completed at or below a
+given latency. Colored guides mark the nearest-rank p50, p95, and p99. The full
+tail remains visible through the maximum, with a separate latency axis for
+each task.
+
+## Rolling percentiles
+
+![Trailing 100-run p50, p95, and p99 latency](latency-rolling-percentiles.svg)
+
+Each point summarizes the trailing 100 executions of that task, beginning at
+run 100. Adjacent windows overlap by 99 observations. This shows variation
+within the saved benchmark; it does not represent improvement across code
+versions. These curves reuse the same nearest-rank calculation as the summary.
+
 ## Historical comparison
 
 ![Approximate comparison against recorded pre-migration timings](historical-comparison.svg)
