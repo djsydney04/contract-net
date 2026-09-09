@@ -61,6 +61,23 @@ letter or digit. Open the manager's `/dev` dashboard to inspect your messages.
 
 See [tests/README.md](tests/README.md) for test commands and suite details.
 
+## Performance
+
+[Graphs and latency report](graph/README.md) show measured Rust p50, p95, and
+p99 for each task, plus a separately labeled comparison with existing
+historical timings. All new benchmarking and graph generation run in Rust.
+Raw samples and tooling live under `tests/benchmarks/`.
+
+```bash
+cargo run --locked --release --features benchmark-tools --bin benchmark -- \
+  --samples 1000 --warmup 25
+```
+
+The optional `benchmark-tools` feature enables Rust graph generation. The
+contractor's default build does not include plotting dependencies.
+
+## Runtime behavior
+
 Edit `MyContractor` in `src/strategy.rs` to change bidding. Its `BidContext`
 exposes live rules, rates, queue time, settlement history, and profit. The
 default strategy preserves the original 60% cost markup and budget/deadline
