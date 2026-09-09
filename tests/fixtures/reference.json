@@ -1,0 +1,1819 @@
+[
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 12345,
+      "samples": 50000
+    },
+    "expected": "39336"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 1000000,
+      "hi": 1010000
+    },
+    "expected": "753"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "cpsc370-golden",
+      "threshold": 65536
+    },
+    "expected": "90984"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 99,
+      "n": 50000
+    },
+    "expected": "1785318802179667385"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 2026,
+      "n": 40,
+      "mod": 1000003
+    },
+    "expected": "629524"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 4051,
+      "hi": 4196
+    },
+    "expected": "16"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 0,
+      "n": 9,
+      "mod": 1180591620717411303457
+    },
+    "expected": "525428756294678442676"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 0,
+      "n": 286
+    },
+    "expected": "56803206719773"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 0,
+      "samples": 680
+    },
+    "expected": "538"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:0é",
+      "threshold": 16777216
+    },
+    "expected": "216"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 2783,
+      "hi": 2926
+    },
+    "expected": "18"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 1,
+      "n": 9,
+      "mod": 1180591620717411303457
+    },
+    "expected": "1076927634456052870145"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 1,
+      "n": 146
+    },
+    "expected": "15721102714513"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 1,
+      "samples": 592
+    },
+    "expected": "454"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:1é",
+      "threshold": 16777217
+    },
+    "expected": "206"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 326,
+      "hi": 570
+    },
+    "expected": "38"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 2,
+      "n": 0,
+      "mod": 97
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 2,
+      "n": 612
+    },
+    "expected": "271059231731864"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 2,
+      "samples": 589
+    },
+    "expected": "451"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:2é",
+      "threshold": 16777218
+    },
+    "expected": "3"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 9659,
+      "hi": 9937
+    },
+    "expected": "33"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 3,
+      "n": 3,
+      "mod": 97
+    },
+    "expected": "2"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 3,
+      "n": 359
+    },
+    "expected": "91747335050487"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 3,
+      "samples": 745
+    },
+    "expected": "590"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:3é",
+      "threshold": 16777219
+    },
+    "expected": "1708"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 2171,
+      "hi": 2420
+    },
+    "expected": "33"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 4,
+      "n": 6,
+      "mod": 97
+    },
+    "expected": "77"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 4,
+      "n": 574
+    },
+    "expected": "231465969200829"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 4,
+      "samples": 874
+    },
+    "expected": "665"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:4é",
+      "threshold": 16777220
+    },
+    "expected": "1709"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 7392,
+      "hi": 7453
+    },
+    "expected": "5"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 5,
+      "n": 4,
+      "mod": 1180591620717411303457
+    },
+    "expected": "836132594292606498997"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 5,
+      "n": 829
+    },
+    "expected": "495815180639560"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 5,
+      "samples": 155
+    },
+    "expected": "115"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:5é",
+      "threshold": 16777221
+    },
+    "expected": "284"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 11807,
+      "hi": 12086
+    },
+    "expected": "32"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 6,
+      "n": 5,
+      "mod": 2
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 6,
+      "n": 545
+    },
+    "expected": "211084550824359"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 6,
+      "samples": 659
+    },
+    "expected": "516"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:6é",
+      "threshold": 16777222
+    },
+    "expected": "331"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 7460,
+      "hi": 7753
+    },
+    "expected": "37"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 7,
+      "n": 9,
+      "mod": 2
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 7,
+      "n": 983
+    },
+    "expected": "688130028746624"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 7,
+      "samples": 45
+    },
+    "expected": "40"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:7é",
+      "threshold": 16777223
+    },
+    "expected": "312"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 11821,
+      "hi": 12074
+    },
+    "expected": "30"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 8,
+      "n": 7,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 8,
+      "n": 997
+    },
+    "expected": "713665432737155"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 8,
+      "samples": 95
+    },
+    "expected": "77"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:8é",
+      "threshold": 16777224
+    },
+    "expected": "187"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 9242,
+      "hi": 9391
+    },
+    "expected": "14"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 9,
+      "n": 6,
+      "mod": 1180591620717411303457
+    },
+    "expected": "353820823006089997490"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 9,
+      "n": 793
+    },
+    "expected": "435498191076484"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 9,
+      "samples": 552
+    },
+    "expected": "442"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:9é",
+      "threshold": 16777225
+    },
+    "expected": "797"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 5137,
+      "hi": 5141
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 10,
+      "n": 7,
+      "mod": 1180591620717411303457
+    },
+    "expected": "1152230366046187418417"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 10,
+      "n": 937
+    },
+    "expected": "643854377241855"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 10,
+      "samples": 735
+    },
+    "expected": "571"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:10é",
+      "threshold": 16777226
+    },
+    "expected": "56"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 12330,
+      "hi": 12614
+    },
+    "expected": "34"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 11,
+      "n": 4,
+      "mod": 1180591620717411303457
+    },
+    "expected": "483183504049942644408"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 11,
+      "n": 905
+    },
+    "expected": "585595263972622"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 11,
+      "samples": 766
+    },
+    "expected": "606"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:11é",
+      "threshold": 16777227
+    },
+    "expected": "446"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 4024,
+      "hi": 4276
+    },
+    "expected": "31"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 12,
+      "n": 8,
+      "mod": 97
+    },
+    "expected": "80"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 12,
+      "n": 591
+    },
+    "expected": "255427401505831"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 12,
+      "samples": 252
+    },
+    "expected": "200"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:12é",
+      "threshold": 16777228
+    },
+    "expected": "32"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 540,
+      "hi": 701
+    },
+    "expected": "26"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 13,
+      "n": 0,
+      "mod": 1000003
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 13,
+      "n": 686
+    },
+    "expected": "334452120215825"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 13,
+      "samples": 270
+    },
+    "expected": "222"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:13é",
+      "threshold": 16777229
+    },
+    "expected": "21"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 16814,
+      "hi": 16858
+    },
+    "expected": "4"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 14,
+      "n": 1,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 14,
+      "n": 350
+    },
+    "expected": "87744572959087"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 14,
+      "samples": 872
+    },
+    "expected": "689"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:14é",
+      "threshold": 16777230
+    },
+    "expected": "188"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 2879,
+      "hi": 3056
+    },
+    "expected": "21"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 15,
+      "n": 5,
+      "mod": 2
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 15,
+      "n": 320
+    },
+    "expected": "78282252913359"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 15,
+      "samples": 120
+    },
+    "expected": "94"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:15é",
+      "threshold": 16777231
+    },
+    "expected": "45"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 19515,
+      "hi": 19696
+    },
+    "expected": "14"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 16,
+      "n": 3,
+      "mod": 2
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 16,
+      "n": 780
+    },
+    "expected": "435572829264701"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 16,
+      "samples": 861
+    },
+    "expected": "664"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:16é",
+      "threshold": 16777232
+    },
+    "expected": "403"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 3391,
+      "hi": 3631
+    },
+    "expected": "30"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 17,
+      "n": 4,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 17,
+      "n": 542
+    },
+    "expected": "212046489576404"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 17,
+      "samples": 509
+    },
+    "expected": "409"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:17é",
+      "threshold": 16777233
+    },
+    "expected": "283"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 3980,
+      "hi": 4034
+    },
+    "expected": "8"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 18,
+      "n": 0,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 18,
+      "n": 214
+    },
+    "expected": "33615756718537"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 18,
+      "samples": 258
+    },
+    "expected": "199"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:18é",
+      "threshold": 16777234
+    },
+    "expected": "107"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 6260,
+      "hi": 6509
+    },
+    "expected": "29"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 19,
+      "n": 6,
+      "mod": 2
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 19,
+      "n": 358
+    },
+    "expected": "92979056430649"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 19,
+      "samples": 573
+    },
+    "expected": "456"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:19é",
+      "threshold": 16777235
+    },
+    "expected": "90"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 14417,
+      "hi": 14467
+    },
+    "expected": "7"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 20,
+      "n": 7,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 20,
+      "n": 973
+    },
+    "expected": "652686341455095"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 20,
+      "samples": 165
+    },
+    "expected": "133"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:20é",
+      "threshold": 16777236
+    },
+    "expected": "365"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 6724,
+      "hi": 6896
+    },
+    "expected": "19"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 21,
+      "n": 1,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 21,
+      "n": 922
+    },
+    "expected": "613780606504329"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 21,
+      "samples": 215
+    },
+    "expected": "165"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:21é",
+      "threshold": 16777237
+    },
+    "expected": "325"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 1733,
+      "hi": 1766
+    },
+    "expected": "5"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 22,
+      "n": 11,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 22,
+      "n": 729
+    },
+    "expected": "375731900795486"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 22,
+      "samples": 78
+    },
+    "expected": "60"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:22é",
+      "threshold": 16777238
+    },
+    "expected": "103"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 13972,
+      "hi": 13984
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 23,
+      "n": 7,
+      "mod": 1000003
+    },
+    "expected": "707730"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 23,
+      "n": 237
+    },
+    "expected": "39802358663199"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 23,
+      "samples": 227
+    },
+    "expected": "173"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:23é",
+      "threshold": 16777239
+    },
+    "expected": "94"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 13642,
+      "hi": 13732
+    },
+    "expected": "13"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 24,
+      "n": 8,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 24,
+      "n": 969
+    },
+    "expected": "674957145011212"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 24,
+      "samples": 189
+    },
+    "expected": "146"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:24é",
+      "threshold": 16777240
+    },
+    "expected": "3"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 16927,
+      "hi": 17118
+    },
+    "expected": "22"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 25,
+      "n": 9,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 25,
+      "n": 639
+    },
+    "expected": "285125968616441"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 25,
+      "samples": 501
+    },
+    "expected": "397"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:25é",
+      "threshold": 16777241
+    },
+    "expected": "170"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 317,
+      "hi": 457
+    },
+    "expected": "22"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 26,
+      "n": 9,
+      "mod": 97
+    },
+    "expected": "26"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 26,
+      "n": 923
+    },
+    "expected": "619343464515949"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 26,
+      "samples": 538
+    },
+    "expected": "417"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:26é",
+      "threshold": 16777242
+    },
+    "expected": "235"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 19006,
+      "hi": 19062
+    },
+    "expected": "5"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 27,
+      "n": 6,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 27,
+      "n": 998
+    },
+    "expected": "724128207152890"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 27,
+      "samples": 852
+    },
+    "expected": "659"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:27é",
+      "threshold": 16777243
+    },
+    "expected": "96"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 8933,
+      "hi": 9184
+    },
+    "expected": "28"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 28,
+      "n": 5,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 28,
+      "n": 580
+    },
+    "expected": "237755876047541"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 28,
+      "samples": 655
+    },
+    "expected": "520"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:28é",
+      "threshold": 16777244
+    },
+    "expected": "56"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 4306,
+      "hi": 4570
+    },
+    "expected": "29"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 29,
+      "n": 10,
+      "mod": 1000003
+    },
+    "expected": "382817"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 29,
+      "n": 387
+    },
+    "expected": "102864827837601"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 29,
+      "samples": 927
+    },
+    "expected": "736"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "seed:29é",
+      "threshold": 16777245
+    },
+    "expected": "393"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": -10,
+      "hi": 3
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 2,
+      "hi": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 2,
+      "hi": 3
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 3,
+      "hi": 4
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 47,
+      "hi": 50
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "prime_count",
+    "params": {
+      "lo": 2,
+      "hi": 1000010
+    },
+    "expected": "78499"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "edge",
+      "threshold": 4294967295
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "edge",
+      "threshold": 4294967296
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "hash_search",
+    "params": {
+      "seed": "edge",
+      "threshold": 4294967297
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 0,
+      "samples": 2000
+    },
+    "expected": "1568"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 0,
+      "n": 2000
+    },
+    "expected": "2864371506472835"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 0,
+      "n": 5,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 0,
+      "n": 5,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 0,
+      "n": 5,
+      "mod": 4294967296
+    },
+    "expected": "3187591699"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 0,
+      "n": 5,
+      "mod": 18446744073709551615
+    },
+    "expected": "10418867420875156451"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 0,
+      "n": 5,
+      "mod": 18446744073709551616
+    },
+    "expected": "5862830896641222485"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 0,
+      "n": 5,
+      "mod": 1180591620717411303457
+    },
+    "expected": "341975377833164774700"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 0,
+      "n": 5,
+      "mod": 1361129467683753853853498429727072845857
+    },
+    "expected": "827904415577229058701033188490618841144"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": -1,
+      "samples": 2000
+    },
+    "expected": "1573"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": -1,
+      "n": 2000
+    },
+    "expected": "2845676196356067"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1,
+      "n": 5,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1,
+      "n": 5,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1,
+      "n": 5,
+      "mod": 4294967296
+    },
+    "expected": "81444502"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1,
+      "n": 5,
+      "mod": 18446744073709551615
+    },
+    "expected": "8947331804494283588"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1,
+      "n": 5,
+      "mod": 18446744073709551616
+    },
+    "expected": "11415516318093620408"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1,
+      "n": 5,
+      "mod": 1180591620717411303457
+    },
+    "expected": "744048109180707414132"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1,
+      "n": 5,
+      "mod": 1361129467683753853853498429727072845857
+    },
+    "expected": "553747128258189043565683532491454983295"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": -12345,
+      "samples": 2000
+    },
+    "expected": "1573"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": -12345,
+      "n": 2000
+    },
+    "expected": "2838244254003109"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -12345,
+      "n": 5,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -12345,
+      "n": 5,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -12345,
+      "n": 5,
+      "mod": 4294967296
+    },
+    "expected": "2556280406"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -12345,
+      "n": 5,
+      "mod": 18446744073709551615
+    },
+    "expected": "2724519982242095774"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -12345,
+      "n": 5,
+      "mod": 18446744073709551616
+    },
+    "expected": "1931105632422257109"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -12345,
+      "n": 5,
+      "mod": 1180591620717411303457
+    },
+    "expected": "863100404673002222401"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -12345,
+      "n": 5,
+      "mod": 1361129467683753853853498429727072845857
+    },
+    "expected": "1057170813345034509741755482988623257919"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 4294967296,
+      "samples": 2000
+    },
+    "expected": "1554"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 4294967296,
+      "n": 2000
+    },
+    "expected": "2823257583290036"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 4294967296,
+      "n": 5,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 4294967296,
+      "n": 5,
+      "mod": 2
+    },
+    "expected": "1"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 4294967296,
+      "n": 5,
+      "mod": 4294967296
+    },
+    "expected": "2083790599"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 4294967296,
+      "n": 5,
+      "mod": 18446744073709551615
+    },
+    "expected": "6402722612868340408"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 4294967296,
+      "n": 5,
+      "mod": 18446744073709551616
+    },
+    "expected": "3605503602098438509"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 4294967296,
+      "n": 5,
+      "mod": 1180591620717411303457
+    },
+    "expected": "89331969628385647265"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 4294967296,
+      "n": 5,
+      "mod": 1361129467683753853853498429727072845857
+    },
+    "expected": "1242445970227500246487477917382798068391"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": 18446744073709551623,
+      "samples": 2000
+    },
+    "expected": "1561"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": 18446744073709551623,
+      "n": 2000
+    },
+    "expected": "2845375464166008"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 18446744073709551623,
+      "n": 5,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 18446744073709551623,
+      "n": 5,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 18446744073709551623,
+      "n": 5,
+      "mod": 4294967296
+    },
+    "expected": "3160814420"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 18446744073709551623,
+      "n": 5,
+      "mod": 18446744073709551615
+    },
+    "expected": "17087164419291454520"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 18446744073709551623,
+      "n": 5,
+      "mod": 18446744073709551616
+    },
+    "expected": "3113734079505938848"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 18446744073709551623,
+      "n": 5,
+      "mod": 1180591620717411303457
+    },
+    "expected": "944945974762374065050"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": 18446744073709551623,
+      "n": 5,
+      "mod": 1361129467683753853853498429727072845857
+    },
+    "expected": "589996139096388284144606564280428614938"
+  },
+  {
+    "task_type": "monte_carlo_pi",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "samples": 2000
+    },
+    "expected": "1544"
+  },
+  {
+    "task_type": "sort_checksum",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "n": 2000
+    },
+    "expected": "2823466049767741"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "n": 5,
+      "mod": 1
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "n": 5,
+      "mod": 2
+    },
+    "expected": "0"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "n": 5,
+      "mod": 4294967296
+    },
+    "expected": "2270163065"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "n": 5,
+      "mod": 18446744073709551615
+    },
+    "expected": "7685985802612746473"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "n": 5,
+      "mod": 18446744073709551616
+    },
+    "expected": "9068106805218652103"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "n": 5,
+      "mod": 1180591620717411303457
+    },
+    "expected": "114670428101335559318"
+  },
+  {
+    "task_type": "matmul_mod",
+    "params": {
+      "seed": -1361129467683753853853498429727072845923,
+      "n": 5,
+      "mod": 1361129467683753853853498429727072845857
+    },
+    "expected": "723921433602585846662363320203913252601"
+  }
+]

@@ -1,0 +1,42 @@
+[package]
+name = "contractor-net"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.94"
+description = "Reference-compatible Rust contractor for the CPSC 370 Contract Net tournament"
+default-run = "contractor-net"
+autotests = false
+
+[lib]
+name = "contractnet"
+
+[[bin]]
+name = "contractor-net"
+path = "src/main.rs"
+
+[[bin]]
+name = "verify"
+path = "tests/verify/main.rs"
+
+[[test]]
+name = "integration"
+path = "tests/integration/main.rs"
+
+[dependencies]
+anyhow = "1"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+clap = { version = "4", features = ["derive"] }
+futures-util = { version = "0.3", features = ["sink"] }
+num-bigint = "0.4"
+num-traits = "0.2"
+# The WebSocket crate leaves selection of the TLS crypto provider to the app.
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["arbitrary_precision"] }
+sha2 = "0.10"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "time", "signal", "sync"] }
+tokio-tungstenite = { version = "0.28", features = ["rustls-tls-webpki-roots"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
