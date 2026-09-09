@@ -24,6 +24,27 @@ running a new benchmark. Both SVG and PNG outputs are generated in Rust.
 The historical view reads existing log entries; it does not execute any old
 implementation. Use `--data` and `--output` to save a new run separately.
 
+## Bidder backtest and decision latency
+
+The [bidder report](../../graph/bidder/README.md) compares the previous and
+adaptive policies on earlier public history and a newer 25-task capture. It
+uses measured native compute times and explicit 30/50/100 ms delivery-cost
+scenarios, holds competitors fixed, and learns only after simulated wins.
+The report also measures p50/p95/p99 decision latency with 512 observations.
+
+```bash
+cargo run --locked --release --features benchmark-tools --bin bidder-replay
+cargo run --locked --release --features benchmark-tools --bin bidder-replay -- --render-only
+```
+
+Capture new public auction data without registering a contractor:
+
+```bash
+cargo run --locked --release --features benchmark-tools --bin capture-market -- \
+  --url 'wss://PRACTICE_HOST/spectate?room=PRACTICE_ROOM' --seconds 210 \
+  --output tests/fixtures/practice-market.json
+```
+
 ## Verification history
 
 Run `cargo run --locked --release --bin verify` from the repository root to check the reference answers

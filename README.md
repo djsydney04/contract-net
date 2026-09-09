@@ -81,9 +81,34 @@ contractor's default build does not include plotting dependencies.
 ## Runtime behavior
 
 Edit `MyContractor` in `src/strategy.rs` to change bidding. Its `BidContext`
-exposes live rules, rates, queue time, settlement history, and profit. The
-default strategy preserves the original 60% cost markup and budget/deadline
-checks. `Strategy` also provides `execute`, `on_registered`, `on_reject`,
+exposes live rules, rates, queue time, learned runtimes, public competing bids,
+settlement history, and profit. The default strategy prices manager-billed
+delivery time, including network and queue overhead. It learns from local
+execution times and manager settlements, uses a conservative completion
+forecast to admit work, and keeps a profit margin above that cost forecast.
+For `best_value`, it prices just below the best visible competing score while
+preserving that margin. Decisions are deterministic for identical inputs,
+calibration, learned observations, and market snapshots.
+
+The read-only spectator connection updates competing bids during the auction;
+only changed proposals are sent. Stale, invalid, own, and mismatched-auction
+bids are excluded. If the feed is unavailable, the bidder falls back to
+cost-based pricing with an 8% budget floor. Use `--no-market-feed` to disable
+the spectator connection. No winning or profit guarantee is implied by the
+forecast; runtime and competitors can change after a proposal.
+
+Learning is saved under `data/runtime/` by manager URL, room, and team name.
+Only the latest 512 valid execution/settlement observations are retained.
+Use `--state PATH` to choose the file, or `--no-state` to keep learning in memory.
+The initial delivery-overhead assumption is 50 ms plus 5 ms margin, replaced
+by the observed p95 once settlements arrive. Calibration uses two warmups and
+the median of five timed runs. Unknown hash-search inputs reserve approximately
+the 95th-percentile search time for deadline admission; repeated exact inputs
+learn their observed difficulty. Quoted completion uses an expected/median
+compute estimate plus the delivery allowance, while pricing and queue capacity
+use the more conservative reserve.
+
+`Strategy` also provides `compute_reserve`, `execute`, `on_registered`, `on_reject`,
 `on_settled`, and `on_bid_invalid` hooks. If you change the executor's work
 model, update calibration to match.
 
@@ -92,6 +117,10 @@ on every connection, applies live rules, handles open auctions, and sends
 application keepalives. Unsent results survive reconnects in memory; stale
 bids are discarded. Duplicate-name eviction stops the process, and invalid
 credentials return an error. There is no recovery after the process exits.
+
+Learned runtime observations survive restarts; outstanding contracts do not.
+See the [bidder backtest and decision-latency report](graph/bidder/README.md)
+for archived practice data, delivery-cost assumptions, and replay results.
 
 The executors preserve the answer key's seeded random sequence and exact
 integer results, including large seeds and matrix moduli. Matrix checksums

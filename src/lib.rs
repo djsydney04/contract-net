@@ -1,6 +1,8 @@
 //! Native Contract Net tasks, calibration, strategy, and WebSocket client.
 pub mod benchmark;
+pub mod bidder;
 pub mod client;
+pub mod market;
 pub mod protocol;
 mod random;
 pub mod strategy;

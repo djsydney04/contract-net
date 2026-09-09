@@ -1,0 +1,962 @@
+{
+  "source": "wss://contractnet.blackdial.workers.dev/spectate?room=practice",
+  "captured_at": "2026-09-09T01:40:43.644984+00:00",
+  "description": "Read-only public practice snapshots, taken during bidding; one latest observed snapshot per exact task input. No contractor registered and no bids submitted.",
+  "auctions": [
+    {
+      "now": 1788918033772,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 22,
+            "task_type": "prime_count",
+            "params": {
+              "hi": 13461102,
+              "lo": 13212977
+            },
+            "budget": 8.15,
+            "deadline_s": 8.15,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788918038700
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 22,
+          "agent": "Auctioneers",
+          "price": 7.7506,
+          "est_seconds": 0.1269,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788918019498,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 20,
+            "task_type": "matmul_mod",
+            "params": {
+              "mod": 1000003,
+              "n": 219,
+              "seed": 1288681440
+            },
+            "budget": 3.1,
+            "deadline_s": 3.1,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788918024451
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 20,
+          "agent": "Auctioneers",
+          "price": 2.9563,
+          "est_seconds": 0.1763,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917885395,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 3,
+            "task_type": "sort_checksum",
+            "params": {
+              "n": 1808808,
+              "seed": 1098181475
+            },
+            "budget": 6.34,
+            "deadline_s": 6.34,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917890335
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 3,
+          "agent": "Auctioneers",
+          "price": 5.4408,
+          "est_seconds": 2.1432,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917877109,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 2,
+            "task_type": "monte_carlo_pi",
+            "params": {
+              "samples": 6272824,
+              "seed": 739551994
+            },
+            "budget": 3.9,
+            "deadline_s": 3.9,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917882057
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 2,
+          "agent": "Auctioneers",
+          "price": 3.7862,
+          "est_seconds": 1.2681,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917851221,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 24,
+            "task_type": "monte_carlo_pi",
+            "params": {
+              "samples": 7691264,
+              "seed": 1467138026
+            },
+            "budget": 5.19,
+            "deadline_s": 5.19,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917856173
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 24,
+          "agent": "Auctioneers",
+          "price": 5.026,
+          "est_seconds": 1.4926,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788918003687,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 18,
+            "task_type": "matmul_mod",
+            "params": {
+              "mod": 1000003,
+              "n": 286,
+              "seed": 24817746
+            },
+            "budget": 6.5,
+            "deadline_s": 6.5,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788918008626
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 18,
+          "agent": "Auctioneers",
+          "price": 6.1885,
+          "est_seconds": 0.2114,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917963744,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 13,
+            "task_type": "sort_checksum",
+            "params": {
+              "n": 1610014,
+              "seed": 402512806
+            },
+            "budget": 5.87,
+            "deadline_s": 5.87,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917968689
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 13,
+          "agent": "Auctioneers",
+          "price": 5.5302,
+          "est_seconds": 1.9316,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917894643,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 4,
+            "task_type": "sort_checksum",
+            "params": {
+              "n": 1916899,
+              "seed": 2032318680
+            },
+            "budget": 6.66,
+            "deadline_s": 6.66,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917899593
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 4,
+          "agent": "Auctioneers",
+          "price": 5.9177,
+          "est_seconds": 2.3037,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917911766,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 6,
+            "task_type": "prime_count",
+            "params": {
+              "hi": 17648550,
+              "lo": 17430249
+            },
+            "budget": 8.23,
+            "deadline_s": 8.23,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917916641
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 6,
+          "agent": "Auctioneers",
+          "price": 7.015,
+          "est_seconds": 0.1013,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917903877,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 5,
+            "task_type": "sort_checksum",
+            "params": {
+              "n": 742397,
+              "seed": 1028157141
+            },
+            "budget": 2.47,
+            "deadline_s": 2.82,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917908821
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 5,
+          "agent": "Auctioneers",
+          "price": 2.2712,
+          "est_seconds": 0.8944,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917870045,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 1,
+            "task_type": "prime_count",
+            "params": {
+              "hi": 17383143,
+              "lo": 17199233
+            },
+            "budget": 6.8,
+            "deadline_s": 6.8,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917874999
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 1,
+          "agent": "Auctioneers",
+          "price": 5.4619,
+          "est_seconds": 0.0856,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788918040905,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 23,
+            "task_type": "matmul_mod",
+            "params": {
+              "mod": 1000003,
+              "n": 282,
+              "seed": 492917270
+            },
+            "budget": 6.07,
+            "deadline_s": 6.07,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788918045842
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 23,
+          "agent": "Auctioneers",
+          "price": 5.7807,
+          "est_seconds": 0.2225,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917972518,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 14,
+            "task_type": "hash_search",
+            "params": {
+              "seed": "cpsc370-281305988",
+              "threshold": 1503
+            },
+            "budget": 2.56,
+            "deadline_s": 2.85,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917977468
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 14,
+          "agent": "Auctioneers",
+          "price": 2.5359,
+          "est_seconds": 1.6241,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917987592,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 16,
+            "task_type": "sort_checksum",
+            "params": {
+              "n": 1477542,
+              "seed": 1011065792
+            },
+            "budget": 5.42,
+            "deadline_s": 5.42,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917992547
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 16,
+          "agent": "Auctioneers",
+          "price": 5.2615,
+          "est_seconds": 1.7586,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917927183,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 8,
+            "task_type": "hash_search",
+            "params": {
+              "seed": "cpsc370-1384897221",
+              "threshold": 2504
+            },
+            "budget": 2.74,
+            "deadline_s": 2.91,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917932135
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 8,
+          "agent": "Auctioneers",
+          "price": 2.6665,
+          "est_seconds": 0.9921,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917918778,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 7,
+            "task_type": "monte_carlo_pi",
+            "params": {
+              "samples": 7378741,
+              "seed": 268836624
+            },
+            "budget": 4.56,
+            "deadline_s": 4.56,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917923716
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 7,
+          "agent": "Auctioneers",
+          "price": 4.4272,
+          "est_seconds": 1.4891,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917980134,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 15,
+            "task_type": "hash_search",
+            "params": {
+              "seed": "cpsc370-1332570445",
+              "threshold": 3997
+            },
+            "budget": 2.39,
+            "deadline_s": 2.8,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917985086
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 15,
+          "agent": "Auctioneers",
+          "price": 2.3146,
+          "est_seconds": 0.6885,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917859698,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 25,
+            "task_type": "monte_carlo_pi",
+            "params": {
+              "samples": 15358757,
+              "seed": 427440943
+            },
+            "budget": 8.17,
+            "deadline_s": 8.17,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917864641
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 25,
+          "agent": "Auctioneers",
+          "price": 7.9469,
+          "est_seconds": 2.8963,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917956609,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 12,
+            "task_type": "matmul_mod",
+            "params": {
+              "mod": 1000003,
+              "n": 231,
+              "seed": 1277077720
+            },
+            "budget": 3.33,
+            "deadline_s": 3.33,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917961549
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 12,
+          "agent": "Auctioneers",
+          "price": 3.175,
+          "est_seconds": 0.1802,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917996311,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 17,
+            "task_type": "hash_search",
+            "params": {
+              "seed": "cpsc370-1090685651",
+              "threshold": 3419
+            },
+            "budget": 1.31,
+            "deadline_s": 2.44,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788918001258
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 17,
+          "agent": "Auctioneers",
+          "price": 1.2947,
+          "est_seconds": 0.7838,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917942486,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 10,
+            "task_type": "prime_count",
+            "params": {
+              "hi": 8046664,
+              "lo": 7942750
+            },
+            "budget": 2.74,
+            "deadline_s": 2.91,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917947430
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 10,
+          "agent": "Auctioneers",
+          "price": 2.4821,
+          "est_seconds": 0.126,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917949540,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 11,
+            "task_type": "prime_count",
+            "params": {
+              "hi": 14417072,
+              "lo": 14218244
+            },
+            "budget": 6.67,
+            "deadline_s": 6.67,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917954488
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 11,
+          "agent": "Auctioneers",
+          "price": 6.3446,
+          "est_seconds": 0.1266,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788918026668,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 21,
+            "task_type": "matmul_mod",
+            "params": {
+              "mod": 1000003,
+              "n": 249,
+              "seed": 1875591885
+            },
+            "budget": 4.41,
+            "deadline_s": 4.41,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788918031582
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 21,
+          "agent": "Auctioneers",
+          "price": 4.202,
+          "est_seconds": 0.1949,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788918010819,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 19,
+            "task_type": "monte_carlo_pi",
+            "params": {
+              "samples": 8961362,
+              "seed": 473829090
+            },
+            "budget": 6.03,
+            "deadline_s": 6.03,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788918015765
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 19,
+          "agent": "Auctioneers",
+          "price": 5.8441,
+          "est_seconds": 1.806,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "now": 1788917934842,
+      "config": {
+        "award_policy": "best_value",
+        "time_weight": 2.0,
+        "cost_rate": 1.0,
+        "penalty_rate": 0.5,
+        "late_credit": 0.0,
+        "concurrency": 1
+      },
+      "active": [
+        {
+          "task": {
+            "task_id": 9,
+            "task_type": "hash_search",
+            "params": {
+              "seed": "cpsc370-217149503",
+              "threshold": 1489
+            },
+            "budget": 2.44,
+            "deadline_s": 2.81,
+            "bid_window_ms": 0,
+            "attempt": 1
+          },
+          "state": "bidding",
+          "bids_close_at": 1788917939794
+        }
+      ],
+      "live_bids": [
+        {
+          "task_id": 9,
+          "agent": "Auctioneers",
+          "price": 2.4207,
+          "est_seconds": 1.6055,
+          "outcome": null
+        }
+      ]
+    }
+  ]
+}

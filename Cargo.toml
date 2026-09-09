@@ -27,6 +27,16 @@ name = "benchmark"
 path = "tests/benchmarks/runner/main.rs"
 required-features = ["benchmark-tools"]
 
+[[bin]]
+name = "capture-market"
+path = "tests/benchmarks/capture/main.rs"
+required-features = ["benchmark-tools"]
+
+[[bin]]
+name = "bidder-replay"
+path = "tests/benchmarks/bidder_replay/main.rs"
+required-features = ["benchmark-tools"]
+
 [features]
 benchmark-tools = ["dep:plotters", "dep:resvg"]
 

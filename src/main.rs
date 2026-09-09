@@ -1,6 +1,7 @@
 use anyhow::Result;
 use clap::Parser;
 use contractnet::{ClientConfig, Contractor, MyContractor};
+use std::path::PathBuf;
 
 #[derive(Parser)]
 #[command(version, about = "CPSC 370 Contract Net contractor")]
@@ -20,6 +21,15 @@ struct Args {
     /// Suppress calibration and connection logs.
     #[arg(long)]
     quiet: bool,
+    /// File containing learned execution and delivery observations.
+    #[arg(long, conflicts_with = "no_state")]
+    state: Option<PathBuf>,
+    /// Keep learned observations only for this process.
+    #[arg(long)]
+    no_state: bool,
+    /// Disable the read-only public auction feed.
+    #[arg(long)]
+    no_market_feed: bool,
 }
 
 fn main() -> Result<()> {
@@ -27,6 +37,15 @@ fn main() -> Result<()> {
     let mut config = ClientConfig::new(args.name, args.url);
     config.token = args.token;
     config.verbose = !args.quiet;
+    if !args.no_state {
+        config.state_path =
+            Some(args.state.unwrap_or_else(|| {
+                contractnet::bidder::default_state_path(&config.url, &config.name)
+            }));
+    }
+    if !args.no_market_feed {
+        config.market_url = contractnet::market::spectator_url(&config.url);
+    }
     if let Some(machine) = args.machine {
         config.machine = machine;
     }

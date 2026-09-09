@@ -32,7 +32,7 @@ pub struct Bid {
     pub est_seconds: f64,
 }
 
-#[derive(Clone, Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(default)]
 pub struct Rules {
     pub award_policy: String,

@@ -1,4 +1,8 @@
 /target/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
 *.log
 !/tests/benchmarks/verify_benchmarks.log
 .env

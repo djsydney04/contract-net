@@ -2,24 +2,30 @@
 use crate::{
     Rules, Settlement, Task,
     benchmark::{Rates, calibrate, overall_score},
+    bidder::{Learning, Observation, task_key},
+    market::{self, Snapshot},
     protocol::{Award, Incoming, InvalidBid, ManagerError, Outgoing, Registration, Rejection},
     strategy::{BidContext, Strategy},
 };
 use anyhow::{Context, Result, bail, ensure};
 use futures_util::{SinkExt, StreamExt};
 use std::{
-    collections::{HashMap, VecDeque},
+    collections::{BTreeMap, VecDeque},
     future::{Future, pending},
     panic::{AssertUnwindSafe, catch_unwind},
+    path::PathBuf,
     sync::Arc,
     time::{Duration, Instant},
 };
 use tokio::{
     net::TcpStream,
+    sync::watch,
     task::JoinHandle,
     time::{interval_at, sleep, timeout},
 };
-use tokio_tungstenite::{MaybeTlsStream, WebSocketStream, connect_async, tungstenite::Message};
+use tokio_tungstenite::{
+    MaybeTlsStream, WebSocketStream, connect_async_with_config, tungstenite::Message,
+};
 
 const APP_PING_INTERVAL: Duration = Duration::from_secs(20);
 const IO_TIMEOUT: Duration = Duration::from_secs(15);
@@ -33,6 +39,8 @@ pub struct ClientConfig {
     pub machine: String,
     pub auto_calibrate: bool,
     pub verbose: bool,
+    pub state_path: Option<PathBuf>,
+    pub market_url: Option<String>,
 }
 
 impl ClientConfig {
@@ -44,6 +52,8 @@ impl ClientConfig {
             machine: format!("{} {}", std::env::consts::OS, std::env::consts::ARCH),
             auto_calibrate: true,
             verbose: true,
+            state_path: None,
+            market_url: None,
         }
     }
 
@@ -75,8 +85,13 @@ enum Stage {
 
 struct Commitment {
     task: Task,
+    bid: crate::Bid,
+    market_score: Option<f64>,
+    baseline_seconds: f64,
     compute_seconds: f64,
+    awarded: Option<Instant>,
     started: Option<Instant>,
+    local_seconds: Option<f64>,
     stage: Stage,
 }
 
@@ -96,11 +111,15 @@ pub struct Contractor<S: Strategy> {
     pub rules: Rules,
     pub rates: Rates,
     pub history: Vec<Settlement>,
+    pub learning: Learning,
     strategy: Arc<S>,
-    commitments: HashMap<u64, Commitment>,
+    commitments: BTreeMap<u64, Commitment>,
     queue: VecDeque<u64>,
     active: Option<JoinHandle<WorkDone>>,
     outbox: VecDeque<Outgoing>,
+    market_feed: Option<watch::Receiver<Option<Snapshot>>>,
+    market: Option<(Snapshot, Instant)>,
+    learning_dirty: bool,
 }
 
 impl<S: Strategy> Contractor<S> {
@@ -110,11 +129,15 @@ impl<S: Strategy> Contractor<S> {
             rules: Rules::default(),
             rates: Rates::new(),
             history: Vec::new(),
+            learning: Learning::default(),
             strategy: Arc::new(strategy),
-            commitments: HashMap::new(),
+            commitments: BTreeMap::new(),
             queue: VecDeque::new(),
             active: None,
             outbox: VecDeque::new(),
+            market_feed: None,
+            market: None,
+            learning_dirty: false,
         }
     }
 
@@ -140,12 +163,32 @@ impl<S: Strategy> Contractor<S> {
             rates: &self.rates,
             history: &self.history,
             queue_seconds: self.queue_seconds(),
+            learning: &self.learning,
+            market: self
+                .market
+                .as_ref()
+                .filter(|(_, received)| received.elapsed() < Duration::from_secs(2))
+                .map(|(snapshot, _)| snapshot),
+            name: &self.config.name,
         }
     }
 
     /// Reconnect until duplicate-name eviction, registration rejection, or caller cancellation.
     pub async fn run(&mut self) -> Result<()> {
         self.config.validate()?;
+        if let Some(path) = self.config.state_path.clone() {
+            match tokio::task::spawn_blocking(move || Learning::load(&path)).await? {
+                Ok(learning) => {
+                    self.log(&format!(
+                        "loaded {} execution observations",
+                        learning.observations.len()
+                    ));
+                    self.learning = learning;
+                }
+                Err(err) => self.log(&format!("could not load bidder state: {err:#}")),
+            }
+        }
+        self.market_feed = self.config.market_url.clone().map(market::subscribe);
         if self.config.auto_calibrate {
             self.log(&format!("calibrating {}…", self.config.machine));
             let verbose = self.config.verbose;
@@ -159,7 +202,10 @@ impl<S: Strategy> Contractor<S> {
         loop {
             let url = self.config.url.clone();
             let connection = self
-                .wait_with_work(timeout(IO_TIMEOUT, connect_async(&url)))
+                .wait_with_work(timeout(
+                    IO_TIMEOUT,
+                    connect_async_with_config(&url, None, true),
+                ))
                 .await;
             match connection {
                 Ok(Ok((socket, _))) => {
@@ -195,6 +241,9 @@ impl<S: Strategy> Contractor<S> {
             tokio::select! {
                 value = &mut future => return value,
                 result = receive_work(&mut self.active) => self.finish_work(result),
+                snapshot = receive_market(&mut self.market_feed) => {
+                    self.market = snapshot.map(|s| (s, Instant::now()));
+                }
             }
         }
     }
@@ -259,6 +308,12 @@ impl<S: Strategy> Contractor<S> {
                     }
                 }
                 result = receive_work(&mut self.active) => self.finish_work(result),
+                snapshot = receive_market(&mut self.market_feed) => {
+                    self.market = snapshot.map(|s| (s, Instant::now()));
+                    if registered {
+                        for response in self.reprice_pending() { send(&mut socket, &response).await?; }
+                    }
+                }
                 _ = ping.tick() => {
                     ensure!(last_pong.elapsed() < APP_PING_INTERVAL * 3, "manager keepalive timed out");
                     timeout(IO_TIMEOUT, socket.send(Message::Text("ping".into()))).await??;
@@ -269,6 +324,17 @@ impl<S: Strategy> Contractor<S> {
                 while let Some(message) = self.outbox.front() {
                     send(&mut socket, message).await?;
                     self.outbox.pop_front();
+                }
+            }
+            if self.learning_dirty {
+                self.learning_dirty = false;
+                if let Some(path) = self.config.state_path.clone() {
+                    let learning = self.learning.clone();
+                    if let Err(err) =
+                        tokio::task::spawn_blocking(move || learning.save(&path)).await?
+                    {
+                        self.log(&format!("could not save bidder state: {err:#}"));
+                    }
                 }
             }
         }
@@ -298,6 +364,7 @@ impl<S: Strategy> Contractor<S> {
                     && c.stage == Stage::Pending
                 {
                     c.stage = Stage::Awarded;
+                    c.awarded = Some(Instant::now());
                     self.queue.push_back(task_id);
                     self.log(&format!("won #{task_id}"));
                     self.start_next();
@@ -324,6 +391,23 @@ impl<S: Strategy> Contractor<S> {
             }
             Incoming::Settled(mut settlement) => {
                 if let Some(c) = self.commitments.remove(&settlement.task_id) {
+                    if matches!(settlement.verdict.as_str(), "correct" | "late")
+                        && let (Some(local), Some(manager), Some(started), Some(awarded)) =
+                            (c.local_seconds, settlement.runtime, c.started, c.awarded)
+                    {
+                        self.learning.record(Observation {
+                            task_key: task_key(&c.task),
+                            task_type: c.task.task_type.clone(),
+                            baseline_seconds: c.baseline_seconds,
+                            local_seconds: local,
+                            queue_seconds: started.saturating_duration_since(awarded).as_secs_f64(),
+                            manager_seconds: manager,
+                            cost_rate: self.rules.cost_rate,
+                            cost: settlement.cost,
+                            profit: settlement.profit,
+                        });
+                        self.learning_dirty = true;
+                    }
                     settlement.task_type = c.task.task_type;
                 }
                 self.queue.retain(|&id| id != settlement.task_id);
@@ -349,6 +433,10 @@ impl<S: Strategy> Contractor<S> {
     }
 
     fn cfp(&mut self, task: Task) -> Option<Outgoing> {
+        self.propose(task, true)
+    }
+
+    fn propose(&mut self, task: Task, announce: bool) -> Option<Outgoing> {
         let id = task.task_id;
         if self
             .commitments
@@ -359,7 +447,11 @@ impl<S: Strategy> Contractor<S> {
         }
         self.commitments.remove(&id); // Replacement bids must not count themselves in the queue.
         let context = self.context();
-        let compute = context.estimate(&task);
+        let baseline = context.estimate(&task);
+        let compute = catch_unwind(AssertUnwindSafe(|| {
+            self.strategy.compute_reserve(&task, &context)
+        }))
+        .unwrap_or(baseline);
         let bid = catch_unwind(AssertUnwindSafe(|| self.strategy.on_cfp(&task, &context)))
             .ok()
             .flatten();
@@ -376,15 +468,31 @@ impl<S: Strategy> Contractor<S> {
             } else {
                 (bid.est_seconds - context.queue_seconds).max(0.0)
             };
+            let market_score = context
+                .market
+                .and_then(|m| m.competing_score(&task, &self.rules, &self.config.name));
             self.commitments.insert(
                 id,
                 Commitment {
                     task,
+                    bid,
+                    market_score,
+                    baseline_seconds: baseline,
                     compute_seconds: duration,
+                    awarded: None,
                     started: None,
+                    local_seconds: None,
                     stage: Stage::Pending,
                 },
             );
+            if announce {
+                self.log(&format!(
+                    "bid #{id}: ${:.4}, deliver {:.4}s ({} learned observations)",
+                    bid.price,
+                    bid.est_seconds,
+                    self.learning.observations.len()
+                ));
+            }
             return Some(Outgoing::Propose {
                 task_id: id,
                 price: bid.price,
@@ -402,6 +510,51 @@ impl<S: Strategy> Contractor<S> {
         {
             self.commitments.remove(&id);
         }
+    }
+
+    fn reprice_pending(&mut self) -> Vec<Outgoing> {
+        let ids: Vec<_> = self
+            .commitments
+            .iter()
+            .filter(|(_, c)| c.stage == Stage::Pending)
+            .map(|(&id, _)| id)
+            .collect();
+        let mut responses = Vec::new();
+        for id in ids {
+            let previous = self.commitments.remove(&id).unwrap();
+            // Ignore snapshots without a valid competing bid for this auction.
+            let market_score = self
+                .context()
+                .market
+                .and_then(|m| m.competing_score(&previous.task, &self.rules, &self.config.name));
+            if market_score.is_none() || market_score == previous.market_score {
+                self.commitments.insert(id, previous);
+                continue;
+            }
+            let proposal = self.propose(previous.task.clone(), false);
+            if let Some(Outgoing::Propose {
+                price, est_seconds, ..
+            }) = proposal
+            {
+                if price != previous.bid.price
+                    || (est_seconds - previous.bid.est_seconds).abs() >= 0.0001
+                {
+                    self.log(&format!(
+                        "revised bid #{id}: ${price:.4}, deliver {est_seconds:.4}s"
+                    ));
+                    responses.push(Outgoing::Propose {
+                        task_id: id,
+                        price,
+                        est_seconds,
+                    });
+                }
+            } else {
+                // REFUSE is not documented as cancelling an existing proposal.
+                // Preserve tracking in case the already-sent bid is awarded.
+                self.commitments.insert(id, previous);
+            }
+        }
+        responses
     }
 
     fn start_next(&mut self) {
@@ -452,6 +605,9 @@ impl<S: Strategy> Contractor<S> {
                     && c.task.attempt == done.attempt
                 {
                     c.stage = Stage::Complete;
+                    if let Outgoing::Inform { runtime, .. } = &done.message {
+                        c.local_seconds = Some(*runtime);
+                    }
                     self.outbox.push_back(done.message);
                 }
             }
@@ -475,6 +631,18 @@ impl<S: Strategy> Contractor<S> {
             );
         }
     }
+}
+
+async fn receive_market(
+    receiver: &mut Option<watch::Receiver<Option<Snapshot>>>,
+) -> Option<Snapshot> {
+    let Some(receiver) = receiver else {
+        return pending().await;
+    };
+    if receiver.changed().await.is_err() {
+        return pending().await;
+    }
+    receiver.borrow_and_update().clone()
 }
 
 async fn receive_work(

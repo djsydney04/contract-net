@@ -11,3 +11,18 @@ seeds beyond 64 bits, power-of-two moduli, and moduli beyond 128 bits.
 
 Run `cargo test --locked` or `cargo run --release --bin verify -- --all --no-log`.
 Do not change expected answers to accommodate implementation changes.
+
+## Public practice data
+
+`practice-market.json` contains a read-only spectator capture of all 25 practice
+tasks and public bids taken during open bidding windows. It is separate from
+the independent answer-key fixtures above. The collector never registered a
+contractor or submitted a bid.
+
+`practice-history.json` preserves 11 complete earlier public auctions transcribed
+from the API trace read during the session, with provenance and timestamps.
+The full temporary snapshot was unavailable after an interruption. Historical
+parameters were absent from the trace, so the backtest reuses a later task's
+inputs only when its ID, type, budget, deadline, and computed answer match the
+older recorded result. These files are snapshots of competitors at particular
+times, not a complete history or a claim about future competition.
