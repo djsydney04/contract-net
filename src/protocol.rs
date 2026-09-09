@@ -1,3 +1,4 @@
+use anyhow::{Context, Result};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
@@ -70,44 +71,75 @@ pub struct Settlement {
 }
 
 #[derive(Debug, Deserialize)]
-#[serde(tag = "type")]
+pub(crate) struct Registration {
+    pub name: String,
+    #[serde(default)]
+    pub rules: Rules,
+    #[serde(default)]
+    pub open_cfps: Vec<Task>,
+}
+
+#[derive(Debug, Deserialize)]
+pub(crate) struct Award {
+    pub task_id: u64,
+}
+
+#[derive(Debug, Deserialize)]
+pub(crate) struct Rejection {
+    pub task_id: u64,
+    pub winner: Option<String>,
+    pub winning_price: Option<f64>,
+}
+
+#[derive(Debug, Deserialize)]
+pub(crate) struct InvalidBid {
+    pub task_id: u64,
+    #[serde(default)]
+    pub reason: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub(crate) struct ManagerError {
+    pub code: String,
+    pub message: String,
+}
+
+#[derive(Debug)]
 pub(crate) enum Incoming {
-    #[serde(rename = "REGISTERED")]
-    Registered {
-        name: String,
-        #[serde(default)]
-        rules: Rules,
-        #[serde(default)]
-        open_cfps: Vec<Task>,
-    },
-    #[serde(rename = "CFP")]
-    Cfp {
-        #[serde(flatten)]
-        task: Task,
-    },
-    #[serde(rename = "ACCEPT_PROPOSAL")]
-    AcceptProposal { task_id: u64 },
-    #[serde(rename = "REJECT_PROPOSAL")]
-    RejectProposal {
-        task_id: u64,
-        winner: Option<String>,
-        winning_price: Option<f64>,
-    },
-    #[serde(rename = "SETTLED")]
-    Settled {
-        #[serde(flatten)]
-        settlement: Settlement,
-    },
-    #[serde(rename = "BID_INVALID")]
-    BidInvalid {
-        task_id: u64,
-        #[serde(default)]
-        reason: String,
-    },
-    #[serde(rename = "ERROR")]
-    Error { code: String, message: String },
-    #[serde(other)]
+    Registered(Registration),
+    Cfp(Task),
+    AcceptProposal(Award),
+    RejectProposal(Rejection),
+    Settled(Settlement),
+    BidInvalid(InvalidBid),
+    Error(ManagerError),
     Unknown,
+}
+
+impl Incoming {
+    pub(crate) fn parse(raw: &str) -> Result<Self> {
+        let value: Value = serde_json::from_str(raw).context("invalid manager JSON")?;
+        let kind = value
+            .get("type")
+            .and_then(Value::as_str)
+            .context("manager message must have a string `type` field")?
+            .to_owned();
+        // Decode each payload directly through serde_json. Serde's internally
+        // tagged enums and flatten buffer numbers in a format that cannot decode
+        // decimal f64 fields with arbitrary_precision enabled. A JSON Value
+        // retains both decimal fields and exact, arbitrarily large task integers.
+        match kind.as_str() {
+            "REGISTERED" => serde_json::from_value(value).map(Self::Registered),
+            "CFP" => serde_json::from_value(value).map(Self::Cfp),
+            "ACCEPT_PROPOSAL" => serde_json::from_value(value).map(Self::AcceptProposal),
+            "REJECT_PROPOSAL" => serde_json::from_value(value).map(Self::RejectProposal),
+            "SETTLED" => serde_json::from_value(value).map(Self::Settled),
+            "BID_INVALID" => serde_json::from_value(value).map(Self::BidInvalid),
+            "ERROR" => serde_json::from_value(value).map(Self::Error),
+            _ => return Ok(Self::Unknown),
+        }
+        .with_context(|| format!("invalid {kind} message"))
+    }
 }
 
 #[derive(Debug, Serialize)]

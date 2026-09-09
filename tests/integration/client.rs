@@ -112,7 +112,7 @@ fn client(
 
 fn cfp(id: u64) -> Value {
     json!({"type":"CFP","task_id":id,"task_type":"monte_carlo_pi","params":{"seed":1,"samples":1000},
-        "budget":100,"deadline_s":30,"attempt":1})
+        "budget":100.25,"deadline_s":30.5,"attempt":1})
 }
 
 async fn send(server: &mut Server, value: Value) {
@@ -168,10 +168,12 @@ async fn full_protocol_keeps_networking_responsive_and_executes_awards_once() {
         (client, result)
     });
     let mut server = accept(&listener).await;
-    send(&mut server, json!({"type":"REGISTERED","name":"Rust_07","rules":{"cost_rate":4,"future_rule":1},"open_cfps":[cfp(1)]})).await;
+    // The live manager sends decimal rules. These must survive the tagged
+    // message decoder even with arbitrary-precision task parameters enabled.
+    send(&mut server, json!({"type":"REGISTERED","name":"Rust_07","rules":{"cost_rate":4.5,"penalty_rate":0.5,"future_rule":1},"open_cfps":[cfp(1)]})).await;
     let bid = read(&mut server).await;
     assert_eq!(bid["type"], "PROPOSE");
-    assert_eq!(bid["price"], 2.0);
+    assert_eq!(bid["price"], 2.25);
     assert_eq!(bid["est_seconds"], 1.0);
     send(&mut server, json!({"type":"ACCEPT_PROPOSAL","task_id":1})).await;
     send(&mut server, json!({"type":"ACCEPT_PROPOSAL","task_id":1})).await;
@@ -187,7 +189,7 @@ async fn full_protocol_keeps_networking_responsive_and_executes_awards_once() {
     assert!(bid["est_seconds"].as_f64().unwrap() <= 2.0);
     send(
         &mut server,
-        json!({"type":"REJECT_PROPOSAL","task_id":2,"winner":"Other","winning_price":1}),
+        json!({"type":"REJECT_PROPOSAL","task_id":2,"winner":"Other","winning_price":1.25}),
     )
     .await;
     send(&mut server, cfp(4)).await;
@@ -208,8 +210,8 @@ async fn full_protocol_keeps_networking_responsive_and_executes_awards_once() {
     assert!(result["runtime"].as_f64().unwrap() >= 0.0);
     send(
         &mut server,
-        json!({"type":"SETTLED","task_id":1,"verdict":"correct","revenue":2,"cost":1,
-        "penalty":0,"profit":1,"runtime":null,"est_seconds":null}),
+        json!({"type":"SETTLED","task_id":1,"verdict":"correct","revenue":2.25,"cost":1.125,
+        "penalty":0.125,"profit":1,"runtime":null,"est_seconds":null}),
     )
     .await;
     send(&mut server, cfp(3)).await;
@@ -225,8 +227,8 @@ async fn full_protocol_keeps_networking_responsive_and_executes_awards_once() {
     );
     send(
         &mut server,
-        json!({"type":"SETTLED","task_id":3,"verdict":"failure","revenue":0,"cost":1,
-        "penalty":2,"profit":-3}),
+        json!({"type":"SETTLED","task_id":3,"verdict":"failure","revenue":0,"cost":1.25,
+        "penalty":1.75,"profit":-3,"runtime":0.125,"est_seconds":1.5}),
     )
     .await;
     evict(&mut server).await;
@@ -235,6 +237,11 @@ async fn full_protocol_keeps_networking_responsive_and_executes_awards_once() {
     assert_eq!(client.profit(), -2.0);
     assert_eq!(client.history.len(), 2);
     assert_eq!(client.history[0].task_type, "monte_carlo_pi");
+    assert_eq!(client.rules.penalty_rate, 0.5);
+    assert_eq!(client.history[0].cost, 1.125);
+    assert_eq!(client.history[0].runtime, None);
+    assert_eq!(client.history[1].runtime, Some(0.125));
+    assert_eq!(client.history[1].est_seconds, Some(1.5));
     assert_eq!(client.queue_seconds(), 0.0);
     assert_eq!(*observations.executions.lock().unwrap(), vec![1, 3]);
     assert_eq!(observations.rejected.load(Ordering::SeqCst), 1);
