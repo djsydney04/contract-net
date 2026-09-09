@@ -32,6 +32,15 @@ uses measured native compute times and explicit 30/50/100 ms delivery-cost
 scenarios, holds competitors fixed, and learns only after simulated wins.
 The report also measures p50/p95/p99 decision latency with 512 observations.
 
+The **Before: 71ed371** line executes the archived pre-optimization Rust bidder
+verbatim from `tests/fixtures/bidder-before-optimization.rs`, with its source
+hash checked before replay. **After: optimized** executes the current bidder.
+Both policies receive the same saved calibration and compute samples, so this
+isolates the bidding-policy change. It does not remeasure an entire historical
+process or compare Python and Rust performance. `bid-price-comparison` plots
+both bid prices and a separate detail view of the old policy's cost coverage.
+The JSON reports include baseline revision and source-hash provenance.
+
 Three additional figures inspect the delivery assumption: `delivery-overhead`
 shows each archived timing residual and the bidder's allowance before that
 auction; `delivery-distribution` shows individual task groups and the empirical

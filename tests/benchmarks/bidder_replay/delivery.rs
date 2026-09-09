@@ -1,5 +1,5 @@
 //! Inspect archived timing residuals and replay their variation without lookahead.
-use super::{Measurements, Scenario, graphs, historical::Cases, replay, replay_delays};
+use super::{Measurements, Scenario, comparison, graphs, historical::Cases, replay, replay_delays};
 use anyhow::Result;
 use plotters::prelude::*;
 use sha2::{Digest, Sha256};
@@ -25,6 +25,7 @@ pub(super) fn report(output: &Path, data: &Measurements, cases: &Cases) -> Resul
     let p99 = percentile(&sorted, 99);
     overhead(output, cases, &variable)?;
     distribution(output, cases, &sorted)?;
+    comparison::render(output, &variable)?;
 
     let mut hashes = BTreeMap::new();
     for path in [
@@ -36,6 +37,8 @@ pub(super) fn report(output: &Path, data: &Measurements, cases: &Cases) -> Resul
         "tests/benchmarks/bidder_replay/historical.rs",
         "tests/benchmarks/bidder_replay/delivery.rs",
         "tests/benchmarks/bidder_replay/graphs.rs",
+        "tests/benchmarks/bidder_replay/comparison.rs",
+        "tests/fixtures/bidder-before-optimization.rs",
     ] {
         hashes.insert(path, format!("{:x}", Sha256::digest(fs::read(path)?)));
     }
@@ -43,6 +46,7 @@ pub(super) fn report(output: &Path, data: &Measurements, cases: &Cases) -> Resul
         output.join("delivery-replay.json"),
         serde_json::to_string_pretty(&serde_json::json!({
             "version": 1,
+            "policies": comparison::provenance(),
             "method": "Same archived residual per auction for both bidders; chronological, empty initial learning, learn after simulated wins only.",
             "limitations": "Residuals belong to archived competitors, not this client. Manager runtime is rounded to 10 ms; residual includes unseparated queue/processing. Small reconstructed subset and fixed competition.",
             "measurement_source_commit": data.source_commit,
@@ -195,7 +199,7 @@ fn overhead(output: &Path, cases: &Cases, scenario: &Scenario) -> Result<()> {
                     .collect::<Vec<_>>(),
             ),
             (
-                "Prior learned allowance",
+                "After: learned allowance",
                 BLUE,
                 scenario
                     .outcomes
@@ -208,6 +212,11 @@ fn overhead(output: &Path, cases: &Cases, scenario: &Scenario) -> Result<()> {
                 GRAY,
                 vec![(0.5, 50.0), (cases.delivery.len() as f64 + 0.5, 50.0)],
             ),
+            (
+                "Before: no delivery allowance",
+                RGBColor(180, 83, 9),
+                vec![(0.5, 0.0), (cases.delivery.len() as f64 + 0.5, 0.0)],
+            ),
         ] {
             chart
                 .draw_series(LineSeries::new(points.clone(), color.stroke_width(3)))?
@@ -215,7 +224,7 @@ fn overhead(output: &Path, cases: &Cases, scenario: &Scenario) -> Result<()> {
                 .legend(move |(x, y)| {
                     PathElement::new([(x, y), (x + 25, y)], color.stroke_width(3))
                 });
-            if color != GRAY {
+            if color == TEAL || color == BLUE {
                 chart.draw_series(points.iter().map(|&p| Circle::new(p, 5, color.filled())))?;
             }
         }

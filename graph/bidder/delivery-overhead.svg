@@ -292,19 +292,24 @@ Historical auction in chronological order (task ID)
 <circle cx="1427" cy="220" r="5" opacity="1" fill="#2563EB" stroke="none" stroke-width="1"/>
 <circle cx="1565" cy="220" r="5" opacity="1" fill="#2563EB" stroke="none" stroke-width="1"/>
 <polyline fill="none" opacity="1" stroke="#64748B" stroke-width="3" points="120,336 1634,336 "/>
-<rect x="1392" y="495" width="238" height="80" opacity="0.95" fill="#FFFFFF" stroke="none"/>
-<text x="1432" y="505" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="14.516129032258064" opacity="1" fill="#000000">
+<polyline fill="none" opacity="1" stroke="#B45309" stroke-width="3" points="120,579 1634,579 "/>
+<rect x="1342" y="472" width="288" height="103" opacity="0.95" fill="#FFFFFF" stroke="none"/>
+<text x="1382" y="482" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="14.516129032258064" opacity="1" fill="#000000">
 Archived residual
 </text>
-<text x="1432" y="528" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="14.516129032258064" opacity="1" fill="#000000">
-Prior learned allowance
+<text x="1382" y="505" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="14.516129032258064" opacity="1" fill="#000000">
+After: learned allowance
 </text>
-<text x="1432" y="550" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="14.516129032258064" opacity="1" fill="#000000">
+<text x="1382" y="527" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="14.516129032258064" opacity="1" fill="#000000">
 Fixed 50 ms assumption
 </text>
-<polyline fill="none" opacity="1" stroke="#0F766E" stroke-width="3" points="1402,512 1427,512 "/>
-<polyline fill="none" opacity="1" stroke="#2563EB" stroke-width="3" points="1402,535 1427,535 "/>
-<polyline fill="none" opacity="1" stroke="#64748B" stroke-width="3" points="1402,557 1427,557 "/>
+<text x="1382" y="550" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="14.516129032258064" opacity="1" fill="#000000">
+Before: no delivery allowance
+</text>
+<polyline fill="none" opacity="1" stroke="#0F766E" stroke-width="3" points="1352,489 1377,489 "/>
+<polyline fill="none" opacity="1" stroke="#2563EB" stroke-width="3" points="1352,512 1377,512 "/>
+<polyline fill="none" opacity="1" stroke="#64748B" stroke-width="3" points="1352,534 1377,534 "/>
+<polyline fill="none" opacity="1" stroke="#B45309" stroke-width="3" points="1352,557 1377,557 "/>
 <text x="35" y="700" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="14.516129032258064" opacity="1" fill="#192531">
 Residual = manager time minus reported compute; may include queue/processing. Manager time rounded to 10 ms.
 </text>

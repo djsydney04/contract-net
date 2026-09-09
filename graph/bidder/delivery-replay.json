@@ -4,10 +4,12 @@
     "src/bidder.rs": "aacadc3b411eae20bf3af5b588452b291f57b1f15358175d4e237494ff433c58",
     "src/market.rs": "1883b4a5ae6355623b92eef7f08508f35ec133b0691037460a0040835841921a",
     "src/strategy.rs": "717ca0df729a205767f321f517d1edf0d8647fca4f92947bd04709bc50b88131",
-    "tests/benchmarks/bidder_replay/delivery.rs": "4d55d7c2fa896b3d4f61f6617bbd1b57f75b2aedb7f2e0b1362f6cf3a8adb87b",
-    "tests/benchmarks/bidder_replay/graphs.rs": "1c8ac88e04921701199c77866bf568379bb6214db1cb32bc22c7f4f042b1eea8",
+    "tests/benchmarks/bidder_replay/comparison.rs": "676eb0c296e2177358301f8d3de9fc9cc8a1636b2f54f5d5d0878e646130fba9",
+    "tests/benchmarks/bidder_replay/delivery.rs": "4d192d3dde1e396dce888fc3df62bc7682f765d913c0a876d05820cc0a52131c",
+    "tests/benchmarks/bidder_replay/graphs.rs": "1b387e43615dcae8465d31457161f71fefd48510559d996c53e60564b11e58fd",
     "tests/benchmarks/bidder_replay/historical.rs": "45184614673d69e1664690ed8e6a57269ece1154da2711fdd88a6a694ba43753",
-    "tests/benchmarks/bidder_replay/main.rs": "af59bd38020cbb50e4766d056daefe55c244f16ddf1a6fa9ee86e6f521fc0d64"
+    "tests/benchmarks/bidder_replay/main.rs": "b8a22e7f3be5c4e731ab5daedf446b547052e101088b0155c7aae16d1be180bf",
+    "tests/fixtures/bidder-before-optimization.rs": "39aa0b427d0bdbecdbde94bc73236d0b135759ec34fe454918e43617249e95da"
   },
   "empirical_residual_ms": {
     "max": 68.89999999999974,
@@ -26,6 +28,7 @@
     "outcomes": [
       {
         "auction": 1,
+        "cost_if_awarded": 0.050307500000000005,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.0,
         "new_cumulative": 0.2647925,
@@ -39,6 +42,7 @@
       },
       {
         "auction": 2,
+        "cost_if_awarded": 0.051612750000000006,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.0,
         "new_cumulative": 0.8255797500000001,
@@ -52,6 +56,7 @@
       },
       {
         "auction": 3,
+        "cost_if_awarded": 0.11400179199999999,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.0,
         "new_cumulative": 5.489477958,
@@ -65,6 +70,7 @@
       },
       {
         "auction": 4,
+        "cost_if_awarded": 0.17772379100000002,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.0,
         "new_cumulative": 13.318354167,
@@ -78,6 +84,7 @@
       },
       {
         "auction": 5,
+        "cost_if_awarded": 0.050228,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.000000000000014,
         "new_cumulative": 13.580926167000001,
@@ -91,6 +98,7 @@
       },
       {
         "auction": 6,
+        "cost_if_awarded": 0.102187167,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.000000000000014,
         "new_cumulative": 17.300739,
@@ -104,6 +112,7 @@
       },
       {
         "auction": 7,
+        "cost_if_awarded": 0.114786667,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.000000000000014,
         "new_cumulative": 23.399052333,
@@ -117,6 +126,7 @@
       },
       {
         "auction": 8,
+        "cost_if_awarded": 0.11875000000000001,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.000000000000014,
         "new_cumulative": 29.807102333,
@@ -130,6 +140,7 @@
       },
       {
         "auction": 9,
+        "cost_if_awarded": 0.07651408300000001,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.000000000000014,
         "new_cumulative": 32.15118825,
@@ -143,6 +154,7 @@
       },
       {
         "auction": 10,
+        "cost_if_awarded": 0.050280250000000005,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.000000000000014,
         "new_cumulative": 32.31270799999999,
@@ -156,6 +168,7 @@
       },
       {
         "auction": 11,
+        "cost_if_awarded": 0.111328125,
         "delivery_ms": 50.0,
         "forecast_delivery_ms": 55.000000000000014,
         "new_cumulative": 36.670179874999995,
@@ -175,6 +188,21 @@
   "method": "Same archived residual per auction for both bidders; chronological, empty initial learning, learn after simulated wins only.",
   "parsed_delivery_records_sha256": "cc2b929c2f0b23a99ea05fb719f2310ed470d0b896db21f65a6a00923c7a0b3d",
   "parsed_measurements_sha256": "a777491e835a658fb435835ff2a0ee2ec46f52623e505e8c50128dd15ba3d544",
+  "policies": {
+    "after": {
+      "implementation": "src/strategy.rs",
+      "learning_source_sha256": "aacadc3b411eae20bf3af5b588452b291f57b1f15358175d4e237494ff433c58",
+      "strategy_source_sha256": "717ca0df729a205767f321f517d1edf0d8647fca4f92947bd04709bc50b88131"
+    },
+    "before": {
+      "commit": "71ed37123263ce0dc859cbf3b870e3087843a0d5",
+      "execution": "Archived MyContractor::on_cfp, compiled verbatim with a context adapter",
+      "fixture": "tests/fixtures/bidder-before-optimization.rs",
+      "original_path": "src/strategy.rs",
+      "source_sha256": "39aa0b427d0bdbecdbde94bc73236d0b135759ec34fe454918e43617249e95da"
+    },
+    "controls": "Same saved calibration, task compute samples, queue, competitors and realized delivery delays for both policies; compares policy behavior, not historical process performance."
+  },
   "records": [
     {
       "agent": "Auctioneers",
@@ -285,6 +313,7 @@
     "outcomes": [
       {
         "auction": 1,
+        "cost_if_awarded": 0.046907500000000005,
         "delivery_ms": 46.6,
         "forecast_delivery_ms": 55.0,
         "new_cumulative": 0.2681925,
@@ -298,6 +327,7 @@
       },
       {
         "auction": 2,
+        "cost_if_awarded": 0.04401275000000001,
         "delivery_ms": 42.400000000000006,
         "forecast_delivery_ms": 51.6,
         "new_cumulative": 0.84337975,
@@ -311,6 +341,7 @@
       },
       {
         "auction": 3,
+        "cost_if_awarded": 0.1192017919999999,
         "delivery_ms": 55.19999999999992,
         "forecast_delivery_ms": 51.6,
         "new_cumulative": 5.508877957999999,
@@ -324,6 +355,7 @@
       },
       {
         "auction": 4,
+        "cost_if_awarded": 0.19662379099999974,
         "delivery_ms": 68.89999999999974,
         "forecast_delivery_ms": 60.19999999999991,
         "new_cumulative": 13.318854167000001,
@@ -337,6 +369,7 @@
       },
       {
         "auction": 5,
+        "cost_if_awarded": 0.055527999999999994,
         "delivery_ms": 55.3,
         "forecast_delivery_ms": 73.89999999999975,
         "new_cumulative": 13.538326167000001,
@@ -350,6 +383,7 @@
       },
       {
         "auction": 6,
+        "cost_if_awarded": 0.10698716699999997,
         "delivery_ms": 54.79999999999996,
         "forecast_delivery_ms": 73.89999999999975,
         "new_cumulative": 17.253339,
@@ -363,6 +397,7 @@
       },
       {
         "auction": 7,
+        "cost_if_awarded": 0.12128666700000021,
         "delivery_ms": 56.50000000000021,
         "forecast_delivery_ms": 73.89999999999975,
         "new_cumulative": 23.345152333,
@@ -376,6 +411,7 @@
       },
       {
         "auction": 8,
+        "cost_if_awarded": 0.12554999999999997,
         "delivery_ms": 56.79999999999996,
         "forecast_delivery_ms": 73.89999999999975,
         "new_cumulative": 29.746402333000002,
@@ -389,6 +425,7 @@
       },
       {
         "auction": 9,
+        "cost_if_awarded": 0.08061408299999992,
         "delivery_ms": 54.09999999999992,
         "forecast_delivery_ms": 73.89999999999975,
         "new_cumulative": 32.08638825,
@@ -402,6 +439,7 @@
       },
       {
         "auction": 10,
+        "cost_if_awarded": 0.06748025,
         "delivery_ms": 67.2,
         "forecast_delivery_ms": 73.89999999999975,
         "new_cumulative": 32.192907999999996,
@@ -415,6 +453,7 @@
       },
       {
         "auction": 11,
+        "cost_if_awarded": 0.123828125,
         "delivery_ms": 62.5,
         "forecast_delivery_ms": 73.89999999999975,
         "new_cumulative": 36.53457987499999,

@@ -24,6 +24,33 @@ late delivery is modeled with `late_credit` revenue and a budget-proportional
 | 50 ms | 5.1088 | 341.9408 | 75 / 75 | 42 / 0 |
 | 100 ms | 1.3588 | 336.1498 | 75 / 75 | 57 / 0 |
 
+## Before and after bidder optimization
+
+**Before** executes the actual Rust `MyContractor::on_cfp` from
+[`71ed371`](https://github.com/djsydney04/contract-net/blob/71ed37123263ce0dc859cbf3b870e3087843a0d5/src/strategy.rs),
+the revision immediately before the bidder optimizations. Its complete strategy
+source is frozen verbatim in
+[`bidder-before-optimization.rs`](../../tests/fixtures/bidder-before-optimization.rs),
+compiled into the replay tool, and checked against its pinned SHA-256 on every
+run. It quotes `compute_seconds * cost_rate * 1.6`, includes queue time in its
+completion estimate, and makes no allowance for delivery overhead.
+
+**After** executes the current optimized Rust bidder with settlement learning,
+delivery and compute reserves, and competition-aware pricing. Both receive
+identical saved calibration, workloads, competitor bids, and per-auction delays.
+This isolates bidding policy; it is not a comparison of the entire historical
+application, old calibration noise, or Python versus Rust execution speed.
+Old/new report columns mean these before/after policies throughout.
+
+![Before and after bid prices, with the old model's cost coverage shown in detail](bid-price-comparison.svg)
+
+The left panel compares both policies on the same price scale. The right panel
+uses a separate, explicitly labeled detail scale to show the old bid against
+the modeled cost of executing that auction. A bid below the cost line loses
+money if awarded. Points represent submitted quotes; a refusal has no point.
+Costs remain counterfactual and use the archived delivery residual as a proxy,
+as described below. Policy revision metadata accompanies both replay JSON files.
+
 ## Backtest on earlier history
 
 ![Backtest against earlier public bids](historical-profit.svg)

@@ -1,19 +1,26 @@
 use anyhow::{Context, Result, ensure};
 use clap::Parser;
 use contractnet::{
-    Bid, BidContext, MyContractor, Strategy, Task,
-    benchmark::{Rates, calibrate},
+    Bid, BidContext, MyContractor, Rules, Settlement, Strategy, Task,
+    benchmark::{self, Rates, calibrate},
     bidder::{Learning, Observation, task_key},
     market::{Snapshot, score},
+    tasks,
 };
 use serde::{Deserialize, Serialize};
 use std::{
     collections::BTreeMap, fmt::Write as _, fs, hint::black_box, path::PathBuf, time::Instant,
 };
 
+mod comparison;
 mod delivery;
 mod graphs;
 mod historical;
+// Preserve the historical source verbatim, including its crate-relative imports.
+#[rustfmt::skip]
+#[allow(dead_code)]
+#[path = "../../fixtures/bidder-before-optimization.rs"]
+mod pre_optimization;
 #[path = "../runner/statistics.rs"]
 mod statistics;
 
@@ -71,6 +78,7 @@ struct Outcome {
     task_type: String,
     delivery_ms: f64,
     forecast_delivery_ms: f64,
+    cost_if_awarded: f64,
     old_price: Option<f64>,
     new_price: Option<f64>,
     old_profit: f64,
@@ -102,12 +110,13 @@ fn context<'a>(task: &'a MeasuredTask, rates: &'a Rates, learning: &'a Learning)
 }
 
 fn baseline(task: &Task, context: &BidContext<'_>) -> Option<Bid> {
-    let seconds = context.estimate(task);
-    let price = seconds * context.rules.cost_rate * 1.6;
-    (seconds.is_finite() && seconds <= task.deadline_s && price <= task.budget).then_some(Bid {
-        price,
-        est_seconds: seconds,
-    })
+    let archived_context = pre_optimization::BidContext {
+        rules: context.rules,
+        rates: context.rates,
+        history: context.history,
+        queue_seconds: context.queue_seconds,
+    };
+    pre_optimization::Strategy::on_cfp(&pre_optimization::MyContractor, task, &archived_context)
 }
 
 fn measure(args: &Args) -> Result<Measurements> {
@@ -315,6 +324,7 @@ fn replay_delays(
                 task_type: m.task.task_type.clone(),
                 delivery_ms: *delay,
                 forecast_delivery_ms,
+                cost_if_awarded: (local + network) * m.market.config.cost_rate,
                 old_price: old.map(|b| b.price),
                 new_price: new.map(|b| b.price),
                 old_profit,
@@ -329,6 +339,7 @@ fn replay_delays(
 
 fn main() -> Result<()> {
     let args = Args::parse();
+    comparison::verify_archive()?;
     let data: Measurements = if args.render_only {
         serde_json::from_slice(&fs::read(&args.data)?)?
     } else {
@@ -357,7 +368,7 @@ fn main() -> Result<()> {
     fs::write(
         args.output.join("replay.json"),
         serde_json::to_string_pretty(
-            &serde_json::json!({"historical":historical_scenarios,"recent_capture":scenarios}),
+            &serde_json::json!({"policies":comparison::provenance(),"historical":historical_scenarios,"recent_capture":scenarios}),
         )? + "\n",
     )?;
     graphs::render(
@@ -400,6 +411,7 @@ fn main() -> Result<()> {
             s.new_losses
         );
     }
+    doc.push_str(comparison::DESCRIPTION);
     writeln!(
         doc,
         "\n## Backtest on earlier history\n\n![Backtest against earlier public bids](historical-profit.svg)\n\n{} complete older auctions were recovered from the earlier API trace. The\narchived subset preserves proposals, awards, results, and original timestamps.\nBecause historical task parameters were not included in that trace, the replay\njoins the later frozen task pool only when ID, type, budget, deadline, and the\nold recorded result all match. Unmatched records are excluded. The fixture\ndocuments this reconstruction; this is not a full historical tournament.\nEach historical auction is replayed once, in chronological order, starting\nwith empty learning. No later outcome is used for an earlier decision.\n\n| Added delivery time | Old profit | New profit | Old/new wins | Old/new losing contracts |\n|---|---:|---:|---:|---:|",

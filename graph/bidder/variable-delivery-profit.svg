@@ -233,12 +233,12 @@ Auction in replay
 <polyline fill="none" opacity="1" stroke="#000000" stroke-width="1" points="754,505 754,510 "/>
 <polyline fill="none" opacity="1" stroke="#64748B" stroke-width="2" points="113,504 177,504 241,504 305,504 369,503 433,504 498,503 562,503 626,503 690,504 754,504 819,504 "/>
 <polyline fill="none" opacity="1" stroke="#0F766E" stroke-width="3" points="113,504 177,501 241,497 305,458 369,394 433,391 498,361 562,310 626,257 690,238 754,237 819,201 "/>
-<rect x="118" y="169" width="166" height="55" opacity="0.9" fill="#FFFFFF" stroke="none"/>
+<rect x="118" y="169" width="174" height="55" opacity="0.9" fill="#FFFFFF" stroke="none"/>
 <text x="158" y="179" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="13.709677419354838" opacity="1" fill="#000000">
-Previous bidder
+Before: 71ed371
 </text>
 <text x="158" y="200" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="13.709677419354838" opacity="1" fill="#000000">
-Adaptive bidder
+After: optimized
 </text>
 <polyline fill="none" opacity="1" stroke="#64748B" stroke-width="2" points="128,186 153,186 "/>
 <polyline fill="none" opacity="1" stroke="#0F766E" stroke-width="3" points="128,207 153,207 "/>
@@ -468,12 +468,12 @@ Auction in replay
 <polyline fill="none" opacity="1" stroke="#000000" stroke-width="1" points="1569,505 1569,510 "/>
 <polyline fill="none" opacity="1" stroke="#64748B" stroke-width="2" points="928,503 992,504 1056,504 1120,504 1184,503 1248,504 1313,503 1377,503 1441,504 1505,504 1569,504 1634,504 "/>
 <polyline fill="none" opacity="1" stroke="#0F766E" stroke-width="3" points="928,503 992,501 1056,496 1120,458 1184,393 1248,391 1313,360 1377,310 1441,257 1505,238 1569,237 1634,201 "/>
-<rect x="933" y="169" width="166" height="55" opacity="0.9" fill="#FFFFFF" stroke="none"/>
+<rect x="933" y="169" width="174" height="55" opacity="0.9" fill="#FFFFFF" stroke="none"/>
 <text x="973" y="179" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="13.709677419354838" opacity="1" fill="#000000">
-Previous bidder
+Before: 71ed371
 </text>
 <text x="973" y="200" dy="0.76em" text-anchor="start" font-family="sans-serif" font-size="13.709677419354838" opacity="1" fill="#000000">
-Adaptive bidder
+After: optimized
 </text>
 <polyline fill="none" opacity="1" stroke="#64748B" stroke-width="2" points="943,186 968,186 "/>
 <polyline fill="none" opacity="1" stroke="#0F766E" stroke-width="3" points="943,207 968,207 "/>

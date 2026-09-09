@@ -1,4 +1,4 @@
-use super::Scenario;
+use super::{Scenario, comparison};
 use anyhow::{Context, Result};
 use plotters::prelude::*;
 use std::{fs, path::Path};
@@ -72,7 +72,7 @@ pub(super) fn render(
                     ),
                     old.stroke_width(2),
                 ))?
-                .label("Previous bidder")
+                .label(comparison::BEFORE_LABEL)
                 .legend(move |(x, y)| PathElement::new([(x, y), (x + 25, y)], old.stroke_width(2)));
             chart
                 .draw_series(LineSeries::new(
@@ -84,7 +84,7 @@ pub(super) fn render(
                     ),
                     new.stroke_width(3),
                 ))?
-                .label("Adaptive bidder")
+                .label(comparison::AFTER_LABEL)
                 .legend(move |(x, y)| PathElement::new([(x, y), (x + 25, y)], new.stroke_width(3)));
             chart
                 .configure_series_labels()

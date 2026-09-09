@@ -12,6 +12,18 @@ seeds beyond 64 bits, power-of-two moduli, and moduli beyond 128 bits.
 Run `cargo test --locked` or `cargo run --release --bin verify -- --all --no-log`.
 Do not change expected answers to accommodate implementation changes.
 
+## Pre-optimization bidder
+
+`bidder-before-optimization.rs` is the exact `src/strategy.rs` from commit
+`71ed37123263ce0dc859cbf3b870e3087843a0d5`, immediately before the adaptive bidder
+was introduced. Its SHA-256 is
+`39aa0b427d0bdbecdbde94bc73236d0b135759ec34fe454918e43617249e95da`.
+The replay compiles this source directly and supplies its original context
+fields through an adapter. Do not update this fixture to follow the current
+policy: it is the frozen before-optimization comparison, with a hash check
+protecting its provenance. Saved calibration, workloads, and imposed delivery
+delays are shared between the two policies.
+
 ## Public practice data
 
 `practice-market.json` contains a read-only spectator capture of all 25 practice

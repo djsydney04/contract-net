@@ -9,6 +9,7 @@
       "outcomes": [
         {
           "auction": 1,
+          "cost_if_awarded": 0.030307499999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 0.2847925,
@@ -22,6 +23,7 @@
         },
         {
           "auction": 2,
+          "cost_if_awarded": 0.03161275,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 34.99999999999999,
           "new_cumulative": 0.90557975,
@@ -35,6 +37,7 @@
         },
         {
           "auction": 3,
+          "cost_if_awarded": 0.09400179199999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 5.629477958,
@@ -48,6 +51,7 @@
         },
         {
           "auction": 4,
+          "cost_if_awarded": 0.157723791,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 13.478354166999999,
@@ -61,6 +65,7 @@
         },
         {
           "auction": 5,
+          "cost_if_awarded": 0.030227999999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 13.800926166999998,
@@ -74,6 +79,7 @@
         },
         {
           "auction": 6,
+          "cost_if_awarded": 0.082187167,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 17.540739,
@@ -87,6 +93,7 @@
         },
         {
           "auction": 7,
+          "cost_if_awarded": 0.09478666699999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 23.659052332999998,
@@ -100,6 +107,7 @@
         },
         {
           "auction": 8,
+          "cost_if_awarded": 0.09875,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 30.087102332999997,
@@ -113,6 +121,7 @@
         },
         {
           "auction": 9,
+          "cost_if_awarded": 0.056514083,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 32.451188249999994,
@@ -126,6 +135,7 @@
         },
         {
           "auction": 10,
+          "cost_if_awarded": 0.030280249999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 32.67270799999999,
@@ -139,6 +149,7 @@
         },
         {
           "auction": 11,
+          "cost_if_awarded": 0.091328125,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 37.05017987499999,
@@ -161,6 +172,7 @@
       "outcomes": [
         {
           "auction": 1,
+          "cost_if_awarded": 0.050307500000000005,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 0.2647925,
@@ -174,6 +186,7 @@
         },
         {
           "auction": 2,
+          "cost_if_awarded": 0.051612750000000006,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 0.8255797500000001,
@@ -187,6 +200,7 @@
         },
         {
           "auction": 3,
+          "cost_if_awarded": 0.11400179199999999,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 5.489477958,
@@ -200,6 +214,7 @@
         },
         {
           "auction": 4,
+          "cost_if_awarded": 0.17772379100000002,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 13.318354167,
@@ -213,6 +228,7 @@
         },
         {
           "auction": 5,
+          "cost_if_awarded": 0.050228,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 13.580926167000001,
@@ -226,6 +242,7 @@
         },
         {
           "auction": 6,
+          "cost_if_awarded": 0.102187167,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 17.300739,
@@ -239,6 +256,7 @@
         },
         {
           "auction": 7,
+          "cost_if_awarded": 0.114786667,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 23.399052333,
@@ -252,6 +270,7 @@
         },
         {
           "auction": 8,
+          "cost_if_awarded": 0.11875000000000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 29.807102333,
@@ -265,6 +284,7 @@
         },
         {
           "auction": 9,
+          "cost_if_awarded": 0.07651408300000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 32.15118825,
@@ -278,6 +298,7 @@
         },
         {
           "auction": 10,
+          "cost_if_awarded": 0.050280250000000005,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 32.31270799999999,
@@ -291,6 +312,7 @@
         },
         {
           "auction": 11,
+          "cost_if_awarded": 0.111328125,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 36.670179874999995,
@@ -313,6 +335,7 @@
       "outcomes": [
         {
           "auction": 1,
+          "cost_if_awarded": 0.10030750000000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 0.2147925,
@@ -326,6 +349,7 @@
         },
         {
           "auction": 2,
+          "cost_if_awarded": 0.10161275,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 0.62557975,
@@ -339,6 +363,7 @@
         },
         {
           "auction": 3,
+          "cost_if_awarded": 0.16400179199999998,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 5.1394779580000005,
@@ -352,6 +377,7 @@
         },
         {
           "auction": 4,
+          "cost_if_awarded": 0.227723791,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 12.918354167,
@@ -365,6 +391,7 @@
         },
         {
           "auction": 5,
+          "cost_if_awarded": 0.10022800000000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 13.030926167,
@@ -378,6 +405,7 @@
         },
         {
           "auction": 6,
+          "cost_if_awarded": 0.152187167,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 16.700739,
@@ -391,6 +419,7 @@
         },
         {
           "auction": 7,
+          "cost_if_awarded": 0.164786667,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 22.749052332999998,
@@ -404,6 +433,7 @@
         },
         {
           "auction": 8,
+          "cost_if_awarded": 0.16875,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 29.107102332999997,
@@ -417,6 +447,7 @@
         },
         {
           "auction": 9,
+          "cost_if_awarded": 0.126514083,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 31.401188249999997,
@@ -430,6 +461,7 @@
         },
         {
           "auction": 10,
+          "cost_if_awarded": 0.10028025,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 31.401188249999997,
@@ -443,6 +475,7 @@
         },
         {
           "auction": 11,
+          "cost_if_awarded": 0.161328125,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 35.643160124999994,
@@ -457,6 +490,21 @@
       ]
     }
   ],
+  "policies": {
+    "after": {
+      "implementation": "src/strategy.rs",
+      "learning_source_sha256": "aacadc3b411eae20bf3af5b588452b291f57b1f15358175d4e237494ff433c58",
+      "strategy_source_sha256": "717ca0df729a205767f321f517d1edf0d8647fca4f92947bd04709bc50b88131"
+    },
+    "before": {
+      "commit": "71ed37123263ce0dc859cbf3b870e3087843a0d5",
+      "execution": "Archived MyContractor::on_cfp, compiled verbatim with a context adapter",
+      "fixture": "tests/fixtures/bidder-before-optimization.rs",
+      "original_path": "src/strategy.rs",
+      "source_sha256": "39aa0b427d0bdbecdbde94bc73236d0b135759ec34fe454918e43617249e95da"
+    },
+    "controls": "Same saved calibration, task compute samples, queue, competitors and realized delivery delays for both policies; compares policy behavior, not historical process performance."
+  },
   "recent_capture": [
     {
       "network_ms": 30.0,
@@ -467,6 +515,7 @@
       "outcomes": [
         {
           "auction": 1,
+          "cost_if_awarded": 0.030227999999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 5.379572,
@@ -480,6 +529,7 @@
         },
         {
           "auction": 2,
+          "cost_if_awarded": 0.082187167,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 34.99999999999999,
           "new_cumulative": 9.119384833,
@@ -493,6 +543,7 @@
         },
         {
           "auction": 3,
+          "cost_if_awarded": 0.09478666699999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 15.237698166,
@@ -506,6 +557,7 @@
         },
         {
           "auction": 4,
+          "cost_if_awarded": 0.09875,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 21.665748166,
@@ -519,6 +571,7 @@
         },
         {
           "auction": 5,
+          "cost_if_awarded": 0.056514083,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 24.029834083,
@@ -532,6 +585,7 @@
         },
         {
           "auction": 6,
+          "cost_if_awarded": 0.030280249999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 31.002153833,
@@ -545,6 +599,7 @@
         },
         {
           "auction": 7,
+          "cost_if_awarded": 0.091328125,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 35.379625708,
@@ -558,6 +613,7 @@
         },
         {
           "auction": 8,
+          "cost_if_awarded": 0.239625042,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 37.825200666,
@@ -571,6 +627,7 @@
         },
         {
           "auction": 9,
+          "cost_if_awarded": 0.20920266599999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 40.007198,
@@ -584,6 +641,7 @@
         },
         {
           "auction": 10,
+          "cost_if_awarded": 0.030120959,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 42.586177041,
@@ -597,6 +655,7 @@
         },
         {
           "auction": 11,
+          "cost_if_awarded": 0.030236832999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 48.951240208,
@@ -610,6 +669,7 @@
         },
         {
           "auction": 12,
+          "cost_if_awarded": 0.031074583,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 52.183565625,
@@ -623,6 +683,7 @@
         },
         {
           "auction": 13,
+          "cost_if_awarded": 0.088379125,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 57.8477865,
@@ -636,6 +697,7 @@
         },
         {
           "auction": 14,
+          "cost_if_awarded": 0.2156205,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 60.140966,
@@ -649,6 +711,7 @@
         },
         {
           "auction": 15,
+          "cost_if_awarded": 0.165225209,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 62.317940791,
@@ -662,6 +725,7 @@
         },
         {
           "auction": 16,
+          "cost_if_awarded": 0.08299604199999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 67.546444749,
@@ -675,6 +739,7 @@
         },
         {
           "auction": 17,
+          "cost_if_awarded": 0.12761962500000001,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 68.70262512400001,
@@ -688,6 +753,7 @@
         },
         {
           "auction": 18,
+          "cost_if_awarded": 0.031666291,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.00000000000001,
           "new_cumulative": 75.040958833,
@@ -701,6 +767,7 @@
         },
         {
           "auction": 19,
+          "cost_if_awarded": 0.104486917,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.00000000000001,
           "new_cumulative": 80.84587191600001,
@@ -714,6 +781,7 @@
         },
         {
           "auction": 20,
+          "cost_if_awarded": 0.031014874999999997,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.00000000000001,
           "new_cumulative": 83.852757041,
@@ -727,6 +795,7 @@
         },
         {
           "auction": 21,
+          "cost_if_awarded": 0.031242375,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 88.14331466600001,
@@ -740,6 +809,7 @@
         },
         {
           "auction": 22,
+          "cost_if_awarded": 0.030307499999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 95.886607166,
@@ -753,6 +823,7 @@
         },
         {
           "auction": 23,
+          "cost_if_awarded": 0.03161275,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 101.80359441600001,
@@ -766,6 +837,7 @@
         },
         {
           "auction": 24,
+          "cost_if_awarded": 0.09400179199999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 106.79579262400001,
@@ -779,6 +851,7 @@
         },
         {
           "auction": 25,
+          "cost_if_awarded": 0.157723791,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 114.64466883300001,
@@ -792,6 +865,7 @@
         },
         {
           "auction": 26,
+          "cost_if_awarded": 0.030227999999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 120.06434083300002,
@@ -805,6 +879,7 @@
         },
         {
           "auction": 27,
+          "cost_if_awarded": 0.082187167,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 123.80415366600002,
@@ -818,6 +893,7 @@
         },
         {
           "auction": 28,
+          "cost_if_awarded": 0.09478666699999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 129.92246699900002,
@@ -831,6 +907,7 @@
         },
         {
           "auction": 29,
+          "cost_if_awarded": 0.09875,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 136.35051699900004,
@@ -844,6 +921,7 @@
         },
         {
           "auction": 30,
+          "cost_if_awarded": 0.056514083,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 138.71460291600005,
@@ -857,6 +935,7 @@
         },
         {
           "auction": 31,
+          "cost_if_awarded": 0.030280249999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 145.68692266600004,
@@ -870,6 +949,7 @@
         },
         {
           "auction": 32,
+          "cost_if_awarded": 0.091328125,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 150.06439454100004,
@@ -883,6 +963,7 @@
         },
         {
           "auction": 33,
+          "cost_if_awarded": 0.239625042,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 152.50996949900005,
@@ -896,6 +977,7 @@
         },
         {
           "auction": 34,
+          "cost_if_awarded": 0.20920266599999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 154.69196683300004,
@@ -909,6 +991,7 @@
         },
         {
           "auction": 35,
+          "cost_if_awarded": 0.030120959,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 157.27094587400003,
@@ -922,6 +1005,7 @@
         },
         {
           "auction": 36,
+          "cost_if_awarded": 0.030236832999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 163.63600904100002,
@@ -935,6 +1019,7 @@
         },
         {
           "auction": 37,
+          "cost_if_awarded": 0.031074583,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 166.86833445800002,
@@ -948,6 +1033,7 @@
         },
         {
           "auction": 38,
+          "cost_if_awarded": 0.088379125,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 172.53255533300003,
@@ -961,6 +1047,7 @@
         },
         {
           "auction": 39,
+          "cost_if_awarded": 0.2156205,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 174.82573483300004,
@@ -974,6 +1061,7 @@
         },
         {
           "auction": 40,
+          "cost_if_awarded": 0.165225209,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 177.00270962400003,
@@ -987,6 +1075,7 @@
         },
         {
           "auction": 41,
+          "cost_if_awarded": 0.08299604199999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 182.23121358200004,
@@ -1000,6 +1089,7 @@
         },
         {
           "auction": 42,
+          "cost_if_awarded": 0.12761962500000001,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 183.38739395700003,
@@ -1013,6 +1103,7 @@
         },
         {
           "auction": 43,
+          "cost_if_awarded": 0.031666291,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 189.72572766600004,
@@ -1026,6 +1117,7 @@
         },
         {
           "auction": 44,
+          "cost_if_awarded": 0.104486917,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 195.53064074900004,
@@ -1039,6 +1131,7 @@
         },
         {
           "auction": 45,
+          "cost_if_awarded": 0.031014874999999997,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 198.53752587400004,
@@ -1052,6 +1145,7 @@
         },
         {
           "auction": 46,
+          "cost_if_awarded": 0.031242375,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 202.82808349900003,
@@ -1065,6 +1159,7 @@
         },
         {
           "auction": 47,
+          "cost_if_awarded": 0.030307499999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 210.57137599900003,
@@ -1078,6 +1173,7 @@
         },
         {
           "auction": 48,
+          "cost_if_awarded": 0.03161275,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 216.48836324900003,
@@ -1091,6 +1187,7 @@
         },
         {
           "auction": 49,
+          "cost_if_awarded": 0.09400179199999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 221.48056145700002,
@@ -1104,6 +1201,7 @@
         },
         {
           "auction": 50,
+          "cost_if_awarded": 0.157723791,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 229.32943766600002,
@@ -1117,6 +1215,7 @@
         },
         {
           "auction": 51,
+          "cost_if_awarded": 0.030227999999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 234.749109666,
@@ -1130,6 +1229,7 @@
         },
         {
           "auction": 52,
+          "cost_if_awarded": 0.082187167,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 238.488922499,
@@ -1143,6 +1243,7 @@
         },
         {
           "auction": 53,
+          "cost_if_awarded": 0.09478666699999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 244.60723583200001,
@@ -1156,6 +1257,7 @@
         },
         {
           "auction": 54,
+          "cost_if_awarded": 0.09875,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 251.03528583200003,
@@ -1169,6 +1271,7 @@
         },
         {
           "auction": 55,
+          "cost_if_awarded": 0.056514083,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 253.39937174900004,
@@ -1182,6 +1285,7 @@
         },
         {
           "auction": 56,
+          "cost_if_awarded": 0.030280249999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 260.37169149900006,
@@ -1195,6 +1299,7 @@
         },
         {
           "auction": 57,
+          "cost_if_awarded": 0.091328125,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 264.7491633740001,
@@ -1208,6 +1313,7 @@
         },
         {
           "auction": 58,
+          "cost_if_awarded": 0.239625042,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 267.1947383320001,
@@ -1221,6 +1327,7 @@
         },
         {
           "auction": 59,
+          "cost_if_awarded": 0.20920266599999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 269.3767356660001,
@@ -1234,6 +1341,7 @@
         },
         {
           "auction": 60,
+          "cost_if_awarded": 0.030120959,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 271.95571470700014,
@@ -1247,6 +1355,7 @@
         },
         {
           "auction": 61,
+          "cost_if_awarded": 0.030236832999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 278.32077787400016,
@@ -1260,6 +1369,7 @@
         },
         {
           "auction": 62,
+          "cost_if_awarded": 0.031074583,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 281.5531032910002,
@@ -1273,6 +1383,7 @@
         },
         {
           "auction": 63,
+          "cost_if_awarded": 0.088379125,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 287.2173241660002,
@@ -1286,6 +1397,7 @@
         },
         {
           "auction": 64,
+          "cost_if_awarded": 0.2156205,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 289.5105036660002,
@@ -1299,6 +1411,7 @@
         },
         {
           "auction": 65,
+          "cost_if_awarded": 0.165225209,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 291.6874784570002,
@@ -1312,6 +1425,7 @@
         },
         {
           "auction": 66,
+          "cost_if_awarded": 0.08299604199999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 296.9159824150002,
@@ -1325,6 +1439,7 @@
         },
         {
           "auction": 67,
+          "cost_if_awarded": 0.12761962500000001,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 298.0721627900002,
@@ -1338,6 +1453,7 @@
         },
         {
           "auction": 68,
+          "cost_if_awarded": 0.031666291,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 304.4104964990002,
@@ -1351,6 +1467,7 @@
         },
         {
           "auction": 69,
+          "cost_if_awarded": 0.104486917,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 310.2154095820002,
@@ -1364,6 +1481,7 @@
         },
         {
           "auction": 70,
+          "cost_if_awarded": 0.031014874999999997,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 313.2222947070002,
@@ -1377,6 +1495,7 @@
         },
         {
           "auction": 71,
+          "cost_if_awarded": 0.031242375,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 317.5128523320002,
@@ -1390,6 +1509,7 @@
         },
         {
           "auction": 72,
+          "cost_if_awarded": 0.030307499999999998,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 325.2561448320002,
@@ -1403,6 +1523,7 @@
         },
         {
           "auction": 73,
+          "cost_if_awarded": 0.03161275,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 331.17313208200017,
@@ -1416,6 +1537,7 @@
         },
         {
           "auction": 74,
+          "cost_if_awarded": 0.09400179199999999,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 336.16533029000016,
@@ -1429,6 +1551,7 @@
         },
         {
           "auction": 75,
+          "cost_if_awarded": 0.157723791,
           "delivery_ms": 30.0,
           "forecast_delivery_ms": 35.0,
           "new_cumulative": 344.0142064990002,
@@ -1451,6 +1574,7 @@
       "outcomes": [
         {
           "auction": 1,
+          "cost_if_awarded": 0.050228,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 5.359572,
@@ -1464,6 +1588,7 @@
         },
         {
           "auction": 2,
+          "cost_if_awarded": 0.102187167,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 9.079384833,
@@ -1477,6 +1602,7 @@
         },
         {
           "auction": 3,
+          "cost_if_awarded": 0.114786667,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 15.177698166,
@@ -1490,6 +1616,7 @@
         },
         {
           "auction": 4,
+          "cost_if_awarded": 0.11875000000000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 21.585748166000002,
@@ -1503,6 +1630,7 @@
         },
         {
           "auction": 5,
+          "cost_if_awarded": 0.07651408300000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 23.929834083000003,
@@ -1516,6 +1644,7 @@
         },
         {
           "auction": 6,
+          "cost_if_awarded": 0.050280250000000005,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.00000000000001,
           "new_cumulative": 30.842153833000005,
@@ -1529,6 +1658,7 @@
         },
         {
           "auction": 7,
+          "cost_if_awarded": 0.111328125,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.00000000000001,
           "new_cumulative": 35.199625708000006,
@@ -1542,6 +1672,7 @@
         },
         {
           "auction": 8,
+          "cost_if_awarded": 0.25962504200000003,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.00000000000001,
           "new_cumulative": 37.625200666000005,
@@ -1555,6 +1686,7 @@
         },
         {
           "auction": 9,
+          "cost_if_awarded": 0.229202666,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 39.787198000000004,
@@ -1568,6 +1700,7 @@
         },
         {
           "auction": 10,
+          "cost_if_awarded": 0.050120959,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 42.306177041000005,
@@ -1581,6 +1714,7 @@
         },
         {
           "auction": 11,
+          "cost_if_awarded": 0.050236833,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 48.611240208000005,
@@ -1594,6 +1728,7 @@
         },
         {
           "auction": 12,
+          "cost_if_awarded": 0.051074583,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 51.82356562500001,
@@ -1607,6 +1742,7 @@
         },
         {
           "auction": 13,
+          "cost_if_awarded": 0.108379125,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 57.46778650000001,
@@ -1620,6 +1756,7 @@
         },
         {
           "auction": 14,
+          "cost_if_awarded": 0.2356205,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 59.74096600000001,
@@ -1633,6 +1770,7 @@
         },
         {
           "auction": 15,
+          "cost_if_awarded": 0.185225209,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 61.89794079100001,
@@ -1646,6 +1784,7 @@
         },
         {
           "auction": 16,
+          "cost_if_awarded": 0.10299604200000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 67.106444749,
@@ -1659,6 +1798,7 @@
         },
         {
           "auction": 17,
+          "cost_if_awarded": 0.147619625,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 68.242625124,
@@ -1672,6 +1812,7 @@
         },
         {
           "auction": 18,
+          "cost_if_awarded": 0.051666291,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 74.556558833,
@@ -1685,6 +1826,7 @@
         },
         {
           "auction": 19,
+          "cost_if_awarded": 0.124486917,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 80.341471916,
@@ -1698,6 +1840,7 @@
         },
         {
           "auction": 20,
+          "cost_if_awarded": 0.051014875,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 83.328357041,
@@ -1711,6 +1854,7 @@
         },
         {
           "auction": 21,
+          "cost_if_awarded": 0.051242375,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 87.598914666,
@@ -1724,6 +1868,7 @@
         },
         {
           "auction": 22,
+          "cost_if_awarded": 0.050307500000000005,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 95.282207166,
@@ -1737,6 +1882,7 @@
         },
         {
           "auction": 23,
+          "cost_if_awarded": 0.051612750000000006,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 101.179194416,
@@ -1750,6 +1896,7 @@
         },
         {
           "auction": 24,
+          "cost_if_awarded": 0.11400179199999999,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 106.151392624,
@@ -1763,6 +1910,7 @@
         },
         {
           "auction": 25,
+          "cost_if_awarded": 0.17772379100000002,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 113.980268833,
@@ -1776,6 +1924,7 @@
         },
         {
           "auction": 26,
+          "cost_if_awarded": 0.050228,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 119.339940833,
@@ -1789,6 +1938,7 @@
         },
         {
           "auction": 27,
+          "cost_if_awarded": 0.102187167,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 123.059753666,
@@ -1802,6 +1952,7 @@
         },
         {
           "auction": 28,
+          "cost_if_awarded": 0.114786667,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 129.158066999,
@@ -1815,6 +1966,7 @@
         },
         {
           "auction": 29,
+          "cost_if_awarded": 0.11875000000000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 135.566116999,
@@ -1828,6 +1980,7 @@
         },
         {
           "auction": 30,
+          "cost_if_awarded": 0.07651408300000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 137.910202916,
@@ -1841,6 +1994,7 @@
         },
         {
           "auction": 31,
+          "cost_if_awarded": 0.050280250000000005,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 144.822522666,
@@ -1854,6 +2008,7 @@
         },
         {
           "auction": 32,
+          "cost_if_awarded": 0.111328125,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 149.17999454099999,
@@ -1867,6 +2022,7 @@
         },
         {
           "auction": 33,
+          "cost_if_awarded": 0.25962504200000003,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 151.60556949899998,
@@ -1880,6 +2036,7 @@
         },
         {
           "auction": 34,
+          "cost_if_awarded": 0.229202666,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 153.767566833,
@@ -1893,6 +2050,7 @@
         },
         {
           "auction": 35,
+          "cost_if_awarded": 0.050120959,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 156.28654587399998,
@@ -1906,6 +2064,7 @@
         },
         {
           "auction": 36,
+          "cost_if_awarded": 0.050236833,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 162.59160904099997,
@@ -1919,6 +2078,7 @@
         },
         {
           "auction": 37,
+          "cost_if_awarded": 0.051074583,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 165.80393445799996,
@@ -1932,6 +2092,7 @@
         },
         {
           "auction": 38,
+          "cost_if_awarded": 0.108379125,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 171.44815533299996,
@@ -1945,6 +2106,7 @@
         },
         {
           "auction": 39,
+          "cost_if_awarded": 0.2356205,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 173.72133483299996,
@@ -1958,6 +2120,7 @@
         },
         {
           "auction": 40,
+          "cost_if_awarded": 0.185225209,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 175.87830962399997,
@@ -1971,6 +2134,7 @@
         },
         {
           "auction": 41,
+          "cost_if_awarded": 0.10299604200000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 181.08681358199996,
@@ -1984,6 +2148,7 @@
         },
         {
           "auction": 42,
+          "cost_if_awarded": 0.147619625,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 182.22299395699997,
@@ -1997,6 +2162,7 @@
         },
         {
           "auction": 43,
+          "cost_if_awarded": 0.051666291,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 188.53682766599997,
@@ -2010,6 +2176,7 @@
         },
         {
           "auction": 44,
+          "cost_if_awarded": 0.124486917,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 194.32174074899996,
@@ -2023,6 +2190,7 @@
         },
         {
           "auction": 45,
+          "cost_if_awarded": 0.051014875,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 197.30862587399994,
@@ -2036,6 +2204,7 @@
         },
         {
           "auction": 46,
+          "cost_if_awarded": 0.051242375,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 201.57918349899995,
@@ -2049,6 +2218,7 @@
         },
         {
           "auction": 47,
+          "cost_if_awarded": 0.050307500000000005,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 209.26247599899995,
@@ -2062,6 +2232,7 @@
         },
         {
           "auction": 48,
+          "cost_if_awarded": 0.051612750000000006,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 215.15946324899994,
@@ -2075,6 +2246,7 @@
         },
         {
           "auction": 49,
+          "cost_if_awarded": 0.11400179199999999,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 220.13166145699995,
@@ -2088,6 +2260,7 @@
         },
         {
           "auction": 50,
+          "cost_if_awarded": 0.17772379100000002,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 227.96053766599994,
@@ -2101,6 +2274,7 @@
         },
         {
           "auction": 51,
+          "cost_if_awarded": 0.050228,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 233.32020966599993,
@@ -2114,6 +2288,7 @@
         },
         {
           "auction": 52,
+          "cost_if_awarded": 0.102187167,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 237.04002249899992,
@@ -2127,6 +2302,7 @@
         },
         {
           "auction": 53,
+          "cost_if_awarded": 0.114786667,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 243.1383358319999,
@@ -2140,6 +2316,7 @@
         },
         {
           "auction": 54,
+          "cost_if_awarded": 0.11875000000000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 249.5463858319999,
@@ -2153,6 +2330,7 @@
         },
         {
           "auction": 55,
+          "cost_if_awarded": 0.07651408300000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 251.89047174899991,
@@ -2166,6 +2344,7 @@
         },
         {
           "auction": 56,
+          "cost_if_awarded": 0.050280250000000005,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 258.8027914989999,
@@ -2179,6 +2358,7 @@
         },
         {
           "auction": 57,
+          "cost_if_awarded": 0.111328125,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 263.1602633739999,
@@ -2192,6 +2372,7 @@
         },
         {
           "auction": 58,
+          "cost_if_awarded": 0.25962504200000003,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 265.5858383319999,
@@ -2205,6 +2386,7 @@
         },
         {
           "auction": 59,
+          "cost_if_awarded": 0.229202666,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 267.7478356659999,
@@ -2218,6 +2400,7 @@
         },
         {
           "auction": 60,
+          "cost_if_awarded": 0.050120959,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 270.2668147069999,
@@ -2231,6 +2414,7 @@
         },
         {
           "auction": 61,
+          "cost_if_awarded": 0.050236833,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 276.57187787399994,
@@ -2244,6 +2428,7 @@
         },
         {
           "auction": 62,
+          "cost_if_awarded": 0.051074583,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 279.7842032909999,
@@ -2257,6 +2442,7 @@
         },
         {
           "auction": 63,
+          "cost_if_awarded": 0.108379125,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 285.4284241659999,
@@ -2270,6 +2456,7 @@
         },
         {
           "auction": 64,
+          "cost_if_awarded": 0.2356205,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 287.7016036659999,
@@ -2283,6 +2470,7 @@
         },
         {
           "auction": 65,
+          "cost_if_awarded": 0.185225209,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 289.8585784569999,
@@ -2296,6 +2484,7 @@
         },
         {
           "auction": 66,
+          "cost_if_awarded": 0.10299604200000001,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 295.0670824149999,
@@ -2309,6 +2498,7 @@
         },
         {
           "auction": 67,
+          "cost_if_awarded": 0.147619625,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 296.2032627899999,
@@ -2322,6 +2512,7 @@
         },
         {
           "auction": 68,
+          "cost_if_awarded": 0.051666291,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 302.5170964989999,
@@ -2335,6 +2526,7 @@
         },
         {
           "auction": 69,
+          "cost_if_awarded": 0.124486917,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 308.30200958199987,
@@ -2348,6 +2540,7 @@
         },
         {
           "auction": 70,
+          "cost_if_awarded": 0.051014875,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 311.2888947069999,
@@ -2361,6 +2554,7 @@
         },
         {
           "auction": 71,
+          "cost_if_awarded": 0.051242375,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 315.55945233199986,
@@ -2374,6 +2568,7 @@
         },
         {
           "auction": 72,
+          "cost_if_awarded": 0.050307500000000005,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 323.24274483199986,
@@ -2387,6 +2582,7 @@
         },
         {
           "auction": 73,
+          "cost_if_awarded": 0.051612750000000006,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 329.13973208199985,
@@ -2400,6 +2596,7 @@
         },
         {
           "auction": 74,
+          "cost_if_awarded": 0.11400179199999999,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 334.11193028999986,
@@ -2413,6 +2610,7 @@
         },
         {
           "auction": 75,
+          "cost_if_awarded": 0.17772379100000002,
           "delivery_ms": 50.0,
           "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 341.94080649899985,
@@ -2435,6 +2633,7 @@
       "outcomes": [
         {
           "auction": 1,
+          "cost_if_awarded": 0.10022800000000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 55.0,
           "new_cumulative": 5.309571999999999,
@@ -2448,6 +2647,7 @@
         },
         {
           "auction": 2,
+          "cost_if_awarded": 0.152187167,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 8.979384833,
@@ -2461,6 +2661,7 @@
         },
         {
           "auction": 3,
+          "cost_if_awarded": 0.164786667,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 15.027698165999999,
@@ -2474,6 +2675,7 @@
         },
         {
           "auction": 4,
+          "cost_if_awarded": 0.16875,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 21.385748166,
@@ -2487,6 +2689,7 @@
         },
         {
           "auction": 5,
+          "cost_if_awarded": 0.126514083,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 23.679834083,
@@ -2500,6 +2703,7 @@
         },
         {
           "auction": 6,
+          "cost_if_awarded": 0.10028025,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 30.442153833,
@@ -2513,6 +2717,7 @@
         },
         {
           "auction": 7,
+          "cost_if_awarded": 0.161328125,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 34.749625707999996,
@@ -2526,6 +2731,7 @@
         },
         {
           "auction": 8,
+          "cost_if_awarded": 0.309625042,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 37.125200666,
@@ -2539,6 +2745,7 @@
         },
         {
           "auction": 9,
+          "cost_if_awarded": 0.279202666,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 39.237198,
@@ -2552,6 +2759,7 @@
         },
         {
           "auction": 10,
+          "cost_if_awarded": 0.10012095900000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 41.606177041,
@@ -2565,6 +2773,7 @@
         },
         {
           "auction": 11,
+          "cost_if_awarded": 0.10023683300000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 47.761240208000004,
@@ -2578,6 +2787,7 @@
         },
         {
           "auction": 12,
+          "cost_if_awarded": 0.10107458300000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 50.912765625000006,
@@ -2591,6 +2801,7 @@
         },
         {
           "auction": 13,
+          "cost_if_awarded": 0.158379125,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 56.506986500000004,
@@ -2604,6 +2815,7 @@
         },
         {
           "auction": 14,
+          "cost_if_awarded": 0.2856205,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 58.730166000000004,
@@ -2617,6 +2829,7 @@
         },
         {
           "auction": 15,
+          "cost_if_awarded": 0.23522520900000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 60.837140791,
@@ -2630,6 +2843,7 @@
         },
         {
           "auction": 16,
+          "cost_if_awarded": 0.152996042,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 65.99564474900001,
@@ -2643,6 +2857,7 @@
         },
         {
           "auction": 17,
+          "cost_if_awarded": 0.19761962500000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 67.081825124,
@@ -2656,6 +2871,7 @@
         },
         {
           "auction": 18,
+          "cost_if_awarded": 0.101666291,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 73.24575883300001,
@@ -2669,6 +2885,7 @@
         },
         {
           "auction": 19,
+          "cost_if_awarded": 0.17448691700000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 78.980671916,
@@ -2682,6 +2899,7 @@
         },
         {
           "auction": 20,
+          "cost_if_awarded": 0.101014875,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 81.91025704100001,
@@ -2695,6 +2913,7 @@
         },
         {
           "auction": 21,
+          "cost_if_awarded": 0.10124237500000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 86.09631466600001,
@@ -2708,6 +2927,7 @@
         },
         {
           "auction": 22,
+          "cost_if_awarded": 0.10030750000000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 93.62960716600001,
@@ -2721,6 +2941,7 @@
         },
         {
           "auction": 23,
+          "cost_if_awarded": 0.10161275,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 99.41579441600001,
@@ -2734,6 +2955,7 @@
         },
         {
           "auction": 24,
+          "cost_if_awarded": 0.16400179199999998,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 104.33799262400001,
@@ -2747,6 +2969,7 @@
         },
         {
           "auction": 25,
+          "cost_if_awarded": 0.227723791,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 112.11686883300001,
@@ -2760,6 +2983,7 @@
         },
         {
           "auction": 26,
+          "cost_if_awarded": 0.10022800000000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 117.32654083300001,
@@ -2773,6 +2997,7 @@
         },
         {
           "auction": 27,
+          "cost_if_awarded": 0.152187167,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 120.996353666,
@@ -2786,6 +3011,7 @@
         },
         {
           "auction": 28,
+          "cost_if_awarded": 0.164786667,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 127.044666999,
@@ -2799,6 +3025,7 @@
         },
         {
           "auction": 29,
+          "cost_if_awarded": 0.16875,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 133.402716999,
@@ -2812,6 +3039,7 @@
         },
         {
           "auction": 30,
+          "cost_if_awarded": 0.126514083,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 135.696802916,
@@ -2825,6 +3053,7 @@
         },
         {
           "auction": 31,
+          "cost_if_awarded": 0.10028025,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 142.45912266599998,
@@ -2838,6 +3067,7 @@
         },
         {
           "auction": 32,
+          "cost_if_awarded": 0.161328125,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 146.766594541,
@@ -2851,6 +3081,7 @@
         },
         {
           "auction": 33,
+          "cost_if_awarded": 0.309625042,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 149.14216949899998,
@@ -2864,6 +3095,7 @@
         },
         {
           "auction": 34,
+          "cost_if_awarded": 0.279202666,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 151.25416683299997,
@@ -2877,6 +3109,7 @@
         },
         {
           "auction": 35,
+          "cost_if_awarded": 0.10012095900000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 153.62314587399996,
@@ -2890,6 +3123,7 @@
         },
         {
           "auction": 36,
+          "cost_if_awarded": 0.10023683300000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 159.77820904099997,
@@ -2903,6 +3137,7 @@
         },
         {
           "auction": 37,
+          "cost_if_awarded": 0.10107458300000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 162.92953445799998,
@@ -2916,6 +3151,7 @@
         },
         {
           "auction": 38,
+          "cost_if_awarded": 0.158379125,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 168.52375533299997,
@@ -2929,6 +3165,7 @@
         },
         {
           "auction": 39,
+          "cost_if_awarded": 0.2856205,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 170.74693483299995,
@@ -2942,6 +3179,7 @@
         },
         {
           "auction": 40,
+          "cost_if_awarded": 0.23522520900000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 172.85390962399995,
@@ -2955,6 +3193,7 @@
         },
         {
           "auction": 41,
+          "cost_if_awarded": 0.152996042,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 178.01241358199997,
@@ -2968,6 +3207,7 @@
         },
         {
           "auction": 42,
+          "cost_if_awarded": 0.19761962500000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 179.09859395699996,
@@ -2981,6 +3221,7 @@
         },
         {
           "auction": 43,
+          "cost_if_awarded": 0.101666291,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 185.26242766599995,
@@ -2994,6 +3235,7 @@
         },
         {
           "auction": 44,
+          "cost_if_awarded": 0.17448691700000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 190.99734074899996,
@@ -3007,6 +3249,7 @@
         },
         {
           "auction": 45,
+          "cost_if_awarded": 0.101014875,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 193.92682587399997,
@@ -3020,6 +3263,7 @@
         },
         {
           "auction": 46,
+          "cost_if_awarded": 0.10124237500000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 198.11288349899996,
@@ -3033,6 +3277,7 @@
         },
         {
           "auction": 47,
+          "cost_if_awarded": 0.10030750000000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 205.64617599899995,
@@ -3046,6 +3291,7 @@
         },
         {
           "auction": 48,
+          "cost_if_awarded": 0.10161275,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 211.43226324899996,
@@ -3059,6 +3305,7 @@
         },
         {
           "auction": 49,
+          "cost_if_awarded": 0.16400179199999998,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 216.35446145699996,
@@ -3072,6 +3319,7 @@
         },
         {
           "auction": 50,
+          "cost_if_awarded": 0.227723791,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 224.13333766599996,
@@ -3085,6 +3333,7 @@
         },
         {
           "auction": 51,
+          "cost_if_awarded": 0.10022800000000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 229.34300966599997,
@@ -3098,6 +3347,7 @@
         },
         {
           "auction": 52,
+          "cost_if_awarded": 0.152187167,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 233.01282249899998,
@@ -3111,6 +3361,7 @@
         },
         {
           "auction": 53,
+          "cost_if_awarded": 0.164786667,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 239.061135832,
@@ -3124,6 +3375,7 @@
         },
         {
           "auction": 54,
+          "cost_if_awarded": 0.16875,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 245.41918583199998,
@@ -3137,6 +3389,7 @@
         },
         {
           "auction": 55,
+          "cost_if_awarded": 0.126514083,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 247.71327174899997,
@@ -3150,6 +3403,7 @@
         },
         {
           "auction": 56,
+          "cost_if_awarded": 0.10028025,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 254.47559149899996,
@@ -3163,6 +3417,7 @@
         },
         {
           "auction": 57,
+          "cost_if_awarded": 0.161328125,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 258.78306337399994,
@@ -3176,6 +3431,7 @@
         },
         {
           "auction": 58,
+          "cost_if_awarded": 0.309625042,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 261.15863833199995,
@@ -3189,6 +3445,7 @@
         },
         {
           "auction": 59,
+          "cost_if_awarded": 0.279202666,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 263.270635666,
@@ -3202,6 +3459,7 @@
         },
         {
           "auction": 60,
+          "cost_if_awarded": 0.10012095900000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 265.63961470699996,
@@ -3215,6 +3473,7 @@
         },
         {
           "auction": 61,
+          "cost_if_awarded": 0.10023683300000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 271.79467787399994,
@@ -3228,6 +3487,7 @@
         },
         {
           "auction": 62,
+          "cost_if_awarded": 0.10107458300000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 274.94600329099995,
@@ -3241,6 +3501,7 @@
         },
         {
           "auction": 63,
+          "cost_if_awarded": 0.158379125,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 280.540224166,
@@ -3254,6 +3515,7 @@
         },
         {
           "auction": 64,
+          "cost_if_awarded": 0.2856205,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 282.763403666,
@@ -3267,6 +3529,7 @@
         },
         {
           "auction": 65,
+          "cost_if_awarded": 0.23522520900000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 284.870378457,
@@ -3280,6 +3543,7 @@
         },
         {
           "auction": 66,
+          "cost_if_awarded": 0.152996042,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 290.028882415,
@@ -3293,6 +3557,7 @@
         },
         {
           "auction": 67,
+          "cost_if_awarded": 0.19761962500000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 291.11506279,
@@ -3306,6 +3571,7 @@
         },
         {
           "auction": 68,
+          "cost_if_awarded": 0.101666291,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 297.27889649900004,
@@ -3319,6 +3585,7 @@
         },
         {
           "auction": 69,
+          "cost_if_awarded": 0.17448691700000002,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 303.013809582,
@@ -3332,6 +3599,7 @@
         },
         {
           "auction": 70,
+          "cost_if_awarded": 0.101014875,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 305.943294707,
@@ -3345,6 +3613,7 @@
         },
         {
           "auction": 71,
+          "cost_if_awarded": 0.10124237500000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 310.129352332,
@@ -3358,6 +3627,7 @@
         },
         {
           "auction": 72,
+          "cost_if_awarded": 0.10030750000000001,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 317.662644832,
@@ -3371,6 +3641,7 @@
         },
         {
           "auction": 73,
+          "cost_if_awarded": 0.10161275,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 323.448732082,
@@ -3384,6 +3655,7 @@
         },
         {
           "auction": 74,
+          "cost_if_awarded": 0.16400179199999998,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 328.37093029,
@@ -3397,6 +3669,7 @@
         },
         {
           "auction": 75,
+          "cost_if_awarded": 0.227723791,
           "delivery_ms": 100.0,
           "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 336.14980649899996,
