@@ -1,5 +1,22 @@
 # Benchmark results
 
+The [latency report](../../graph/README.md) shows measured Rust p50/p95/p99 for
+each task and a separately labeled historical comparison. `runner/` contains
+the Rust measurement, statistics, and graph code; `results/` stores the raw
+nanosecond samples and capture methodology.
+
+```bash
+cargo run --locked --release --features benchmark-tools --bin benchmark -- \
+  --samples 1000 --warmup 25
+```
+
+Add `--render-only` to regenerate `/graph` from existing samples without
+running a new benchmark. Both SVG and PNG outputs are generated in Rust.
+The historical view reads existing log entries; it does not execute any old
+implementation. Use `--data` and `--output` to save a new run separately.
+
+## Verification history
+
 Run `cargo run --locked --release --bin verify` from the repository root to check the reference answers
 and append timings to `verify_benchmarks.log` in this directory.
 
