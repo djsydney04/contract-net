@@ -43,6 +43,50 @@ with empty learning. No later outcome is used for an earlier decision.
 | 50 ms | -0.0322 | 36.6702 | 11 / 11 | 6 / 0 |
 | 100 ms | -0.5822 | 35.6432 | 11 / 10 | 10 / 0 |
 
+## Shared versus varying delivery overhead
+
+A shared baseline is a useful starting estimate. An identical delay for every
+auction hides variation. The current bidder pools overhead observations across
+task types and uses their p95 plus 5 ms; before observations it allows 55 ms.
+Compute and queue estimates remain separate.
+
+![Archived residual and allowance available before each auction](delivery-overhead.svg)
+
+The archived residual is `manager_seconds - local_seconds`. These 11 records
+belong to the competitor named in the fixture, **not this client's network**.
+They range from 42.4 to 68.9 ms. They can include queueing, processing, and
+timing differences; the manager values were rounded to 10 ms. Treat them as
+a proxy for a varying-overhead scenario, not measured network RTT. The blue
+allowance uses only earlier simulated wins, before the current delay is known.
+
+![Individual overhead observations by task type and empirical distribution](delivery-distribution.svg)
+
+Across this subset, empirical p50/p95/p99 are 55.3/68.9/68.9 ms.
+With 11 samples, upper percentiles can select the same maximum observation
+and do not establish reliable tail latency. Per-task groups are smaller still.
+Different group averages do not establish a task-type effect.
+
+![Fixed versus varying overhead profit replay](variable-delivery-profit.svg)
+
+The varying replay uses each archived residual for its corresponding auction.
+Both bidders receive the same realized delay for that auction. Each auction
+is replayed once in chronological order with empty initial learning; the
+current/future delay is never provided to the bidding decision. The fixed
+50 ms comparison uses the same tasks, compute samples, and competitor bids.
+
+| Overhead scenario | Old modeled profit | New modeled profit | Old/new wins | Old/new losing contracts |
+|---|---:|---:|---:|---:|
+| Fixed 50 ms | -0.0322 | 36.6702 | 11 / 11 | 6 / 0 |
+| Varying archived residual | -0.1025 | 36.5346 | 11 / 11 | 7 / 0 |
+
+All values remain counterfactual: inputs are reconstructed as described above,
+competition is held fixed, and applying another contractor's overhead to our
+client is an explicit assumption. The saved compute and decision timings are
+reused unchanged; these new plots are not a fresh latency measurement.
+
+[Individual residuals and prior forecasts](delivery-observations.csv) ·
+[Replay outcomes and analysis source hashes](delivery-replay.json).
+
 ## Decision latency
 
 Measured calls to the real `on_cfp` function, with 512 learned observations and

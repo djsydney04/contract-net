@@ -11,6 +11,7 @@ use std::{
     collections::BTreeMap, fmt::Write as _, fs, hint::black_box, path::PathBuf, time::Instant,
 };
 
+mod delivery;
 mod graphs;
 mod historical;
 #[path = "../runner/statistics.rs"]
@@ -68,6 +69,8 @@ struct Outcome {
     auction: usize,
     task_id: u64,
     task_type: String,
+    delivery_ms: f64,
+    forecast_delivery_ms: f64,
     old_price: Option<f64>,
     new_price: Option<f64>,
     old_profit: f64,
@@ -78,7 +81,7 @@ struct Outcome {
 
 #[derive(Serialize)]
 struct Scenario {
-    network_ms: f64,
+    network_ms: Option<f64>,
     old_wins: usize,
     new_wins: usize,
     old_losses: usize,
@@ -247,10 +250,27 @@ fn replay(
     network_ms: f64,
     cycles: usize,
 ) -> Result<Scenario> {
-    let network = network_ms / 1000.0;
+    let mut scenario = replay_delays(data, tasks, &vec![network_ms; tasks.len()], cycles)?;
+    scenario.network_ms = Some(network_ms);
+    Ok(scenario)
+}
+
+fn replay_delays(
+    data: &Measurements,
+    tasks: &[MeasuredTask],
+    delivery_ms: &[f64],
+    cycles: usize,
+) -> Result<Scenario> {
+    ensure!(
+        !tasks.is_empty()
+            && tasks.len() == delivery_ms.len()
+            && cycles > 0
+            && delivery_ms.iter().all(|n| n.is_finite() && *n >= 0.0),
+        "replay requires one finite nonnegative delay per task and at least one cycle"
+    );
     let mut learning = Learning::default();
     let mut scenario = Scenario {
-        network_ms,
+        network_ms: None,
         old_wins: 0,
         new_wins: 0,
         old_losses: 0,
@@ -259,9 +279,12 @@ fn replay(
     };
     let (mut old_total, mut new_total) = (0.0, 0.0);
     for _ in 0..cycles {
-        for m in tasks {
+        for (m, delay) in tasks.iter().zip(delivery_ms) {
+            let network = delay / 1000.0;
             let local = statistics::summarize(&m.local_samples_ns)?.p50_ms / 1000.0;
             let ctx = context(m, &data.rates, &learning);
+            let forecast_delivery_ms =
+                contractnet::bidder::forecast(&m.task, &ctx).delivery_seconds * 1000.0;
             let old = baseline(&m.task, &ctx);
             let new = MyContractor.on_cfp(&m.task, &ctx);
             let (old_won, old_profit) = settle(old, m, local, network);
@@ -290,6 +313,8 @@ fn replay(
                 auction: scenario.outcomes.len() + 1,
                 task_id: m.task.task_id,
                 task_type: m.task.task_type.clone(),
+                delivery_ms: *delay,
+                forecast_delivery_ms,
                 old_price: old.map(|b| b.price),
                 new_price: new.map(|b| b.price),
                 old_profit,
@@ -321,13 +346,14 @@ fn main() -> Result<()> {
     let old_cases = historical::cases(&data, &args.history)?;
     let historical_scenarios = [30.0, 50.0, 100.0]
         .into_iter()
-        .map(|n| replay(&data, &old_cases, n, 1))
+        .map(|n| replay(&data, &old_cases.tasks, n, 1))
         .collect::<Result<Vec<_>>>()?;
     let scenarios = [30.0, 50.0, 100.0]
         .into_iter()
         .map(|n| replay(&data, &data.tasks, n, 3))
         .collect::<Result<Vec<_>>>()?;
     fs::create_dir_all(&args.output)?;
+    let delivery_doc = delivery::report(&args.output, &data, &old_cases)?;
     fs::write(
         args.output.join("replay.json"),
         serde_json::to_string_pretty(
@@ -355,7 +381,7 @@ fn main() -> Result<()> {
         writeln!(
             doc,
             "| {:.0} ms | {:.4} | {:.4} | {} / {} | {} / {} |",
-            s.network_ms,
+            s.network_ms.unwrap(),
             last.old_cumulative,
             last.new_cumulative,
             s.old_wins,
@@ -365,7 +391,7 @@ fn main() -> Result<()> {
         )?;
         println!(
             "{:.0} ms overhead: old profit {:.4}, new {:.4}; wins {}/{}; losing contracts {}/{}",
-            s.network_ms,
+            s.network_ms.unwrap(),
             last.old_cumulative,
             last.new_cumulative,
             s.old_wins,
@@ -377,14 +403,14 @@ fn main() -> Result<()> {
     writeln!(
         doc,
         "\n## Backtest on earlier history\n\n![Backtest against earlier public bids](historical-profit.svg)\n\n{} complete older auctions were recovered from the earlier API trace. The\narchived subset preserves proposals, awards, results, and original timestamps.\nBecause historical task parameters were not included in that trace, the replay\njoins the later frozen task pool only when ID, type, budget, deadline, and the\nold recorded result all match. Unmatched records are excluded. The fixture\ndocuments this reconstruction; this is not a full historical tournament.\nEach historical auction is replayed once, in chronological order, starting\nwith empty learning. No later outcome is used for an earlier decision.\n\n| Added delivery time | Old profit | New profit | Old/new wins | Old/new losing contracts |\n|---|---:|---:|---:|---:|",
-        old_cases.len()
+        old_cases.tasks.len()
     )?;
     for s in &historical_scenarios {
         let last = s.outcomes.last().unwrap();
         writeln!(
             doc,
             "| {:.0} ms | {:.4} | {:.4} | {} / {} | {} / {} |",
-            s.network_ms,
+            s.network_ms.unwrap(),
             last.old_cumulative,
             last.new_cumulative,
             s.old_wins,
@@ -394,7 +420,7 @@ fn main() -> Result<()> {
         )?;
         println!(
             "Historical {:.0} ms: old profit {:.4}, new {:.4}; wins {}/{}; losing contracts {}/{}",
-            s.network_ms,
+            s.network_ms.unwrap(),
             last.old_cumulative,
             last.new_cumulative,
             s.old_wins,
@@ -403,6 +429,7 @@ fn main() -> Result<()> {
             s.new_losses
         );
     }
+    doc.push_str(&delivery_doc);
     doc.push_str("\n## Decision latency\n\nMeasured calls to the real `on_cfp` function, with 512 learned observations and\nthe captured public market snapshot. Each task has 25 warmups followed by\n1,000 timed decisions. The table combines samples by task type and uses\nnearest-rank percentiles. Units are **microseconds**. File I/O, networking,\nqueue handling, and task execution are excluded.\n\n| Task | Decisions | p50 | p95 | p99 |\n|---|---:|---:|---:|---:|\n");
     let mut samples: BTreeMap<&str, Vec<u64>> = BTreeMap::new();
     for m in &data.tasks {

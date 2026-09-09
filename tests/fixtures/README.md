@@ -26,3 +26,10 @@ parameters were absent from the trace, so the backtest reuses a later task's
 inputs only when its ID, type, budget, deadline, and computed answer match the
 older recorded result. These files are snapshots of competitors at particular
 times, not a complete history or a claim about future competition.
+
+The delivery graphs use the historical `manager_seconds - local_seconds`
+residual for each included auction. These are the archived competitor's
+observations, not TheGoodGuys network measurements. Manager values are rounded
+to 10 ms and may include queue/processing beyond local execution. The 11-record
+subset contains four task types and no hash-search observations; it is too
+small to establish task-dependent overhead or reliable tail percentiles.

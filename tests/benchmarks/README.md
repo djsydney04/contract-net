@@ -32,6 +32,16 @@ uses measured native compute times and explicit 30/50/100 ms delivery-cost
 scenarios, holds competitors fixed, and learns only after simulated wins.
 The report also measures p50/p95/p99 decision latency with 512 observations.
 
+Three additional figures inspect the delivery assumption: `delivery-overhead`
+shows each archived timing residual and the bidder's allowance before that
+auction; `delivery-distribution` shows individual task groups and the empirical
+distribution; `variable-delivery-profit` compares fixed 50 ms overhead with the
+actual archived residual sequence applied equally to both policies. These
+residuals come from another contractor and include unseparated queue/processing
+and rounded manager timings; they are a scenario proxy, not our measured RTT.
+The varying replay retains chronology and never exposes current/future delays
+to the bid decision. CSV, JSON, and analysis source hashes accompany the plots.
+
 ```bash
 cargo run --locked --release --features benchmark-tools --bin bidder-replay
 cargo run --locked --release --features benchmark-tools --bin bidder-replay -- --render-only

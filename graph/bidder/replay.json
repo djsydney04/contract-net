@@ -9,6 +9,8 @@
       "outcomes": [
         {
           "auction": 1,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 0.2847925,
           "new_price": 0.3151,
           "new_profit": 0.2847925,
@@ -20,6 +22,8 @@
         },
         {
           "auction": 2,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 34.99999999999999,
           "new_cumulative": 0.90557975,
           "new_price": 0.6524,
           "new_profit": 0.62078725,
@@ -31,6 +35,8 @@
         },
         {
           "auction": 3,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 5.629477958,
           "new_price": 4.8179,
           "new_profit": 4.723898208,
@@ -42,6 +48,8 @@
         },
         {
           "auction": 4,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 13.478354166999999,
           "new_price": 8.0066,
           "new_profit": 7.848876209,
@@ -53,6 +61,8 @@
         },
         {
           "auction": 5,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 13.800926166999998,
           "new_price": 0.3528,
           "new_profit": 0.322572,
@@ -64,6 +74,8 @@
         },
         {
           "auction": 6,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 17.540739,
           "new_price": 3.822,
           "new_profit": 3.7398128330000002,
@@ -75,6 +87,8 @@
         },
         {
           "auction": 7,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 23.659052332999998,
           "new_price": 6.2131,
           "new_profit": 6.118313333,
@@ -86,6 +100,8 @@
         },
         {
           "auction": 8,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 30.087102332999997,
           "new_price": 6.5268,
           "new_profit": 6.42805,
@@ -97,6 +113,8 @@
         },
         {
           "auction": 9,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 32.451188249999994,
           "new_price": 2.4206,
           "new_profit": 2.3640859169999997,
@@ -108,6 +126,8 @@
         },
         {
           "auction": 10,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 32.67270799999999,
           "new_price": 0.2518,
           "new_profit": 0.22151975000000002,
@@ -119,6 +139,8 @@
         },
         {
           "auction": 11,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 37.05017987499999,
           "new_price": 4.4688,
           "new_profit": 4.3774718749999995,
@@ -139,6 +161,8 @@
       "outcomes": [
         {
           "auction": 1,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 0.2647925,
           "new_price": 0.3151,
           "new_profit": 0.2647925,
@@ -150,6 +174,8 @@
         },
         {
           "auction": 2,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 0.8255797500000001,
           "new_price": 0.6124,
           "new_profit": 0.5607872500000001,
@@ -161,6 +187,8 @@
         },
         {
           "auction": 3,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 5.489477958,
           "new_price": 4.7779,
           "new_profit": 4.663898208,
@@ -172,6 +200,8 @@
         },
         {
           "auction": 4,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 13.318354167,
           "new_price": 8.0066,
           "new_profit": 7.828876209000001,
@@ -183,6 +213,8 @@
         },
         {
           "auction": 5,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 13.580926167000001,
           "new_price": 0.3128,
           "new_profit": 0.262572,
@@ -194,6 +226,8 @@
         },
         {
           "auction": 6,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 17.300739,
           "new_price": 3.822,
           "new_profit": 3.719812833,
@@ -205,6 +239,8 @@
         },
         {
           "auction": 7,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 23.399052333,
           "new_price": 6.2131,
           "new_profit": 6.098313333,
@@ -216,6 +252,8 @@
         },
         {
           "auction": 8,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 29.807102333,
           "new_price": 6.5268,
           "new_profit": 6.408049999999999,
@@ -227,6 +265,8 @@
         },
         {
           "auction": 9,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 32.15118825,
           "new_price": 2.4206,
           "new_profit": 2.3440859169999997,
@@ -238,6 +278,8 @@
         },
         {
           "auction": 10,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 32.31270799999999,
           "new_price": 0.2118,
           "new_profit": 0.16151975,
@@ -249,6 +291,8 @@
         },
         {
           "auction": 11,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 36.670179874999995,
           "new_price": 4.4688,
           "new_profit": 4.357471875,
@@ -269,6 +313,8 @@
       "outcomes": [
         {
           "auction": 1,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 0.2147925,
           "new_price": 0.3151,
           "new_profit": 0.2147925,
@@ -280,6 +326,8 @@
         },
         {
           "auction": 2,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 0.62557975,
           "new_price": 0.5124,
           "new_profit": 0.41078724999999994,
@@ -291,6 +339,8 @@
         },
         {
           "auction": 3,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 5.1394779580000005,
           "new_price": 4.6779,
           "new_profit": 4.5138982080000005,
@@ -302,6 +352,8 @@
         },
         {
           "auction": 4,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 12.918354167,
           "new_price": 8.0066,
           "new_profit": 7.778876209000001,
@@ -313,6 +365,8 @@
         },
         {
           "auction": 5,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 13.030926167,
           "new_price": 0.2128,
           "new_profit": 0.11257199999999998,
@@ -324,6 +378,8 @@
         },
         {
           "auction": 6,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 16.700739,
           "new_price": 3.822,
           "new_profit": 3.669812833,
@@ -335,6 +391,8 @@
         },
         {
           "auction": 7,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 22.749052332999998,
           "new_price": 6.2131,
           "new_profit": 6.048313332999999,
@@ -346,6 +404,8 @@
         },
         {
           "auction": 8,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 29.107102332999997,
           "new_price": 6.5268,
           "new_profit": 6.3580499999999995,
@@ -357,6 +417,8 @@
         },
         {
           "auction": 9,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 31.401188249999997,
           "new_price": 2.4206,
           "new_profit": 2.294085917,
@@ -368,6 +430,8 @@
         },
         {
           "auction": 10,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 31.401188249999997,
           "new_price": null,
           "new_profit": 0.0,
@@ -379,6 +443,8 @@
         },
         {
           "auction": 11,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 35.643160124999994,
           "new_price": 4.4033,
           "new_profit": 4.241971875,
@@ -401,6 +467,8 @@
       "outcomes": [
         {
           "auction": 1,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 5.379572,
           "new_price": 5.4098,
           "new_profit": 5.379572,
@@ -412,6 +480,8 @@
         },
         {
           "auction": 2,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 34.99999999999999,
           "new_cumulative": 9.119384833,
           "new_price": 3.822,
           "new_profit": 3.7398128330000002,
@@ -423,6 +493,8 @@
         },
         {
           "auction": 3,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 15.237698166,
           "new_price": 6.2131,
           "new_profit": 6.118313333,
@@ -434,6 +506,8 @@
         },
         {
           "auction": 4,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 21.665748166,
           "new_price": 6.5268,
           "new_profit": 6.42805,
@@ -445,6 +519,8 @@
         },
         {
           "auction": 5,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 24.029834083,
           "new_price": 2.4206,
           "new_profit": 2.3640859169999997,
@@ -456,6 +532,8 @@
         },
         {
           "auction": 6,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 31.002153833,
           "new_price": 7.0026,
           "new_profit": 6.9723197500000005,
@@ -467,6 +545,8 @@
         },
         {
           "auction": 7,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 35.379625708,
           "new_price": 4.4688,
           "new_profit": 4.3774718749999995,
@@ -478,6 +558,8 @@
         },
         {
           "auction": 8,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 37.825200666,
           "new_price": 2.6852,
           "new_profit": 2.445574958,
@@ -489,6 +571,8 @@
         },
         {
           "auction": 9,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 40.007198,
           "new_price": 2.3912,
           "new_profit": 2.181997334,
@@ -500,6 +584,8 @@
         },
         {
           "auction": 10,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 42.586177041,
           "new_price": 2.6091,
           "new_profit": 2.578979041,
@@ -511,6 +597,8 @@
         },
         {
           "auction": 11,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 48.951240208,
           "new_price": 6.3953,
           "new_profit": 6.365063167,
@@ -522,6 +610,8 @@
         },
         {
           "auction": 12,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 52.183565625,
           "new_price": 3.2634,
           "new_profit": 3.2323254169999998,
@@ -533,6 +623,8 @@
         },
         {
           "auction": 13,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 57.8477865,
           "new_price": 5.7526,
           "new_profit": 5.664220875,
@@ -544,6 +636,8 @@
         },
         {
           "auction": 14,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 60.140966,
           "new_price": 2.5088,
           "new_profit": 2.2931795,
@@ -555,6 +649,8 @@
         },
         {
           "auction": 15,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 62.317940791,
           "new_price": 2.3422,
           "new_profit": 2.176974791,
@@ -566,6 +662,8 @@
         },
         {
           "auction": 16,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 67.546444749,
           "new_price": 5.3115,
           "new_profit": 5.228503957999999,
@@ -577,6 +675,8 @@
         },
         {
           "auction": 17,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 68.70262512400001,
           "new_price": 1.2838,
           "new_profit": 1.156180375,
@@ -588,6 +688,8 @@
         },
         {
           "auction": 18,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.00000000000001,
           "new_cumulative": 75.040958833,
           "new_price": 6.37,
           "new_profit": 6.3383337090000005,
@@ -599,6 +701,8 @@
         },
         {
           "auction": 19,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.00000000000001,
           "new_cumulative": 80.84587191600001,
           "new_price": 5.9094,
           "new_profit": 5.804913083,
@@ -610,6 +714,8 @@
         },
         {
           "auction": 20,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.00000000000001,
           "new_cumulative": 83.852757041,
           "new_price": 3.0379,
           "new_profit": 3.006885125,
@@ -621,6 +727,8 @@
         },
         {
           "auction": 21,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 88.14331466600001,
           "new_price": 4.3218,
           "new_profit": 4.290557625,
@@ -632,6 +740,8 @@
         },
         {
           "auction": 22,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 95.886607166,
           "new_price": 7.7736,
           "new_profit": 7.7432925,
@@ -643,6 +753,8 @@
         },
         {
           "auction": 23,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 101.80359441600001,
           "new_price": 5.9486,
           "new_profit": 5.91698725,
@@ -654,6 +766,8 @@
         },
         {
           "auction": 24,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 106.79579262400001,
           "new_price": 5.0862,
           "new_profit": 4.992198208,
@@ -665,6 +779,8 @@
         },
         {
           "auction": 25,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 114.64466883300001,
           "new_price": 8.0066,
           "new_profit": 7.848876209,
@@ -676,6 +792,8 @@
         },
         {
           "auction": 26,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 120.06434083300002,
           "new_price": 5.4499,
           "new_profit": 5.419672,
@@ -687,6 +805,8 @@
         },
         {
           "auction": 27,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 123.80415366600002,
           "new_price": 3.822,
           "new_profit": 3.7398128330000002,
@@ -698,6 +818,8 @@
         },
         {
           "auction": 28,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 129.92246699900002,
           "new_price": 6.2131,
           "new_profit": 6.118313333,
@@ -709,6 +831,8 @@
         },
         {
           "auction": 29,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 136.35051699900004,
           "new_price": 6.5268,
           "new_profit": 6.42805,
@@ -720,6 +844,8 @@
         },
         {
           "auction": 30,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 138.71460291600005,
           "new_price": 2.4206,
           "new_profit": 2.3640859169999997,
@@ -731,6 +857,8 @@
         },
         {
           "auction": 31,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 145.68692266600004,
           "new_price": 7.0026,
           "new_profit": 6.9723197500000005,
@@ -742,6 +870,8 @@
         },
         {
           "auction": 32,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 150.06439454100004,
           "new_price": 4.4688,
           "new_profit": 4.3774718749999995,
@@ -753,6 +883,8 @@
         },
         {
           "auction": 33,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 152.50996949900005,
           "new_price": 2.6852,
           "new_profit": 2.445574958,
@@ -764,6 +896,8 @@
         },
         {
           "auction": 34,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 154.69196683300004,
           "new_price": 2.3912,
           "new_profit": 2.181997334,
@@ -775,6 +909,8 @@
         },
         {
           "auction": 35,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 157.27094587400003,
           "new_price": 2.6091,
           "new_profit": 2.578979041,
@@ -786,6 +922,8 @@
         },
         {
           "auction": 36,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 163.63600904100002,
           "new_price": 6.3953,
           "new_profit": 6.365063167,
@@ -797,6 +935,8 @@
         },
         {
           "auction": 37,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 166.86833445800002,
           "new_price": 3.2634,
           "new_profit": 3.2323254169999998,
@@ -808,6 +948,8 @@
         },
         {
           "auction": 38,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 172.53255533300003,
           "new_price": 5.7526,
           "new_profit": 5.664220875,
@@ -819,6 +961,8 @@
         },
         {
           "auction": 39,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 174.82573483300004,
           "new_price": 2.5088,
           "new_profit": 2.2931795,
@@ -830,6 +974,8 @@
         },
         {
           "auction": 40,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 177.00270962400003,
           "new_price": 2.3422,
           "new_profit": 2.176974791,
@@ -841,6 +987,8 @@
         },
         {
           "auction": 41,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 182.23121358200004,
           "new_price": 5.3115,
           "new_profit": 5.228503957999999,
@@ -852,6 +1000,8 @@
         },
         {
           "auction": 42,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 183.38739395700003,
           "new_price": 1.2838,
           "new_profit": 1.156180375,
@@ -863,6 +1013,8 @@
         },
         {
           "auction": 43,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 189.72572766600004,
           "new_price": 6.37,
           "new_profit": 6.3383337090000005,
@@ -874,6 +1026,8 @@
         },
         {
           "auction": 44,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 195.53064074900004,
           "new_price": 5.9094,
           "new_profit": 5.804913083,
@@ -885,6 +1039,8 @@
         },
         {
           "auction": 45,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 198.53752587400004,
           "new_price": 3.0379,
           "new_profit": 3.006885125,
@@ -896,6 +1052,8 @@
         },
         {
           "auction": 46,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 202.82808349900003,
           "new_price": 4.3218,
           "new_profit": 4.290557625,
@@ -907,6 +1065,8 @@
         },
         {
           "auction": 47,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 210.57137599900003,
           "new_price": 7.7736,
           "new_profit": 7.7432925,
@@ -918,6 +1078,8 @@
         },
         {
           "auction": 48,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 216.48836324900003,
           "new_price": 5.9486,
           "new_profit": 5.91698725,
@@ -929,6 +1091,8 @@
         },
         {
           "auction": 49,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 221.48056145700002,
           "new_price": 5.0862,
           "new_profit": 4.992198208,
@@ -940,6 +1104,8 @@
         },
         {
           "auction": 50,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 229.32943766600002,
           "new_price": 8.0066,
           "new_profit": 7.848876209,
@@ -951,6 +1117,8 @@
         },
         {
           "auction": 51,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 234.749109666,
           "new_price": 5.4499,
           "new_profit": 5.419672,
@@ -962,6 +1130,8 @@
         },
         {
           "auction": 52,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 238.488922499,
           "new_price": 3.822,
           "new_profit": 3.7398128330000002,
@@ -973,6 +1143,8 @@
         },
         {
           "auction": 53,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 244.60723583200001,
           "new_price": 6.2131,
           "new_profit": 6.118313333,
@@ -984,6 +1156,8 @@
         },
         {
           "auction": 54,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 251.03528583200003,
           "new_price": 6.5268,
           "new_profit": 6.42805,
@@ -995,6 +1169,8 @@
         },
         {
           "auction": 55,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 253.39937174900004,
           "new_price": 2.4206,
           "new_profit": 2.3640859169999997,
@@ -1006,6 +1182,8 @@
         },
         {
           "auction": 56,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 260.37169149900006,
           "new_price": 7.0026,
           "new_profit": 6.9723197500000005,
@@ -1017,6 +1195,8 @@
         },
         {
           "auction": 57,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 264.7491633740001,
           "new_price": 4.4688,
           "new_profit": 4.3774718749999995,
@@ -1028,6 +1208,8 @@
         },
         {
           "auction": 58,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 267.1947383320001,
           "new_price": 2.6852,
           "new_profit": 2.445574958,
@@ -1039,6 +1221,8 @@
         },
         {
           "auction": 59,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 269.3767356660001,
           "new_price": 2.3912,
           "new_profit": 2.181997334,
@@ -1050,6 +1234,8 @@
         },
         {
           "auction": 60,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 271.95571470700014,
           "new_price": 2.6091,
           "new_profit": 2.578979041,
@@ -1061,6 +1247,8 @@
         },
         {
           "auction": 61,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 278.32077787400016,
           "new_price": 6.3953,
           "new_profit": 6.365063167,
@@ -1072,6 +1260,8 @@
         },
         {
           "auction": 62,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 281.5531032910002,
           "new_price": 3.2634,
           "new_profit": 3.2323254169999998,
@@ -1083,6 +1273,8 @@
         },
         {
           "auction": 63,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 287.2173241660002,
           "new_price": 5.7526,
           "new_profit": 5.664220875,
@@ -1094,6 +1286,8 @@
         },
         {
           "auction": 64,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 289.5105036660002,
           "new_price": 2.5088,
           "new_profit": 2.2931795,
@@ -1105,6 +1299,8 @@
         },
         {
           "auction": 65,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 291.6874784570002,
           "new_price": 2.3422,
           "new_profit": 2.176974791,
@@ -1116,6 +1312,8 @@
         },
         {
           "auction": 66,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 296.9159824150002,
           "new_price": 5.3115,
           "new_profit": 5.228503957999999,
@@ -1127,6 +1325,8 @@
         },
         {
           "auction": 67,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 298.0721627900002,
           "new_price": 1.2838,
           "new_profit": 1.156180375,
@@ -1138,6 +1338,8 @@
         },
         {
           "auction": 68,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 304.4104964990002,
           "new_price": 6.37,
           "new_profit": 6.3383337090000005,
@@ -1149,6 +1351,8 @@
         },
         {
           "auction": 69,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 310.2154095820002,
           "new_price": 5.9094,
           "new_profit": 5.804913083,
@@ -1160,6 +1364,8 @@
         },
         {
           "auction": 70,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 313.2222947070002,
           "new_price": 3.0379,
           "new_profit": 3.006885125,
@@ -1171,6 +1377,8 @@
         },
         {
           "auction": 71,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 317.5128523320002,
           "new_price": 4.3218,
           "new_profit": 4.290557625,
@@ -1182,6 +1390,8 @@
         },
         {
           "auction": 72,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 325.2561448320002,
           "new_price": 7.7736,
           "new_profit": 7.7432925,
@@ -1193,6 +1403,8 @@
         },
         {
           "auction": 73,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 331.17313208200017,
           "new_price": 5.9486,
           "new_profit": 5.91698725,
@@ -1204,6 +1416,8 @@
         },
         {
           "auction": 74,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 336.16533029000016,
           "new_price": 5.0862,
           "new_profit": 4.992198208,
@@ -1215,6 +1429,8 @@
         },
         {
           "auction": 75,
+          "delivery_ms": 30.0,
+          "forecast_delivery_ms": 35.0,
           "new_cumulative": 344.0142064990002,
           "new_price": 8.0066,
           "new_profit": 7.848876209,
@@ -1235,6 +1451,8 @@
       "outcomes": [
         {
           "auction": 1,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 5.359572,
           "new_price": 5.4098,
           "new_profit": 5.359572,
@@ -1246,6 +1464,8 @@
         },
         {
           "auction": 2,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 9.079384833,
           "new_price": 3.822,
           "new_profit": 3.719812833,
@@ -1257,6 +1477,8 @@
         },
         {
           "auction": 3,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 15.177698166,
           "new_price": 6.2131,
           "new_profit": 6.098313333,
@@ -1268,6 +1490,8 @@
         },
         {
           "auction": 4,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 21.585748166000002,
           "new_price": 6.5268,
           "new_profit": 6.408049999999999,
@@ -1279,6 +1503,8 @@
         },
         {
           "auction": 5,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 23.929834083000003,
           "new_price": 2.4206,
           "new_profit": 2.3440859169999997,
@@ -1290,6 +1516,8 @@
         },
         {
           "auction": 6,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.00000000000001,
           "new_cumulative": 30.842153833000005,
           "new_price": 6.9626,
           "new_profit": 6.91231975,
@@ -1301,6 +1529,8 @@
         },
         {
           "auction": 7,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.00000000000001,
           "new_cumulative": 35.199625708000006,
           "new_price": 4.4688,
           "new_profit": 4.357471875,
@@ -1312,6 +1542,8 @@
         },
         {
           "auction": 8,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.00000000000001,
           "new_cumulative": 37.625200666000005,
           "new_price": 2.6852,
           "new_profit": 2.425574958,
@@ -1323,6 +1555,8 @@
         },
         {
           "auction": 9,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 39.787198000000004,
           "new_price": 2.3912,
           "new_profit": 2.161997334,
@@ -1334,6 +1568,8 @@
         },
         {
           "auction": 10,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 42.306177041000005,
           "new_price": 2.5691,
           "new_profit": 2.518979041,
@@ -1345,6 +1581,8 @@
         },
         {
           "auction": 11,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 48.611240208000005,
           "new_price": 6.3553,
           "new_profit": 6.305063167,
@@ -1356,6 +1594,8 @@
         },
         {
           "auction": 12,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 51.82356562500001,
           "new_price": 3.2634,
           "new_profit": 3.2123254169999997,
@@ -1367,6 +1607,8 @@
         },
         {
           "auction": 13,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 57.46778650000001,
           "new_price": 5.7526,
           "new_profit": 5.644220875,
@@ -1378,6 +1620,8 @@
         },
         {
           "auction": 14,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 59.74096600000001,
           "new_price": 2.5088,
           "new_profit": 2.2731795,
@@ -1389,6 +1633,8 @@
         },
         {
           "auction": 15,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 61.89794079100001,
           "new_price": 2.3422,
           "new_profit": 2.156974791,
@@ -1400,6 +1646,8 @@
         },
         {
           "auction": 16,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 67.106444749,
           "new_price": 5.3115,
           "new_profit": 5.208503958,
@@ -1411,6 +1659,8 @@
         },
         {
           "auction": 17,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 68.242625124,
           "new_price": 1.2838,
           "new_profit": 1.1361803750000001,
@@ -1422,6 +1672,8 @@
         },
         {
           "auction": 18,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 74.556558833,
           "new_price": 6.3656,
           "new_profit": 6.313933709,
@@ -1433,6 +1685,8 @@
         },
         {
           "auction": 19,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 80.341471916,
           "new_price": 5.9094,
           "new_profit": 5.784913083,
@@ -1444,6 +1698,8 @@
         },
         {
           "auction": 20,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 83.328357041,
           "new_price": 3.0379,
           "new_profit": 2.986885125,
@@ -1455,6 +1711,8 @@
         },
         {
           "auction": 21,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 87.598914666,
           "new_price": 4.3218,
           "new_profit": 4.2705576249999995,
@@ -1466,6 +1724,8 @@
         },
         {
           "auction": 22,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 95.282207166,
           "new_price": 7.7336,
           "new_profit": 7.6832925,
@@ -1477,6 +1737,8 @@
         },
         {
           "auction": 23,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 101.179194416,
           "new_price": 5.9486,
           "new_profit": 5.89698725,
@@ -1488,6 +1750,8 @@
         },
         {
           "auction": 24,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 106.151392624,
           "new_price": 5.0862,
           "new_profit": 4.972198208,
@@ -1499,6 +1763,8 @@
         },
         {
           "auction": 25,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 113.980268833,
           "new_price": 8.0066,
           "new_profit": 7.828876209000001,
@@ -1510,6 +1776,8 @@
         },
         {
           "auction": 26,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 119.339940833,
           "new_price": 5.4099,
           "new_profit": 5.359672000000001,
@@ -1521,6 +1789,8 @@
         },
         {
           "auction": 27,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 123.059753666,
           "new_price": 3.822,
           "new_profit": 3.719812833,
@@ -1532,6 +1802,8 @@
         },
         {
           "auction": 28,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 129.158066999,
           "new_price": 6.2131,
           "new_profit": 6.098313333,
@@ -1543,6 +1815,8 @@
         },
         {
           "auction": 29,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 135.566116999,
           "new_price": 6.5268,
           "new_profit": 6.408049999999999,
@@ -1554,6 +1828,8 @@
         },
         {
           "auction": 30,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 137.910202916,
           "new_price": 2.4206,
           "new_profit": 2.3440859169999997,
@@ -1565,6 +1841,8 @@
         },
         {
           "auction": 31,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 144.822522666,
           "new_price": 6.9626,
           "new_profit": 6.91231975,
@@ -1576,6 +1854,8 @@
         },
         {
           "auction": 32,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 149.17999454099999,
           "new_price": 4.4688,
           "new_profit": 4.357471875,
@@ -1587,6 +1867,8 @@
         },
         {
           "auction": 33,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 151.60556949899998,
           "new_price": 2.6852,
           "new_profit": 2.425574958,
@@ -1598,6 +1880,8 @@
         },
         {
           "auction": 34,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 153.767566833,
           "new_price": 2.3912,
           "new_profit": 2.161997334,
@@ -1609,6 +1893,8 @@
         },
         {
           "auction": 35,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 156.28654587399998,
           "new_price": 2.5691,
           "new_profit": 2.518979041,
@@ -1620,6 +1906,8 @@
         },
         {
           "auction": 36,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 162.59160904099997,
           "new_price": 6.3553,
           "new_profit": 6.305063167,
@@ -1631,6 +1919,8 @@
         },
         {
           "auction": 37,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 165.80393445799996,
           "new_price": 3.2634,
           "new_profit": 3.2123254169999997,
@@ -1642,6 +1932,8 @@
         },
         {
           "auction": 38,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 171.44815533299996,
           "new_price": 5.7526,
           "new_profit": 5.644220875,
@@ -1653,6 +1945,8 @@
         },
         {
           "auction": 39,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 173.72133483299996,
           "new_price": 2.5088,
           "new_profit": 2.2731795,
@@ -1664,6 +1958,8 @@
         },
         {
           "auction": 40,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 175.87830962399997,
           "new_price": 2.3422,
           "new_profit": 2.156974791,
@@ -1675,6 +1971,8 @@
         },
         {
           "auction": 41,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 181.08681358199996,
           "new_price": 5.3115,
           "new_profit": 5.208503958,
@@ -1686,6 +1984,8 @@
         },
         {
           "auction": 42,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 182.22299395699997,
           "new_price": 1.2838,
           "new_profit": 1.1361803750000001,
@@ -1697,6 +1997,8 @@
         },
         {
           "auction": 43,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 188.53682766599997,
           "new_price": 6.3655,
           "new_profit": 6.313833709,
@@ -1708,6 +2010,8 @@
         },
         {
           "auction": 44,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 194.32174074899996,
           "new_price": 5.9094,
           "new_profit": 5.784913083,
@@ -1719,6 +2023,8 @@
         },
         {
           "auction": 45,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 197.30862587399994,
           "new_price": 3.0379,
           "new_profit": 2.986885125,
@@ -1730,6 +2036,8 @@
         },
         {
           "auction": 46,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 201.57918349899995,
           "new_price": 4.3218,
           "new_profit": 4.2705576249999995,
@@ -1741,6 +2049,8 @@
         },
         {
           "auction": 47,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 209.26247599899995,
           "new_price": 7.7336,
           "new_profit": 7.6832925,
@@ -1752,6 +2062,8 @@
         },
         {
           "auction": 48,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 215.15946324899994,
           "new_price": 5.9486,
           "new_profit": 5.89698725,
@@ -1763,6 +2075,8 @@
         },
         {
           "auction": 49,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 220.13166145699995,
           "new_price": 5.0862,
           "new_profit": 4.972198208,
@@ -1774,6 +2088,8 @@
         },
         {
           "auction": 50,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 227.96053766599994,
           "new_price": 8.0066,
           "new_profit": 7.828876209000001,
@@ -1785,6 +2101,8 @@
         },
         {
           "auction": 51,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 233.32020966599993,
           "new_price": 5.4099,
           "new_profit": 5.359672000000001,
@@ -1796,6 +2114,8 @@
         },
         {
           "auction": 52,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 237.04002249899992,
           "new_price": 3.822,
           "new_profit": 3.719812833,
@@ -1807,6 +2127,8 @@
         },
         {
           "auction": 53,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 243.1383358319999,
           "new_price": 6.2131,
           "new_profit": 6.098313333,
@@ -1818,6 +2140,8 @@
         },
         {
           "auction": 54,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 249.5463858319999,
           "new_price": 6.5268,
           "new_profit": 6.408049999999999,
@@ -1829,6 +2153,8 @@
         },
         {
           "auction": 55,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 251.89047174899991,
           "new_price": 2.4206,
           "new_profit": 2.3440859169999997,
@@ -1840,6 +2166,8 @@
         },
         {
           "auction": 56,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 258.8027914989999,
           "new_price": 6.9626,
           "new_profit": 6.91231975,
@@ -1851,6 +2179,8 @@
         },
         {
           "auction": 57,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 263.1602633739999,
           "new_price": 4.4688,
           "new_profit": 4.357471875,
@@ -1862,6 +2192,8 @@
         },
         {
           "auction": 58,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 265.5858383319999,
           "new_price": 2.6852,
           "new_profit": 2.425574958,
@@ -1873,6 +2205,8 @@
         },
         {
           "auction": 59,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 267.7478356659999,
           "new_price": 2.3912,
           "new_profit": 2.161997334,
@@ -1884,6 +2218,8 @@
         },
         {
           "auction": 60,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 270.2668147069999,
           "new_price": 2.5691,
           "new_profit": 2.518979041,
@@ -1895,6 +2231,8 @@
         },
         {
           "auction": 61,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 276.57187787399994,
           "new_price": 6.3553,
           "new_profit": 6.305063167,
@@ -1906,6 +2244,8 @@
         },
         {
           "auction": 62,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 279.7842032909999,
           "new_price": 3.2634,
           "new_profit": 3.2123254169999997,
@@ -1917,6 +2257,8 @@
         },
         {
           "auction": 63,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 285.4284241659999,
           "new_price": 5.7526,
           "new_profit": 5.644220875,
@@ -1928,6 +2270,8 @@
         },
         {
           "auction": 64,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 287.7016036659999,
           "new_price": 2.5088,
           "new_profit": 2.2731795,
@@ -1939,6 +2283,8 @@
         },
         {
           "auction": 65,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 289.8585784569999,
           "new_price": 2.3422,
           "new_profit": 2.156974791,
@@ -1950,6 +2296,8 @@
         },
         {
           "auction": 66,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 295.0670824149999,
           "new_price": 5.3115,
           "new_profit": 5.208503958,
@@ -1961,6 +2309,8 @@
         },
         {
           "auction": 67,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 296.2032627899999,
           "new_price": 1.2838,
           "new_profit": 1.1361803750000001,
@@ -1972,6 +2322,8 @@
         },
         {
           "auction": 68,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 302.5170964989999,
           "new_price": 6.3655,
           "new_profit": 6.313833709,
@@ -1983,6 +2335,8 @@
         },
         {
           "auction": 69,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 308.30200958199987,
           "new_price": 5.9094,
           "new_profit": 5.784913083,
@@ -1994,6 +2348,8 @@
         },
         {
           "auction": 70,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 311.2888947069999,
           "new_price": 3.0379,
           "new_profit": 2.986885125,
@@ -2005,6 +2361,8 @@
         },
         {
           "auction": 71,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 315.55945233199986,
           "new_price": 4.3218,
           "new_profit": 4.2705576249999995,
@@ -2016,6 +2374,8 @@
         },
         {
           "auction": 72,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 323.24274483199986,
           "new_price": 7.7336,
           "new_profit": 7.6832925,
@@ -2027,6 +2387,8 @@
         },
         {
           "auction": 73,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 329.13973208199985,
           "new_price": 5.9486,
           "new_profit": 5.89698725,
@@ -2038,6 +2400,8 @@
         },
         {
           "auction": 74,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 334.11193028999986,
           "new_price": 5.0862,
           "new_profit": 4.972198208,
@@ -2049,6 +2413,8 @@
         },
         {
           "auction": 75,
+          "delivery_ms": 50.0,
+          "forecast_delivery_ms": 55.000000000000014,
           "new_cumulative": 341.94080649899985,
           "new_price": 8.0066,
           "new_profit": 7.828876209000001,
@@ -2069,6 +2435,8 @@
       "outcomes": [
         {
           "auction": 1,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 55.0,
           "new_cumulative": 5.309571999999999,
           "new_price": 5.4098,
           "new_profit": 5.309571999999999,
@@ -2080,6 +2448,8 @@
         },
         {
           "auction": 2,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 8.979384833,
           "new_price": 3.822,
           "new_profit": 3.669812833,
@@ -2091,6 +2461,8 @@
         },
         {
           "auction": 3,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 15.027698165999999,
           "new_price": 6.2131,
           "new_profit": 6.048313332999999,
@@ -2102,6 +2474,8 @@
         },
         {
           "auction": 4,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 21.385748166,
           "new_price": 6.5268,
           "new_profit": 6.3580499999999995,
@@ -2113,6 +2487,8 @@
         },
         {
           "auction": 5,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 23.679834083,
           "new_price": 2.4206,
           "new_profit": 2.294085917,
@@ -2124,6 +2500,8 @@
         },
         {
           "auction": 6,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 30.442153833,
           "new_price": 6.8626,
           "new_profit": 6.76231975,
@@ -2135,6 +2513,8 @@
         },
         {
           "auction": 7,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 34.749625707999996,
           "new_price": 4.4688,
           "new_profit": 4.307471875,
@@ -2146,6 +2526,8 @@
         },
         {
           "auction": 8,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 37.125200666,
           "new_price": 2.6852,
           "new_profit": 2.375574958,
@@ -2157,6 +2539,8 @@
         },
         {
           "auction": 9,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 39.237198,
           "new_price": 2.3912,
           "new_profit": 2.111997334,
@@ -2168,6 +2552,8 @@
         },
         {
           "auction": 10,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 41.606177041,
           "new_price": 2.4691,
           "new_profit": 2.3689790410000002,
@@ -2179,6 +2565,8 @@
         },
         {
           "auction": 11,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 47.761240208000004,
           "new_price": 6.2553,
           "new_profit": 6.155063167,
@@ -2190,6 +2578,8 @@
         },
         {
           "auction": 12,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 50.912765625000006,
           "new_price": 3.2526,
           "new_profit": 3.151525417,
@@ -2201,6 +2591,8 @@
         },
         {
           "auction": 13,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 56.506986500000004,
           "new_price": 5.7526,
           "new_profit": 5.594220875,
@@ -2212,6 +2604,8 @@
         },
         {
           "auction": 14,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 58.730166000000004,
           "new_price": 2.5088,
           "new_profit": 2.2231795,
@@ -2223,6 +2617,8 @@
         },
         {
           "auction": 15,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 60.837140791,
           "new_price": 2.3422,
           "new_profit": 2.106974791,
@@ -2234,6 +2630,8 @@
         },
         {
           "auction": 16,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 65.99564474900001,
           "new_price": 5.3115,
           "new_profit": 5.158503958,
@@ -2245,6 +2643,8 @@
         },
         {
           "auction": 17,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 67.081825124,
           "new_price": 1.2838,
           "new_profit": 1.086180375,
@@ -2256,6 +2656,8 @@
         },
         {
           "auction": 18,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 73.24575883300001,
           "new_price": 6.2656,
           "new_profit": 6.163933709,
@@ -2267,6 +2669,8 @@
         },
         {
           "auction": 19,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 78.980671916,
           "new_price": 5.9094,
           "new_profit": 5.7349130829999995,
@@ -2278,6 +2682,8 @@
         },
         {
           "auction": 20,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 81.91025704100001,
           "new_price": 3.0306,
           "new_profit": 2.929585125,
@@ -2289,6 +2695,8 @@
         },
         {
           "auction": 21,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 86.09631466600001,
           "new_price": 4.2873,
           "new_profit": 4.186057625,
@@ -2300,6 +2708,8 @@
         },
         {
           "auction": 22,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 93.62960716600001,
           "new_price": 7.6336,
           "new_profit": 7.5332925,
@@ -2311,6 +2721,8 @@
         },
         {
           "auction": 23,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 99.41579441600001,
           "new_price": 5.8878,
           "new_profit": 5.78618725,
@@ -2322,6 +2734,8 @@
         },
         {
           "auction": 24,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 104.33799262400001,
           "new_price": 5.0862,
           "new_profit": 4.922198208,
@@ -2333,6 +2747,8 @@
         },
         {
           "auction": 25,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 112.11686883300001,
           "new_price": 8.0066,
           "new_profit": 7.778876209000001,
@@ -2344,6 +2760,8 @@
         },
         {
           "auction": 26,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 117.32654083300001,
           "new_price": 5.3099,
           "new_profit": 5.209671999999999,
@@ -2355,6 +2773,8 @@
         },
         {
           "auction": 27,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 120.996353666,
           "new_price": 3.822,
           "new_profit": 3.669812833,
@@ -2366,6 +2786,8 @@
         },
         {
           "auction": 28,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 127.044666999,
           "new_price": 6.2131,
           "new_profit": 6.048313332999999,
@@ -2377,6 +2799,8 @@
         },
         {
           "auction": 29,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 133.402716999,
           "new_price": 6.5268,
           "new_profit": 6.3580499999999995,
@@ -2388,6 +2812,8 @@
         },
         {
           "auction": 30,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 135.696802916,
           "new_price": 2.4206,
           "new_profit": 2.294085917,
@@ -2399,6 +2825,8 @@
         },
         {
           "auction": 31,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 142.45912266599998,
           "new_price": 6.8626,
           "new_profit": 6.76231975,
@@ -2410,6 +2838,8 @@
         },
         {
           "auction": 32,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 146.766594541,
           "new_price": 4.4688,
           "new_profit": 4.307471875,
@@ -2421,6 +2851,8 @@
         },
         {
           "auction": 33,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 149.14216949899998,
           "new_price": 2.6852,
           "new_profit": 2.375574958,
@@ -2432,6 +2864,8 @@
         },
         {
           "auction": 34,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 151.25416683299997,
           "new_price": 2.3912,
           "new_profit": 2.111997334,
@@ -2443,6 +2877,8 @@
         },
         {
           "auction": 35,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 153.62314587399996,
           "new_price": 2.4691,
           "new_profit": 2.3689790410000002,
@@ -2454,6 +2890,8 @@
         },
         {
           "auction": 36,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 159.77820904099997,
           "new_price": 6.2553,
           "new_profit": 6.155063167,
@@ -2465,6 +2903,8 @@
         },
         {
           "auction": 37,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 162.92953445799998,
           "new_price": 3.2524,
           "new_profit": 3.1513254170000002,
@@ -2476,6 +2916,8 @@
         },
         {
           "auction": 38,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 168.52375533299997,
           "new_price": 5.7526,
           "new_profit": 5.594220875,
@@ -2487,6 +2929,8 @@
         },
         {
           "auction": 39,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 170.74693483299995,
           "new_price": 2.5088,
           "new_profit": 2.2231795,
@@ -2498,6 +2942,8 @@
         },
         {
           "auction": 40,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 172.85390962399995,
           "new_price": 2.3422,
           "new_profit": 2.106974791,
@@ -2509,6 +2955,8 @@
         },
         {
           "auction": 41,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 178.01241358199997,
           "new_price": 5.3115,
           "new_profit": 5.158503958,
@@ -2520,6 +2968,8 @@
         },
         {
           "auction": 42,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000001,
           "new_cumulative": 179.09859395699996,
           "new_price": 1.2838,
           "new_profit": 1.086180375,
@@ -2531,6 +2981,8 @@
         },
         {
           "auction": 43,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 185.26242766599995,
           "new_price": 6.2655,
           "new_profit": 6.163833709,
@@ -2542,6 +2994,8 @@
         },
         {
           "auction": 44,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 190.99734074899996,
           "new_price": 5.9094,
           "new_profit": 5.7349130829999995,
@@ -2553,6 +3007,8 @@
         },
         {
           "auction": 45,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 193.92682587399997,
           "new_price": 3.0305,
           "new_profit": 2.929485125,
@@ -2564,6 +3020,8 @@
         },
         {
           "auction": 46,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 198.11288349899996,
           "new_price": 4.2873,
           "new_profit": 4.186057625,
@@ -2575,6 +3033,8 @@
         },
         {
           "auction": 47,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 205.64617599899995,
           "new_price": 7.6336,
           "new_profit": 7.5332925,
@@ -2586,6 +3046,8 @@
         },
         {
           "auction": 48,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 211.43226324899996,
           "new_price": 5.8877,
           "new_profit": 5.78608725,
@@ -2597,6 +3059,8 @@
         },
         {
           "auction": 49,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 216.35446145699996,
           "new_price": 5.0862,
           "new_profit": 4.922198208,
@@ -2608,6 +3072,8 @@
         },
         {
           "auction": 50,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 224.13333766599996,
           "new_price": 8.0066,
           "new_profit": 7.778876209000001,
@@ -2619,6 +3085,8 @@
         },
         {
           "auction": 51,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 229.34300966599997,
           "new_price": 5.3099,
           "new_profit": 5.209671999999999,
@@ -2630,6 +3098,8 @@
         },
         {
           "auction": 52,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 233.01282249899998,
           "new_price": 3.822,
           "new_profit": 3.669812833,
@@ -2641,6 +3111,8 @@
         },
         {
           "auction": 53,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 239.061135832,
           "new_price": 6.2131,
           "new_profit": 6.048313332999999,
@@ -2652,6 +3124,8 @@
         },
         {
           "auction": 54,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 245.41918583199998,
           "new_price": 6.5268,
           "new_profit": 6.3580499999999995,
@@ -2663,6 +3137,8 @@
         },
         {
           "auction": 55,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 247.71327174899997,
           "new_price": 2.4206,
           "new_profit": 2.294085917,
@@ -2674,6 +3150,8 @@
         },
         {
           "auction": 56,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 254.47559149899996,
           "new_price": 6.8626,
           "new_profit": 6.76231975,
@@ -2685,6 +3163,8 @@
         },
         {
           "auction": 57,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 258.78306337399994,
           "new_price": 4.4688,
           "new_profit": 4.307471875,
@@ -2696,6 +3176,8 @@
         },
         {
           "auction": 58,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 261.15863833199995,
           "new_price": 2.6852,
           "new_profit": 2.375574958,
@@ -2707,6 +3189,8 @@
         },
         {
           "auction": 59,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 263.270635666,
           "new_price": 2.3912,
           "new_profit": 2.111997334,
@@ -2718,6 +3202,8 @@
         },
         {
           "auction": 60,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 265.63961470699996,
           "new_price": 2.4691,
           "new_profit": 2.3689790410000002,
@@ -2729,6 +3215,8 @@
         },
         {
           "auction": 61,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 271.79467787399994,
           "new_price": 6.2553,
           "new_profit": 6.155063167,
@@ -2740,6 +3228,8 @@
         },
         {
           "auction": 62,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 274.94600329099995,
           "new_price": 3.2524,
           "new_profit": 3.1513254170000002,
@@ -2751,6 +3241,8 @@
         },
         {
           "auction": 63,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 280.540224166,
           "new_price": 5.7526,
           "new_profit": 5.594220875,
@@ -2762,6 +3254,8 @@
         },
         {
           "auction": 64,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 282.763403666,
           "new_price": 2.5088,
           "new_profit": 2.2231795,
@@ -2773,6 +3267,8 @@
         },
         {
           "auction": 65,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 284.870378457,
           "new_price": 2.3422,
           "new_profit": 2.106974791,
@@ -2784,6 +3280,8 @@
         },
         {
           "auction": 66,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 290.028882415,
           "new_price": 5.3115,
           "new_profit": 5.158503958,
@@ -2795,6 +3293,8 @@
         },
         {
           "auction": 67,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 291.11506279,
           "new_price": 1.2838,
           "new_profit": 1.086180375,
@@ -2806,6 +3306,8 @@
         },
         {
           "auction": 68,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 297.27889649900004,
           "new_price": 6.2655,
           "new_profit": 6.163833709,
@@ -2817,6 +3319,8 @@
         },
         {
           "auction": 69,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 303.013809582,
           "new_price": 5.9094,
           "new_profit": 5.7349130829999995,
@@ -2828,6 +3332,8 @@
         },
         {
           "auction": 70,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 305.943294707,
           "new_price": 3.0305,
           "new_profit": 2.929485125,
@@ -2839,6 +3345,8 @@
         },
         {
           "auction": 71,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 310.129352332,
           "new_price": 4.2873,
           "new_profit": 4.186057625,
@@ -2850,6 +3358,8 @@
         },
         {
           "auction": 72,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 317.662644832,
           "new_price": 7.6336,
           "new_profit": 7.5332925,
@@ -2861,6 +3371,8 @@
         },
         {
           "auction": 73,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 323.448732082,
           "new_price": 5.8877,
           "new_profit": 5.78608725,
@@ -2872,6 +3384,8 @@
         },
         {
           "auction": 74,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 328.37093029,
           "new_price": 5.0862,
           "new_profit": 4.922198208,
@@ -2883,6 +3397,8 @@
         },
         {
           "auction": 75,
+          "delivery_ms": 100.0,
+          "forecast_delivery_ms": 105.00000000000003,
           "new_cumulative": 336.14980649899996,
           "new_price": 8.0066,
           "new_profit": 7.778876209000001,

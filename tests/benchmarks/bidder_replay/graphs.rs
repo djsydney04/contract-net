@@ -25,7 +25,9 @@ pub(super) fn render(
                 .color(&ink),
         ))?;
         root.draw(&Text::new("Counterfactual · fixed public competitor bids · measured local p50 plus assumed delivery overhead",(35,80),("sans-serif",20).into_font().color(&ink)))?;
-        let panels = root.margin(115, 80, 25, 25).split_evenly((1, 3));
+        let panels = root
+            .margin(115, 80, 25, 25)
+            .split_evenly((1, scenarios.len()));
         for (panel, scenario) in panels.iter().zip(scenarios) {
             let max = scenario
                 .outcomes
@@ -41,7 +43,10 @@ pub(super) fn render(
                 * 1.12;
             let mut chart = ChartBuilder::on(panel)
                 .caption(
-                    format!("{:.0} ms delivery overhead", scenario.network_ms),
+                    scenario.network_ms.map_or_else(
+                        || "Varying archived residual".into(),
+                        |ms| format!("{ms:.0} ms delivery overhead"),
+                    ),
                     ("sans-serif", 23),
                 )
                 .margin(20)
@@ -91,9 +96,13 @@ pub(super) fn render(
         root.draw(&Text::new("Learning begins empty. Both policies face the same recorded bids; this is not a claim of live winnings.",(35,617),("sans-serif",18).into_font().color(&ink)))?;
         root.present()?;
     }
+    rasterize(&path)
+}
+
+pub(super) fn rasterize(path: &Path) -> Result<()> {
     let mut options = resvg::usvg::Options::default();
     options.fontdb_mut().load_system_fonts();
-    let tree = resvg::usvg::Tree::from_data(&fs::read(&path)?, &options)?;
+    let tree = resvg::usvg::Tree::from_data(&fs::read(path)?, &options)?;
     let size = tree.size().to_int_size();
     let mut pixmap = resvg::tiny_skia::Pixmap::new(size.width(), size.height())
         .context("allocating replay image")?;
