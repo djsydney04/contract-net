@@ -7,3 +7,17 @@ reference:
   [ok  ] matmul_mod        0.004s  629524
 No custom execute(). Using the reference implementation.
 
+=== 2026-09-09 00:02:11 UTC ===
+reference:
+  [ok  ] monte_carlo_pi    0.007s  39336
+  [ok  ] prime_count       0.022s  753
+  [ok  ] hash_search       0.066s  90984
+  [ok  ] sort_checksum     0.031s  1785318802179667385
+  [ok  ] matmul_mod        0.004s  629524
+custom execute() vs reference:
+  [ok  ] monte_carlo_pi   reference  0.007s  yours  0.005s  (1.4x)
+  [ok  ] prime_count      reference  0.022s  yours  0.000s  (134.6x)
+  [ok  ] hash_search      reference  0.064s  yours  0.049s  (1.3x)
+  [ok  ] sort_checksum    reference  0.031s  yours  0.018s  (1.7x)
+  [ok  ] matmul_mod       reference  0.004s  yours  0.001s  (6.0x)
+

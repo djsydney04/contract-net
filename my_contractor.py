@@ -28,12 +28,16 @@ And on `task`:
 from __future__ import annotations
 
 import argparse
+import hashlib
+import math
+import random
 
 from contractnet import Bid, Contractor, Task
+from contractnet.tasks import CHECKSUM_MOD
 
 
 class MyContractor(Contractor):
-    """A baseline bidder. Beating it is the assignment."""
+    """Baseline bidding with optimized, reference-compatible execution."""
 
     def on_cfp(self, task: Task) -> Bid | None:
         # How long will this take me, including the work already in my queue?
@@ -74,14 +78,85 @@ class MyContractor(Contractor):
         # estimate to look safe also makes your bid look worse.
         return Bid(price=price, est_seconds=finish_in)
 
-    # Extra credit: override `execute` with a faster implementation. It must
-    # return exactly the same integer as the reference, or the manager scores
-    # it as a wrong answer and fines you.
-    #
-    # def execute(self, task: Task) -> int:
-    #     if task.task_type == "matmul_mod":
-    #         ...  # numpy with int64 and careful modular reduction
-    #     return super().execute(task)
+    def execute(self, task: Task) -> int:
+        """Compute the reference integer with less work and no extra dependencies."""
+        params = task.params
+        if task.task_type == "prime_count":
+            lo, hi = max(2, int(params["lo"])), int(params["hi"])
+            if hi <= lo:
+                return 0
+            limit = math.isqrt(hi - 1)
+            # ponytail: O(sqrt(hi)) base sieve; use segmented base primes for huge bounds.
+            primes = bytearray(b"\x01") * (limit + 1)
+            primes[:2] = b"\x00\x00"
+            for p in range(2, math.isqrt(limit) + 1):
+                if primes[p]:
+                    primes[p * p::p] = b"\x00" * ((limit - p * p) // p + 1)
+            divisors = [p for p in range(2, limit + 1) if primes[p]]
+            total = 0
+            # Bound interval storage even for wide ranges.
+            for start in range(lo, hi, 1_000_000):
+                stop = min(start + 1_000_000, hi)
+                candidates = bytearray(b"\x01") * (stop - start)
+                for p in divisors:
+                    first = max(p * p, ((start + p - 1) // p) * p)
+                    if first < stop:
+                        candidates[first - start::p] = b"\x00" * ((stop - 1 - first) // p + 1)
+                total += candidates.count(1)
+            return total
+
+        if task.task_type == "matmul_mod":
+            n, mod = int(params["n"]), int(params["mod"])
+            randrange = random.Random(int(params["seed"])).randrange
+            # sum(A @ B) = sum_k(column_sum(A, k) * row_sum(B, k)).
+            # Preserve the reference's random draw order; use O(n) storage.
+            columns = [0] * n
+            for _ in range(n):
+                for k in range(n):
+                    columns[k] += randrange(mod)
+            total = 0
+            for column in columns:
+                total += column * sum(randrange(mod) for _ in range(n))
+            return total % mod
+
+        if task.task_type == "sort_checksum":
+            getrandbits = random.Random(int(params["seed"])).getrandbits
+            values = []
+            for _ in range(int(params["n"])):
+                # Match randrange(2**31)'s 32-bit rejection sampling exactly.
+                value = getrandbits(32)
+                while value >= 2**31:
+                    value = getrandbits(32)
+                values.append(value)
+            values.sort()
+            return sum(i * value for i, value in enumerate(values, 1)) % CHECKSUM_MOD
+
+        if task.task_type == "hash_search":
+            threshold = int(params["threshold"])
+            if threshold <= 0:
+                raise ValueError("hash threshold must be positive")
+            if threshold >= 2**32:
+                return 0
+            target = threshold.to_bytes(4, "big")
+            copy_hash = hashlib.sha256(f"{params['seed']}:".encode()).copy
+            nonce = 0
+            while True:
+                digest = copy_hash()
+                digest.update(str(nonce).encode())
+                if digest.digest()[:4] < target:
+                    return nonce
+                nonce += 1
+
+        if task.task_type == "monte_carlo_pi":
+            draw = random.Random(int(params["seed"])).random
+            inside = 0
+            for _ in range(int(params["samples"])):
+                x, y = draw(), draw()
+                if x * x + y * y <= 1.0:
+                    inside += 1
+            return inside
+
+        return super().execute(task)
 
 
 def main() -> None:
