@@ -1,96 +1,93 @@
 # contractor-net
 
-Read `CPSC370-Assignment1-ContractNet.pdf` first. This file is just the
-mechanics.
+Rust client for the CPSC 370 Contract Net tournament. The client, bidding
+strategy, calibration, five compute tasks, and verification are all native Rust.
 
-## Setup
+## Build and verify
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-Check that your machine reproduces the reference answers:
+Requires Rust 1.94 or newer.
 
 ```bash
-python verify.py
+cargo build --locked --release
+cargo run --locked --release --bin verify
+cargo test --locked --all-targets
 ```
 
-Successful checks append timings to `benchmark_data/verify_benchmarks.log`.
-The directory is created automatically. The existing benchmark history moves
-with the log.
-
-Run against the practice room (URL and token are in the Canvas announcement):
+Verification checks the five original golden answers and appends successful
+timings to `tests/benchmarks/verify_benchmarks.log`. Check all 218 reference cases
+without writing a log:
 
 ```bash
-python my_contractor.py --name YourTeamName --url PRACTICE_URL --token CLASS_TOKEN
+cargo run --locked --release --bin verify -- --all --no-log
 ```
 
-Pick your team name once and use the same one for the whole assignment, in
-practice and in the tournament. It is how your results get matched to your
-submission. Keep it appropriate: it goes on the projector and into the
-published results.
+## Run
 
-Then open the development dashboard at `PRACTICE_URL/dev` and pick your team
-name from the focus dropdown. That page shows you every message your agent
-sent and received, and the reason any bid of yours was thrown out.
+Use the practice URL and token from Canvas:
 
-## What's in here
+```bash
+cargo run --locked --release -- \
+  --name YourTeamName \
+  --url 'wss://PRACTICE_HOST/agent?room=PRACTICE_ROOM' \
+  --token CLASS_TOKEN
+```
 
-| Path | What it is |
+Or run `target/release/contractor-net` with the same arguments. `--machine`
+sets the leaderboard label; `--quiet` suppresses routine logs. Ctrl-C stops
+the client. Use release builds for calibration and tournament runs.
+
+Keep the same team name for practice, the tournament, and submission. Names
+must have 2–24 ASCII letters, digits, underscores, or hyphens and start with a
+letter or digit. Open the manager's `/dev` dashboard to inspect your messages.
+
+## Code
+
+| File | Responsibility |
 |---|---|
-| `my_contractor.py` | **Yours.** The only file you edit. Implement `on_cfp`. |
-| `verify.py` | Checks your machine, and any custom `execute`, against the reference. |
-| `requirements.txt` | Python dependencies for running the contractor. |
-| `contractnet/client.py` | The SDK: connecting, reconnecting, message framing, running your compute off the event loop. |
-| `contractnet/tasks.py` | Reference implementations of the five task types. **Do not modify.** |
-| `contractnet/benchmark.py` | Calibration, and the work-unit model your estimates are built on. |
-| `benchmark_data/` | Local benchmark history from verification runs. |
+| `src/main.rs` | CLI and shutdown |
+| `src/strategy.rs` | Bidding decisions and optional hooks |
+| `src/client.rs` | Connection, reconnects, serial worker, queue, settlements |
+| `src/protocol.rs` | Wire messages, tasks, bids, rules, and settlements |
+| `src/tasks.rs` | Exact task executors |
+| `src/random.rs` | Reference-compatible seeded random generator |
+| `src/benchmark.rs` | Calibration and work estimates |
+| `tests/integration/` | CLI, mock-manager, executor, and strategy tests |
+| `tests/support/` | Shared reference-fixture loader |
+| `tests/fixtures/` | Pinned answers and their provenance |
+| `tests/verify/` | Verification command and benchmark logging |
+| `tests/benchmarks/` | Preserved benchmark history |
+| `docs/PROTOCOL.md` | Manager protocol |
+| `docs/THIRD_PARTY_NOTICES.md` | Third-party attribution |
 
-The two runnable scripts stay at the root so the course's run and submission
-commands continue to work. The project folder is named `contractor-net`; Python
-imports use the course SDK's `contractnet` package name.
+See [tests/README.md](tests/README.md) for test commands and suite details.
 
-Everything under `contractnet/` is graded against the original. If you change
-it, your answers stop matching the answer key and every submission is marked
-wrong. `verify.py` will tell you if this has happened.
+Edit `MyContractor` in `src/strategy.rs` to change bidding. Its `BidContext`
+exposes live rules, rates, queue time, settlement history, and profit. The
+default strategy preserves the original 60% cost markup and budget/deadline
+checks. `Strategy` also provides `execute`, `on_registered`, `on_reject`,
+`on_settled`, and `on_bid_invalid` hooks. If you change the executor's work
+model, update calibration to match.
 
-## The shape of an agent
+The client executes awards serially off the network event loop. It registers
+on every connection, applies live rules, handles open auctions, and sends
+application keepalives. Unsent results survive reconnects in memory; stale
+bids are discarded. Duplicate-name eviction stops the process, and invalid
+credentials return an error. There is no recovery after the process exits.
 
-```python
-from contractnet import Bid, Contractor, Task
+The executors preserve the answer key's seeded random sequence and exact
+integer results, including large seeds and matrix moduli. Matrix checksums
+use O(n²) work and O(n) storage; prime counting uses a segmented sieve.
+Calibration measures these native implementations. Hash estimates remain
+expected times, and large-modulus estimates are approximate. Prime bounds
+must fit u64; task dimensions must fit available address space and memory.
 
-class MyContractor(Contractor):
-    def on_cfp(self, task: Task) -> Bid | None:
-        seconds = self.estimate(task)
-        if self.queue_seconds + seconds > task.deadline_s:
-            return None                      # refusing is free
-        price = seconds * self.rules.cost_rate * 1.8
-        if price > task.budget:
-            return None                      # over budget bids are void
-        return Bid(price=price, est_seconds=self.queue_seconds + seconds)
+The 218 pinned reference cases include the original golden answers, all
+previous executor tests, and additional seed/modulus boundaries. See
+`tests/fixtures/README.md` for provenance. Protocol tests use a local mock
+manager; connecting to the course room requires its URL and token.
+
+```bash
+cargo fmt --all -- --check
+cargo clippy --locked --all-targets -- -D warnings
+cargo test --locked --all-targets
 ```
-
-Optional hooks, if you want them: `on_registered`, `on_reject`, `on_settled`,
-and `on_bid_invalid`. `execute` is also overridable, which is the extra credit.
-
-## Things that trip people up
-
-**Nothing happens when I connect.** The manager only announces tasks when at
-least one agent is connected, and it pauses between tasks. Give it a few
-seconds and watch the dashboard.
-
-**My bids get thrown out.** Your agent prints the reason. It is almost always
-a price above `task.budget` or an `est_seconds` above `task.deadline_s`.
-
-**My agent never bids.** If `on_cfp` raises, the SDK catches it, logs it, and
-refuses on your behalf so your agent stays alive. Check your terminal for the
-traceback.
-
-**I win everything and lose money.** Compare `est_seconds` against the real
-`runtime` in your settlement messages. If your estimates run low, your markup
-is not covering the gap.
-
-**My connection keeps dropping.** Expected on campus wifi. The SDK reconnects
-and re-registers automatically. Work in progress still gets delivered.
