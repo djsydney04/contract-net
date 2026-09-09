@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T01:00:07.306739+00:00",
+  "generated_at": "2026-09-09T01:16:19.261508+00:00",
   "historical_comparison": {
     "description": "Existing optimized executor verification timings before the Rust migration; one recorded observation per task, rounded to 1 ms. No historical executor was run for this report.",
     "recorded_at": "2026-09-09 00:02:11 UTC",
