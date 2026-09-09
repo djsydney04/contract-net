@@ -67,6 +67,8 @@ See [tests/README.md](tests/README.md) for test commands and suite details.
 p99 for each task, plus a separately labeled comparison with existing
 historical timings. All new benchmarking and graph generation run in Rust.
 Raw samples and tooling live under `tests/benchmarks/`.
+The report also plots latency by run, cumulative latency distributions, and
+rolling p50/p95/p99 across 100-run windows for all five tasks.
 
 ```bash
 cargo run --locked --release --features benchmark-tools --bin benchmark -- \
