@@ -2,7 +2,7 @@
 use crate::{
     Rules, Settlement, Task,
     benchmark::{Rates, calibrate, overall_score},
-    protocol::{Incoming, Outgoing},
+    protocol::{Award, Incoming, InvalidBid, ManagerError, Outgoing, Registration, Rejection},
     strategy::{BidContext, Strategy},
 };
 use anyhow::{Context, Result, bail, ensure};
@@ -238,15 +238,15 @@ impl<S: Strategy> Contractor<S> {
                                 last_pong = tokio::time::Instant::now();
                                 continue;
                             }
-                            let message = match serde_json::from_str::<Incoming>(&raw) {
+                            let message = match Incoming::parse(&raw) {
                                 Ok(message) => message,
-                                Err(_) => { self.log("ignoring malformed manager message"); continue; }
+                                Err(err) => { self.log(&format!("cannot decode manager message: {err:#}")); continue; }
                             };
-                            if let Incoming::Error { code, message } = &message
+                            if let Incoming::Error(ManagerError { code, message }) = &message
                                 && matches!(code.as_str(), "bad_token" | "bad_name") {
                                     return Ok(SessionEnd::Rejected(format!("{code}: {message}")));
                                 }
-                            if matches!(message, Incoming::Registered { .. }) { registered = true; }
+                            if matches!(message, Incoming::Registered(_)) { registered = true; }
                             if registered {
                                 for response in self.dispatch(message) {
                                     // Bids are intentionally not replayed after a lost connection.
@@ -276,11 +276,11 @@ impl<S: Strategy> Contractor<S> {
 
     fn dispatch(&mut self, message: Incoming) -> Vec<Outgoing> {
         match message {
-            Incoming::Registered {
+            Incoming::Registered(Registration {
                 name,
                 rules,
                 open_cfps,
-            } => {
+            }) => {
                 self.rules = rules;
                 self.log(&format!(
                     "registered as {name} (policy: {})",
@@ -292,8 +292,8 @@ impl<S: Strategy> Contractor<S> {
                     .filter_map(|task| self.cfp(task))
                     .collect()
             }
-            Incoming::Cfp { task } => self.cfp(task).into_iter().collect(),
-            Incoming::AcceptProposal { task_id } => {
+            Incoming::Cfp(task) => self.cfp(task).into_iter().collect(),
+            Incoming::AcceptProposal(Award { task_id }) => {
                 if let Some(c) = self.commitments.get_mut(&task_id)
                     && c.stage == Stage::Pending
                 {
@@ -304,11 +304,11 @@ impl<S: Strategy> Contractor<S> {
                 }
                 Vec::new()
             }
-            Incoming::RejectProposal {
+            Incoming::RejectProposal(Rejection {
                 task_id,
                 winner,
                 winning_price,
-            } => {
+            }) => {
                 self.remove_pending(task_id);
                 self.hook(|| {
                     self.strategy
@@ -316,13 +316,13 @@ impl<S: Strategy> Contractor<S> {
                 });
                 Vec::new()
             }
-            Incoming::BidInvalid { task_id, reason } => {
+            Incoming::BidInvalid(InvalidBid { task_id, reason }) => {
                 self.remove_pending(task_id);
                 self.log(&format!("bid on #{task_id} was rejected: {reason}"));
                 self.hook(|| self.strategy.on_bid_invalid(task_id, &reason));
                 Vec::new()
             }
-            Incoming::Settled { mut settlement } => {
+            Incoming::Settled(mut settlement) => {
                 if let Some(c) = self.commitments.remove(&settlement.task_id) {
                     settlement.task_type = c.task.task_type;
                 }
@@ -340,7 +340,7 @@ impl<S: Strategy> Contractor<S> {
                 self.hook(|| self.strategy.on_settled(&settlement));
                 Vec::new()
             }
-            Incoming::Error { code, message } => {
+            Incoming::Error(ManagerError { code, message }) => {
                 self.log(&format!("manager error [{code}]: {message}"));
                 Vec::new()
             }
