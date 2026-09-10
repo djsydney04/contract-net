@@ -3,6 +3,10 @@
 Rust client for the CPSC 370 Contract Net tournament. The client, bidding
 strategy, calibration, five compute tasks, and verification are all native Rust.
 
+For the implementation details and design decisions, start with the
+[change guide](docs/README.md). It covers the Rust migration, connection handling,
+bidder logic, validation, performance results, and proposed improvements.
+
 ## Build and verify
 
 Requires Rust 1.94 or newer.
@@ -46,6 +50,8 @@ letter or digit. Open the manager's `/dev` dashboard to inspect your messages.
 |---|---|
 | `src/main.rs` | CLI and shutdown |
 | `src/strategy.rs` | Bidding decisions and optional hooks |
+| `src/bidder.rs` | Learned timing estimates and saved observations |
+| `src/market.rs` | Read-only public auction observations |
 | `src/client.rs` | Connection, reconnects, serial worker, queue, settlements |
 | `src/protocol.rs` | Wire messages, tasks, bids, rules, and settlements |
 | `src/tasks.rs` | Exact task executors |
@@ -55,7 +61,8 @@ letter or digit. Open the manager's `/dev` dashboard to inspect your messages.
 | `tests/support/` | Shared reference-fixture loader |
 | `tests/fixtures/` | Pinned answers and their provenance |
 | `tests/verify/` | Verification command and benchmark logging |
-| `tests/benchmarks/` | Preserved benchmark history |
+| `tests/benchmarks/` | Measurement, market capture, backtests, graph tools, and saved results |
+| `docs/README.md` | Implementation guide and change history |
 | `docs/PROTOCOL.md` | Manager protocol |
 | `docs/THIRD_PARTY_NOTICES.md` | Third-party attribution |
 
