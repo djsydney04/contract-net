@@ -2,6 +2,9 @@
 
 [Back to the guide](../README.md)
 
+[The agent pseudocode](07-bidding-pseudocode.md) follows the complete decision
+flow and lists the current formulas, constants, and state transitions.
+
 ## Local compute time understated the billed cost
 
 The old bidder mainly priced the time spent calculating the answer. The manager

@@ -15,8 +15,10 @@ show execution speed and simulated bidding results.
 | Page | What it explains |
 |---|---|
 | [Rust migration and project structure](changes/01-rust-application.md) | Native execution, reference compatibility, task algorithms, build commands, and calibration |
+| [Function optimization history](changes/06-function-optimizations.md) | Each task from the original reference through optimized Python and Rust, with algorithm pseudocode and source revisions |
 | [Protocol decoding and connection recovery](changes/02-connection-fixes.md) | The decimal decoding fix, worker scheduling, reconnects, and persistence boundaries |
 | [Bidder learning and pricing](changes/03-bidding.md) | Cost estimation, learned runtime reserves, competition-aware prices, and proposal revisions |
+| [Bidding agent pseudocode](changes/07-bidding-pseudocode.md) | The current event flow, forecast calculations, auction checks, price selection, repricing, and settlement updates |
 | [Validation, benchmarks, and backtests](changes/04-tests-and-results.md) | Test coverage, percentile measurements, baseline selection, graph interpretation, and evaluation limits |
 | [Proposed performance improvements](changes/05-next-improvements.md) | Further implementation and evaluation work; these features are not implemented yet |
 
