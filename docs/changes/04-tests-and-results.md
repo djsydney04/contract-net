@@ -1,19 +1,19 @@
-# Tests, graphs, and backtest results
+# Validation, benchmarks, and backtests
 
 [Back to the guide](../README.md)
 
-## Correctness comes before speed
+## Reference checks and integration coverage
 
 The Rust tasks are checked against 218 saved answers from the original
 reference implementation. These include the five original example tasks,
 earlier executor tests, and extra cases involving large or negative seeds and
 large matrix values. The expected answers were not rewritten to match Rust.
 
-Other tests act like a local manager. They check registration, decimal message
+Integration tests use local mock managers to check registration, decimal message
 fields, large integers, bidding, execution, reconnects, repeated awards, and
 saved learning. One test runs both a mock manager and a mock spectator so it can
-check that changing public bids leads to a revised proposal without a flood of
-duplicates. Command-line tests launch the real Rust program.
+check that changing public bids leads to a revised proposal without duplicate
+messages. Command-line tests launch the compiled Rust program.
 
 The completed implementation passed 23 integration tests, the benchmark and
 replay percentile tests, the old-source integrity test, and the paired-delay
@@ -34,7 +34,7 @@ cargo test --locked --all-features --all-targets
 cargo run --locked --release --bin verify -- --all --no-log
 ```
 
-## Three different kinds of time
+## Measurement boundaries and percentiles
 
 **Task execution time** is time spent calculating an answer inside the Rust
 process. **Bid decision time** is time spent choosing a proposal. **Manager
@@ -42,12 +42,13 @@ elapsed time** includes the period from award to result arrival and is what
 drives the bill. They are different measurements and should not be added or
 compared as though they describe the same activity.
 
-P50 is the middle recorded time. P95 is a time at or above 95% of the recorded
+P50 is the sample median. P95 is a time at or above 95% of the recorded
 attempts, and p99 is at or above 99%. The slower end of a sample matters because
 an occasional slow task can miss a deadline even when the usual task is fast.
 A percentile from a saved sample does not guarantee the behavior of future runs.
 
-A millisecond is one thousandth of a second. A microsecond is one millionth.
+The tables label their units: milliseconds (ms) are thousandths of a second;
+microseconds (µs) are millionths of a second.
 
 ## Task execution measurements
 
@@ -133,8 +134,8 @@ already chosen bids stay unchanged.
 The “Before: 71ed371” line executes the actual Rust strategy immediately before
 the bidder optimizations. Its source is stored unchanged in
 [the archived bidder file](../../tests/fixtures/bidder-before-optimization.rs).
-The replay compiles that file and checks its SHA-256 fingerprint, a value that
-changes if the file's contents change.
+The replay compiles that file and checks its SHA-256 hash against the pinned
+value. This verifies that the archived source has not been modified.
 
 “After: optimized” runs the current strategy. Both policies receive the same
 saved calibration, task measurements, competitor information, and realized
@@ -198,7 +199,7 @@ not an improving execution speed. The reports label these distinctions.
 
 ## Reusing and refreshing the evidence
 
-Raw timings, source fingerprints, environment details, individual replay
+Raw timings, source hashes, environment details, individual replay
 outcomes, and CSV summaries are saved alongside the reports. The graph follow-ups
 reused existing timing samples; adding a new view did not silently create a new
 speed measurement.

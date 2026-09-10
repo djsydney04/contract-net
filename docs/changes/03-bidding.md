@@ -1,8 +1,8 @@
-# How the bidder changed
+# Bidder learning and pricing
 
 [Back to the guide](../README.md)
 
-## A correct answer could still lose money
+## Local compute time understated the billed cost
 
 The old bidder mainly priced the time spent calculating the answer. The manager
 charges for the elapsed time from awarding the task until receiving the result.
@@ -16,7 +16,7 @@ roughly five cents. This is an illustration, not another measured auction.
 The repeated small losses in the practice logs made this gap visible. The
 updated bidder estimates the broader cost before deciding whether to bid.
 
-## It learns from completed work
+## Saved observations and task identity
 
 For accepted timing records, the client saves the task identity, its original
 estimate, actual local calculation time, local queue time, manager-reported
@@ -38,12 +38,24 @@ from other inputs of the same type. A hash search is treated more carefully:
 another seed can require a very different number of attempts, so exact-input
 history is used for that task's learned search difficulty.
 
-## It keeps an expected time and a more cautious reserve
+## Expected runtime and deadline reserve
 
-The expected time describes a normal calculation based on the middle observed
-timing ratio, with a small margin. A separate reserve uses a slower observed
-percentile and an additional margin. The reserve helps decide whether a task
-fits its deadline and whether its price covers a cautious cost estimate.
+The model compares actual compute time with the original calibrated estimate.
+Expected compute time uses the median of those timing ratios, with a small
+margin. The compute reserve uses the p95 ratio and an additional margin. This
+reserve determines whether a task fits its deadline and whether the proposed
+price covers a conservative cost estimate.
+
+The strategy combines those estimates as follows:
+
+```text
+quoted_time   = queue_time + expected_compute_time + delivery_allowance
+reserved_time = queue_time + reserved_compute_time + delivery_allowance
+estimated_cost = reserved_time * cost_rate
+```
+
+`quoted_time` is the estimate sent to the manager. `reserved_time` is the more
+conservative duration used for deadline admission and cost calculations.
 
 Without matching experience, ordinary tasks receive a calculation reserve above
 the startup estimate. An unseen hash input receives a larger reserve because
@@ -61,11 +73,15 @@ local queue time. It pools those overhead observations across task types.
 Computation and queue estimates remain separate. This is an allowance for
 unexplained elapsed time, not a direct measurement of network travel alone.
 
-## It prices against visible competition
+## Auction scoring and price selection
 
 The common `best_value` rule combines price and estimated completion time.
 The manager adds the price to the estimated seconds multiplied by its time
 weight. A lower combined score is better.
+
+```text
+score = price + time_weight * estimated_seconds
+```
 
 The bidder calculates a price that comes below the best suitable visible
 competitor's score by a 2% margin. It also stays below 98% of the task budget.
@@ -87,7 +103,7 @@ rather than guessed.
 The 2%, 20%, and 8% settings are currently fixed policy choices. They have not
 yet been learned from a complete history of wins and losses.
 
-## Bids can change during an auction
+## Proposal revisions and determinism
 
 When the best visible competing score changes, the client can revise a pending
 proposal. Repeated copies of the same public state and our own bid echoes do
@@ -101,7 +117,7 @@ Prices use fixed increments of $0.0001. The same task, calibration, observations
 queue, and public snapshot produce the same decision. A different machine load
 or a new market snapshot can change the inputs and therefore change the bid.
 
-## What learning does not do yet
+## Current model limits
 
 It does not save a complete history of every auction and rejection. It does not
 learn the best undercutting margin. It does not cache completed task answers:

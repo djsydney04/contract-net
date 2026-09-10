@@ -1,7 +1,8 @@
-# What changed in contractor-net
+# Implementation and change guide
 
-This guide explains the changes in ordinary English. You do not need to read
-Rust to follow it. It covers the application and evaluation work merged through
+This guide explains the implementation, design decisions, and validation behind
+the Rust migration and bidder improvements. It connects the runtime behavior to
+the relevant code, tests, and measurements, covering the work merged through
 [PR #7](https://github.com/djsydney04/contract-net/pull/7) on September 9, 2026.
 
 The project now runs as a Rust application. It can complete all five task types,
@@ -13,11 +14,11 @@ show execution speed and simulated bidding results.
 
 | Page | What it explains |
 |---|---|
-| [The Rust application and folder cleanup](changes/01-rust-application.md) | What replaced Python, how the tasks work, where files belong, and how to run it |
-| [The connection and message fixes](changes/02-connection-fixes.md) | Why valid messages were ignored, how reconnects work, and what survives a restart |
-| [How the bidder changed](changes/03-bidding.md) | Why correct answers lost money, how prices are chosen now, and what the client learns |
-| [Tests, graphs, and backtest results](changes/04-tests-and-results.md) | What was measured, what p50/p95/p99 mean, which old model we compare against, and the limits of the results |
-| [Possible next improvements](changes/05-next-improvements.md) | Ideas discussed after the completed work; these features are not implemented yet |
+| [Rust migration and project structure](changes/01-rust-application.md) | Native execution, reference compatibility, task algorithms, build commands, and calibration |
+| [Protocol decoding and connection recovery](changes/02-connection-fixes.md) | The decimal decoding fix, worker scheduling, reconnects, and persistence boundaries |
+| [Bidder learning and pricing](changes/03-bidding.md) | Cost estimation, learned runtime reserves, competition-aware prices, and proposal revisions |
+| [Validation, benchmarks, and backtests](changes/04-tests-and-results.md) | Test coverage, percentile measurements, baseline selection, graph interpretation, and evaluation limits |
+| [Proposed performance improvements](changes/05-next-improvements.md) | Further implementation and evaluation work; these features are not implemented yet |
 
 ## The changes at a glance
 
@@ -25,7 +26,7 @@ show execution speed and simulated bidding results.
 |---|---|
 | Python ran the contractor and its tasks. | Rust runs the client, tasks, verifier, benchmarks, and graph tools. |
 | Test scripts and generated files cluttered the project. | Application code, tests, documentation, runtime data, and graphs have named folders. |
-| Some valid manager messages containing decimals failed to decode. | Messages are decoded in a way that preserves decimals and very large whole numbers. |
+| Some valid manager messages containing decimals failed to decode. | Message decoding preserves decimal fields and arbitrary-precision integers. |
 | Bids mostly covered time spent calculating the answer. | Bids account for estimated delivery and waiting time as well as computation. |
 | Completed contracts did not update a saved timing model. | The client keeps up to 512 valid timing and settlement observations. |
 | Pricing used a fixed markup on local computation. | Pricing also considers the best visible competing bid and a minimum acceptable margin. |

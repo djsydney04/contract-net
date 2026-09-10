@@ -1,4 +1,4 @@
-# Possible next improvements
+# Proposed performance improvements
 
 [Back to the guide](../README.md)
 
@@ -6,7 +6,7 @@ The ideas below were discussed after the completed Rust and bidder work.
 **They are proposals, not features already implemented.** The earlier pages
 describe what the application does today.
 
-## Save a complete auction history
+## Record complete auction events
 
 Today, the client saves a bounded collection of timing and settlement
 observations. It does not keep a complete record of every opportunity, bid
@@ -17,7 +17,7 @@ delivery assumptions with measurements from our own client. It should include
 when messages arrived, when proposals were sent, waiting time, calculation time,
 and the final result. It should leave registration credentials out.
 
-## Reuse answers to identical tasks
+## Cache results for identical task inputs
 
 The model recognizes repeated task inputs when estimating their timing, but it
 still calculates their answers again. A bounded answer cache could reuse a
@@ -26,9 +26,9 @@ This may be especially useful for repeated hash searches in a looping room.
 
 We would need separate measurements for a task whose answer is already saved
 and a task with unseen inputs. Otherwise a benchmark could make repeated work
-look fast without showing the cost of genuinely new work.
+look fast without showing the cost of unseen inputs.
 
-## Learn how aggressively to price
+## Learn pricing margins from auction outcomes
 
 The current undercutting margin and fallback budget percentage are fixed. With
 enough records of wins and losses, we could compare candidate prices and choose
@@ -53,7 +53,7 @@ it once and sharing it would remove repeated work. Since the measured bidding
 function is already around four microseconds, this is a smaller opportunity
 than an avoidable delivery or disk delay.
 
-## Test under tougher conditions
+## Evaluate concurrency, delay spikes, and competitor responses
 
 The saved replay treats competing bids as fixed and handles auctions without
 overlapping live work. A stronger evaluation would include overlapping awards,
@@ -73,6 +73,6 @@ both decision and total-delivery p50/p95/p99.
 ## Suggested order
 
 Start with complete auction recording and background state saving. Then evaluate
-answer reuse and learned pricing as separate changes, with new data and before/
-after graphs for each. Keeping these changes separate makes it easier to tell
+answer reuse and learned pricing as separate changes, with new data and
+before/after graphs for each. Keeping these changes separate makes it easier to tell
 which one caused an improvement or regression.

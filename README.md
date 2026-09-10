@@ -3,9 +3,9 @@
 Rust client for the CPSC 370 Contract Net tournament. The client, bidding
 strategy, calibration, five compute tasks, and verification are all native Rust.
 
-For a plain-English explanation of the work, start with the
-[change guide](docs/README.md). It explains the Rust rewrite, connection fix,
-bidding changes, tests, graphs, results, and the improvements still proposed.
+For the implementation details and design decisions, start with the
+[change guide](docs/README.md). It covers the Rust migration, connection handling,
+bidder logic, validation, performance results, and proposed improvements.
 
 ## Build and verify
 
@@ -62,7 +62,7 @@ letter or digit. Open the manager's `/dev` dashboard to inspect your messages.
 | `tests/fixtures/` | Pinned answers and their provenance |
 | `tests/verify/` | Verification command and benchmark logging |
 | `tests/benchmarks/` | Measurement, market capture, backtests, graph tools, and saved results |
-| `docs/README.md` | Plain-English guide to the completed changes |
+| `docs/README.md` | Implementation guide and change history |
 | `docs/PROTOCOL.md` | Manager protocol |
 | `docs/THIRD_PARTY_NOTICES.md` | Third-party attribution |
 
