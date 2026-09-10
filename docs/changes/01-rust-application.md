@@ -46,6 +46,9 @@ remain exact. Inputs that exceed supported bounds or available memory can fail.
 The [reference fixtures](../../tests/fixtures/README.md) explain the 218 saved
 answers used to check compatibility.
 
+For the original algorithm, the Python optimization, and the Rust implementation
+of each task, see [the function optimization history](06-function-optimizations.md).
+
 ## Project structure
 
 | Folder or file | Purpose |

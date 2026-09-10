@@ -125,6 +125,13 @@ application keepalives. Unsent results survive reconnects in memory; stale
 bids are discarded. Duplicate-name eviction stops the process, and invalid
 credentials return an error. There is no recovery after the process exits.
 
+For simultaneous auctions, bids reserve waiting time using the manager's
+`concurrency` rule and the remaining committed work. Admission protects earlier
+quotes even when awards arrive out of order. Jobs that exceed their compute
+reserve stop new bidding until the worker finishes, including after a manager
+timeout. See [queue accounting](docs/changes/03-bidding.md#overlapping-auctions-and-the-execution-queue)
+for the formula and tradeoffs.
+
 Learned runtime observations survive restarts; outstanding contracts do not.
 See the [bidder backtest and decision-latency report](graph/bidder/README.md)
 for archived practice data, delivery-cost assumptions, and replay results.

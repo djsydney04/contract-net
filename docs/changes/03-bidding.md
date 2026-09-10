@@ -2,6 +2,9 @@
 
 [Back to the guide](../README.md)
 
+[The agent pseudocode](07-bidding-pseudocode.md) follows the complete decision
+flow and lists the current formulas, constants, and state transitions.
+
 ## Local compute time understated the billed cost
 
 The old bidder mainly priced the time spent calculating the answer. The manager
@@ -72,6 +75,49 @@ and the elapsed time implied by its bill, then subtracts local computation and
 local queue time. It pools those overhead observations across task types.
 Computation and queue estimates remain separate. This is an allowance for
 unexplained elapsed time, not a direct measurement of network travel alone.
+
+## Overlapping auctions and the execution queue
+
+The manager's `concurrency` rule controls simultaneous auctions. The client
+still uses one compute worker and executes accepted jobs in award-arrival order.
+Networking continues while that worker calculates answers.
+
+Counting only the current queue is insufficient: a later proposal can be
+awarded first and delay an earlier proposal. Each new bid therefore includes
+an allowance for other simultaneous jobs:
+
+```text
+queue_allowance = max(remaining_committed_compute,
+                      max(concurrency - 1, 0) * this_task_compute_reserve)
+```
+
+The allowance replaces `queue_time` in the quote, cost floor, and deadline
+calculation above. It is saved with the pending proposal. Before adding another
+proposal, the client verifies that the total remaining compute, including the
+new task, fits every pending proposal's saved allowance plus its own compute
+reserve. This protects earlier bids even when awards arrive in a different
+order. Jobs can have different runtimes; the admission check uses each job's
+own reserve. Duplicate CFPs exclude themselves during re-evaluation.
+
+For example, with three simultaneous auctions and a one-second reserve per
+job, each bid initially allows two seconds of waiting. Three such proposals
+fit; a fourth is refused until capacity is released. A larger new job can also
+be refused if it would overrun an earlier bid's allowance. This intentionally
+trades some bid volume for estimates that cover overlapping awards. With
+`concurrency` missing or set to one, additional pending proposals are admitted
+only when the existing quoted queue allowances have room.
+
+Pending and awarded jobs retain their full compute reserves. Running work
+counts its remaining reserve, even if a manager timeout has already removed
+the contract. If an unfinished worker exceeds its reserve, new bids are refused
+until it finishes; its remaining time is unknown rather than zero. Already
+accepted jobs stay queued. Completed work releases compute capacity, and failed
+proposal replacements preserve the previously submitted bid.
+
+These reserves are forecasts, not hard runtime guarantees. The existing profit
+graphs simulate sequential auctions; they do not measure this queue policy's
+profit under parallel traffic. [Local overlap tests](../../tests/integration/queue.rs)
+exercise its admission and execution behavior.
 
 ## Auction scoring and price selection
 

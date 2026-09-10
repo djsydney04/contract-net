@@ -29,6 +29,9 @@ use tokio_tungstenite::{
 type Server = WebSocketStream<TcpStream>;
 const WAIT: Duration = Duration::from_secs(8);
 
+#[path = "queue.rs"]
+mod queue;
+
 #[derive(Default)]
 struct Observations {
     executions: Mutex<Vec<u64>>,
@@ -260,7 +263,7 @@ async fn reconnect_delivers_completed_work_after_registration_without_replaying_
     let mut server = accept(&listener).await;
     send(
         &mut server,
-        json!({"type":"REGISTERED","name":"Rust_07","open_cfps":[cfp(1),cfp(2)]}),
+        json!({"type":"REGISTERED","name":"Rust_07","rules":{"concurrency":2},"open_cfps":[cfp(1),cfp(2)]}),
     )
     .await;
     assert_eq!(read(&mut server).await["task_id"], 1);
@@ -277,7 +280,7 @@ async fn reconnect_delivers_completed_work_after_registration_without_replaying_
     let mut server = accept(&listener).await;
     send(
         &mut server,
-        json!({"type":"REGISTERED","name":"Rust_07","open_cfps":[]}),
+        json!({"type":"REGISTERED","name":"Rust_07","rules":{"concurrency":1},"open_cfps":[]}),
     )
     .await;
     let result = read(&mut server).await;
