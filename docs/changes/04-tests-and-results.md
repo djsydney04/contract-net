@@ -15,7 +15,8 @@ saved learning. One test runs both a mock manager and a mock spectator so it can
 check that changing public bids leads to a revised proposal without duplicate
 messages. Command-line tests launch the compiled Rust program.
 
-The completed implementation passed 23 integration tests, the benchmark and
+The implementation, including the overlapping-auction safeguards, passed 29
+integration tests, the benchmark and
 replay percentile tests, the old-source integrity test, and the paired-delay
 test described below. Release verification also passed all 218 answer checks.
 These are records of the implementation validation, not additional test runs

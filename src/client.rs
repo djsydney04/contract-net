@@ -89,6 +89,7 @@ struct Commitment {
     market_score: Option<f64>,
     baseline_seconds: f64,
     compute_seconds: f64,
+    queue_allowance: f64,
     awarded: Option<Instant>,
     started: Option<Instant>,
     local_seconds: Option<f64>,
@@ -99,6 +100,28 @@ struct WorkDone {
     task_id: u64,
     attempt: u64,
     message: Outgoing,
+}
+
+struct ActiveWork {
+    handle: JoinHandle<WorkDone>,
+    started: Instant,
+    compute_seconds: f64,
+}
+
+impl ActiveWork {
+    fn remaining_seconds(&self) -> f64 {
+        if self.handle.is_finished() {
+            return 0.0;
+        }
+        let remaining = self.compute_seconds - self.started.elapsed().as_secs_f64();
+        // Once a job exceeds its reserve we have no reliable remaining-time
+        // estimate. Stop admitting work until this worker actually completes.
+        if remaining <= 0.0 {
+            f64::INFINITY
+        } else {
+            remaining
+        }
+    }
 }
 enum SessionEnd {
     Disconnected,
@@ -115,7 +138,7 @@ pub struct Contractor<S: Strategy> {
     strategy: Arc<S>,
     commitments: BTreeMap<u64, Commitment>,
     queue: VecDeque<u64>,
-    active: Option<JoinHandle<WorkDone>>,
+    active: Option<ActiveWork>,
     outbox: VecDeque<Outgoing>,
     market_feed: Option<watch::Receiver<Option<Snapshot>>>,
     market: Option<(Snapshot, Instant)>,
@@ -142,15 +165,21 @@ impl<S: Strategy> Contractor<S> {
     }
 
     pub fn queue_seconds(&self) -> f64 {
-        self.commitments
+        let waiting: f64 = self
+            .commitments
             .values()
             .map(|c| match c.stage {
-                Stage::Complete => 0.0,
-                _ => (c.compute_seconds
-                    - c.started.map(|t| t.elapsed().as_secs_f64()).unwrap_or(0.0))
-                .max(0.0),
+                Stage::Pending | Stage::Awarded => c.compute_seconds,
+                Stage::Running | Stage::Complete => 0.0,
             })
-            .sum()
+            .sum();
+        // A manager timeout can remove a commitment while its blocking worker
+        // is still running. Keep accounting for that worker independently.
+        waiting
+            + self
+                .active
+                .as_ref()
+                .map_or(0.0, ActiveWork::remaining_seconds)
     }
 
     pub fn profit(&self) -> f64 {
@@ -445,13 +474,20 @@ impl<S: Strategy> Contractor<S> {
         {
             return None;
         }
-        self.commitments.remove(&id); // Replacement bids must not count themselves in the queue.
-        let context = self.context();
+        // Replacement bids must not count themselves in the queue. Keep the
+        // previous bid if replacement fails: REFUSE does not cancel a proposal.
+        let previous = self.commitments.remove(&id);
+        let mut context = self.context();
         let baseline = context.estimate(&task);
         let compute = catch_unwind(AssertUnwindSafe(|| {
             self.strategy.compute_reserve(&task, &context)
         }))
         .unwrap_or(baseline);
+        // Auctions can be awarded in any order. Quote room for the other
+        // simultaneous jobs up front, then enforce that allowance on admission.
+        // This is serial queue capacity, not permission to spawn more workers.
+        let parallel_allowance = compute * self.rules.concurrency.saturating_sub(1) as f64;
+        context.queue_seconds = context.queue_seconds.max(parallel_allowance);
         let bid = catch_unwind(AssertUnwindSafe(|| self.strategy.on_cfp(&task, &context)))
             .ok()
             .flatten();
@@ -462,12 +498,34 @@ impl<S: Strategy> Contractor<S> {
             && bid.est_seconds.is_finite()
             && bid.est_seconds >= 0.0
             && bid.est_seconds <= task.deadline_s
+            && context.queue_seconds.is_finite()
         {
             let duration = if compute.is_finite() {
                 compute
             } else {
                 (bid.est_seconds - context.queue_seconds).max(0.0)
             };
+            // A new award may run ahead of any still-pending proposal. Do not
+            // consume more queue time than that proposal already quoted.
+            let total = self.queue_seconds() + duration;
+            let fits = duration.is_finite()
+                && duration >= 0.0
+                && total.is_finite()
+                && self.commitments.values().all(|c| {
+                    c.stage != Stage::Pending || total <= c.queue_allowance + c.compute_seconds
+                });
+            if !fits {
+                if let Some(previous) = previous {
+                    self.commitments.insert(id, previous);
+                    return None;
+                }
+                if announce {
+                    self.log(&format!(
+                        "refused #{id}: existing bids have no queue capacity"
+                    ));
+                }
+                return Some(Outgoing::Refuse { task_id: id });
+            }
             let market_score = context
                 .market
                 .and_then(|m| m.competing_score(&task, &self.rules, &self.config.name));
@@ -479,6 +537,7 @@ impl<S: Strategy> Contractor<S> {
                     market_score,
                     baseline_seconds: baseline,
                     compute_seconds: duration,
+                    queue_allowance: context.queue_seconds,
                     awarded: None,
                     started: None,
                     local_seconds: None,
@@ -498,6 +557,10 @@ impl<S: Strategy> Contractor<S> {
                 price: bid.price,
                 est_seconds: bid.est_seconds,
             });
+        }
+        if let Some(previous) = previous {
+            self.commitments.insert(id, previous);
+            return None;
         }
         Some(Outgoing::Refuse { task_id: id })
     }
@@ -569,7 +632,9 @@ impl<S: Strategy> Contractor<S> {
             c.started = Some(Instant::now());
             let task = c.task.clone();
             let strategy = Arc::clone(&self.strategy);
-            self.active = Some(tokio::task::spawn_blocking(move || {
+            let started = c.started.unwrap();
+            let compute_seconds = c.compute_seconds;
+            let handle = tokio::task::spawn_blocking(move || {
                 let start = Instant::now();
                 let result = catch_unwind(AssertUnwindSafe(|| strategy.execute(&task)));
                 let message = match result {
@@ -592,7 +657,12 @@ impl<S: Strategy> Contractor<S> {
                     attempt: task.attempt,
                     message,
                 }
-            }));
+            });
+            self.active = Some(ActiveWork {
+                handle,
+                started,
+                compute_seconds,
+            });
             break;
         }
     }
@@ -603,6 +673,7 @@ impl<S: Strategy> Contractor<S> {
             Ok(done) => {
                 if let Some(c) = self.commitments.get_mut(&done.task_id)
                     && c.task.attempt == done.attempt
+                    && c.stage == Stage::Running
                 {
                     c.stage = Stage::Complete;
                     if let Outgoing::Inform { runtime, .. } = &done.message {
@@ -646,10 +717,10 @@ async fn receive_market(
 }
 
 async fn receive_work(
-    active: &mut Option<JoinHandle<WorkDone>>,
+    active: &mut Option<ActiveWork>,
 ) -> std::result::Result<WorkDone, tokio::task::JoinError> {
     match active.as_mut() {
-        Some(handle) => handle.await,
+        Some(work) => (&mut work.handle).await,
         None => pending().await,
     }
 }

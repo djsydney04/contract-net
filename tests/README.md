@@ -41,5 +41,9 @@ The bidder suite covers deterministic pricing, delivery-cost learning,
 profit floors, live award policies, deadline admission, input-specific hash
 estimates, stale public data, and large JSON integers. A local spectator/client
 exchange verifies repricing without duplicate proposals and persisted learning.
+The client suite's `integration/queue.rs` covers simultaneous auctions, queue
+costs and deadlines, differing task sizes, award order, duplicate awards,
+replacement/rejection capacity, worker overruns, and settlement while execution
+is still running. These tests use a local manager and a controlled serial worker.
 The [bidder evaluation](../graph/bidder/README.md) records a backtest on earlier
 practice bids and decision latency with a full 512-observation history.

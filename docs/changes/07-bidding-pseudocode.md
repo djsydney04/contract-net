@@ -2,8 +2,9 @@
 
 [Back to the implementation guide](../README.md)
 
-This describes the default Rust agent after the bidder optimizations introduced
-in `f3223b0`. It follows [strategy.rs](../../src/strategy.rs),
+This describes the default Rust agent, including the bidder optimizations
+introduced in `f3223b0` and the subsequent safeguards for overlapping auctions.
+It follows [strategy.rs](../../src/strategy.rs),
 [bidder.rs](../../src/bidder.rs), [market.rs](../../src/market.rs), and
 [client.rs](../../src/client.rs). Networking error handling is summarized; pricing
 constants, learning rules, queue accounting, and revision conditions are shown
@@ -47,7 +48,7 @@ state:
     observations            # latest 512 valid timing/settlement records
     commitments             # task ID -> pending, awarded, running, or complete
     award_queue             # awarded task IDs, in arrival order
-    active_worker           # at most one task calculation
+    active_worker           # handle, start time, reserve; at most one calculation
     market_snapshot         # latest public state plus local receipt time
     result_outbox           # results waiting to be sent
 
@@ -78,7 +79,7 @@ on REJECT_PROPOSAL or BID_INVALID:
     remove the corresponding commitment only if it is still pending
 
 on worker completion:
-    for a matching tracked task and attempt:
+    for a matching RUNNING task and attempt:
         mark complete and record local runtime on success
         enqueue INFORM with the exact integer answer, or FAILURE on error
     start the next queued task
@@ -87,6 +88,7 @@ on worker completion:
 on SETTLED:
     update learning from eligible timings
     remove the task's tracked commitment, queue entry, and unsent result
+    retain any active worker until its calculation actually finishes
     append the settlement to the session history
 ```
 
@@ -109,10 +111,13 @@ function BASELINE_SECONDS(task):
 function QUEUE_SECONDS():
     total = 0
     for commitment in deterministic task-ID order:
-        if commitment.stage == COMPLETE:
-            continue
-        elapsed = time_since_start if it has started, otherwise 0
-        total += max(commitment.compute_reserve - elapsed, 0)
+        if commitment.stage is PENDING or AWARDED:
+            total += commitment.compute_reserve
+    if active_worker exists and its handle is not finished:
+        remaining = active_worker.compute_reserve - time_since_worker_start
+        if remaining <= 0:
+            return INFINITY
+        total += remaining
     return total
 ```
 
@@ -120,6 +125,9 @@ Queue accounting includes pending proposals as well as awarded and running
 work. This reserves capacity for work that might be awarded. Remove the pending
 entry being replaced before calculating its new quote, so it does not count
 itself in the queue. A non-pending commitment is not replaced by a new CFP.
+The worker is tracked independently of settlement cleanup: a timed-out contract
+may still occupy the CPU. Once a worker outlasts its reserve, admission stops
+until it finishes. Already awarded work stays queued.
 
 The work estimates match the native algorithms described in
 [the function history](06-function-optimizations.md).
@@ -257,20 +265,29 @@ the auction. The 2%, 20%, 8%, and 60% settings are fixed policy parameters.
 function HANDLE_CFP(task):
     if a commitment exists for task.ID and is not PENDING:
         return without sending another proposal
-    remove any older pending entry for task.ID
+    previous = temporarily remove any older pending entry for task.ID
 
-    queue = QUEUE_SECONDS()
     baseline = BASELINE_SECONDS(task)
     forecast = FORECAST(task, baseline)
+    queue = max(QUEUE_SECONDS(),
+                max(rules.concurrency - 1, 0) * forecast.compute_reserve)
     competitor = BEST_COMPETING_SCORE(task)
     bid = CHOOSE_BID(task, queue, forecast, competitor)
 
-    if bid is NONE or fails the client checks below:
-        send REFUSE(task.ID)
+    total_compute = QUEUE_SECONDS() + forecast.compute_reserve
+    capacity_fits = total_compute is finite and, for every PENDING commitment:
+        total_compute <= commitment.queue_allowance + commitment.compute_reserve
+
+    if bid is NONE, fails the client checks below, or capacity_fits is false:
+        if previous exists:
+            restore previous without sending REFUSE
+        else:
+            send REFUSE(task.ID)
         return
 
     store a PENDING commitment containing:
         task, bid, competitor score, baseline, and compute reserve
+        queue_allowance = queue
         unset award/start times and local runtime
     send PROPOSE(task.ID, bid.price, bid.estimated_seconds)
 ```
@@ -278,6 +295,18 @@ function HANDLE_CFP(task):
 The client checks that price is finite and between zero and budget, and that
 estimated time is finite and between zero and deadline. It also catches strategy
 panics so a broken custom hook does not take down the connection loop.
+Queue time and compute reserve must be finite; compute reserve must be
+nonnegative. The default strategy always supplies its learned compute reserve;
+custom strategies with a nonfinite reserve can fall back to the finite quote
+minus its queue allowance.
+
+The manager's concurrency setting determines the initial waiting allowance,
+while execution remains serial. Admission protects every existing pending bid
+against being awarded after the new job. The check uses each task's own compute
+reserve and does not assume equal runtimes. Price and deadline calculations
+include the same saved queue allowance. This can refuse a large new job even
+when that job's own deadline is generous, because it could delay a smaller
+pending task beyond its quote.
 
 The pseudocode shares one forecast for readability. The current implementation
 calculates it through both `compute_reserve` and `on_cfp`; removing that repeated
@@ -294,8 +323,9 @@ for each PENDING commitment in task-ID order:
         restore previous
         continue
 
-    calculate queue, baseline, forecast, and bid as for a new CFP
-    if no valid replacement bid:
+    calculate queue allowance, baseline, forecast, and bid as for a new CFP
+    check capacity against the other pending commitments
+    if no valid replacement bid or insufficient queue capacity:
         restore previous
         continue without sending REFUSE
 
@@ -306,9 +336,9 @@ for each PENDING commitment in task-ID order:
 ```
 
 Repricing preserves an already submitted bid when a profitable replacement is
-unavailable because `REFUSE` is not documented to cancel it. The ordinary CFP
-handler above has its own replacement behavior; this restoration rule applies
-to the market-update path. Unchanged competitor scores are skipped, avoiding
+unavailable because `REFUSE` is not documented to cancel it. Failed ordinary CFP
+replacements preserve the previous proposal for the same reason.
+Unchanged competitor scores are skipped, avoiding
 repeated proposals in response to our own bid echoes.
 
 ## 7. Learn from settlement
@@ -361,3 +391,7 @@ The [backtest report](../../graph/bidder/README.md) compares this policy with th
 archived pre-optimization Rust agent using controlled inputs and explicit
 delivery assumptions. Its profit curves are simulations. This document does
 not add a new benchmark run or imply that the pseudocode guarantees live wins.
+The saved replay is sequential and does not evaluate profit under overlapping
+awards. The [queue tests](../../tests/integration/queue.rs) cover simultaneous
+auctions, differing task sizes, reversed award order, duplicate awards,
+rejected/replaced bids, deadline admission, worker overruns, and early settlement.
